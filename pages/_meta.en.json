@@ -1,6 +1,11 @@
 {
   "index": "Overview",
-  "RLTSInstallation": "RLTS Installation",
+  "RtlsLocatorKit": "RTLS Locator Kit",
+  "ProjectExecution":"Project Execution",
+  "RTLS_Installation": "RTLS Installation",
+  "RTLS_Hub": "RTLS Hub",
+  "API_Interfaces": "API Interfaces",
+  "Troubleshooting_&_FAQ": "Troubleshooting & FAQ",
   "about": {
     "title": "About",
     "type": "page",
