@@ -1,9 +1,15 @@
 {
-  "index": "Introduction",
-  "contact": {
-    "title": "Twitter ↗",
+  "index": "Overview",
+  "RLTSInstallation": "RLTS Installation",
+  "about": {
+    "title": "About",
     "type": "page",
-    "href": "https://twitter.com/locusconnect",
+    "href": "/about"
+  },
+  "contact": {
+    "title": "Website ↗",
+    "type": "page",
+    "href": "https://locusconnect.com",
     "newWindow": true
   }
 }
