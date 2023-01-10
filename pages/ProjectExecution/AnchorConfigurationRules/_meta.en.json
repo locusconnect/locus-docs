@@ -1,5 +1,5 @@
 {
-  "TagInstallationRules": "Tag Installation Rules",
-  "TagSettings": "Tag Settings",
-  "TagPopulationDensity": "Tag Population Density"
+  "AnchorInstallationRules": "Anchor Installation Rules",
+  "MixedTopologyDeployment": "Mixed Topology Deployments",
+  "AnchorStartup": "Anchor Start Up"
 }

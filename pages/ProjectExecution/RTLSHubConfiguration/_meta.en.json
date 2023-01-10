@@ -1,0 +1,11 @@
+{
+  "SettingUpRtlsHub":"Setting Up RTLS Hub",
+  "ConfiguringFloorplans":"Configuring Floorplans",
+  "AnchorCoordinates":"Anchor Coordinates Import",
+  "MasterAnchorSelection":"Master Anchor Selection",
+  "AddingSlaveAnchors":"Adding Slave Anchors",
+  "GeofenceConfiguration":"Geofence Configuration",
+  "BackupSettings":"Backup Configuration",
+  "TroubleshootingAndTips":"Troubleshooting & Tips"
+
+}
