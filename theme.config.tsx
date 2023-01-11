@@ -2,7 +2,7 @@ import React from "react";
 import { DocsThemeConfig } from "nextra-theme-docs";
 
 const config: DocsThemeConfig = {
-  logo: <span>Locus Docs</span>,
+  logo: <span>Locus Documentation</span>,
   project: {
     link: "https://github.com/locusconnect",
   },
