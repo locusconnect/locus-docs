@@ -1,5 +1,5 @@
 {
-  "index": "Overview",
+  "Overview": "Overview",
   "RtlsLocatorKit": "RTLS Locator Kit",
   "ProjectExecution":"Project Execution",
   "RTLS_Hub": "RTLS Hub",
@@ -10,6 +10,7 @@
   "API_Interfaces": "API Interfaces",
   "DeviceCareAndWarranties":"Device Care & Warranties",
   "Troubleshooting_&_FAQ": "Troubleshooting & FAQ",
+  "Changelog":"Changelog",
   "about": {
     "title": "About",
     "type": "page",
