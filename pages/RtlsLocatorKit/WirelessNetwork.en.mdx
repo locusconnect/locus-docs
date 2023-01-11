@@ -1,1 +1,47 @@
+import { Callout } from 'nextra-theme-docs'
+
 # Locator Kit Overview
+
+👇🏻Wireless installation is suggested **only for small demos** and a technology presentation on RTLS. Our recommendation to use wired solution for a project or PoC.
+
+## Wireless Communication Flow
+The RTLS Locator Kit Wireless uses UWB wireless communication among the anchors in-order to transmit the location data to master Anchor. From there the data is transmitted back to the client system via the router provided in the kit 
+
+_A simplified diagram explaining the data flow_
+
+## Wireless Network Planning Rules
+The Wireless network topology should follow the example below: 
+
+_Insert image explaining_
+
+The 3 wireless anchors in square geometry connected wirelessly to the master Anchors. Then master anchor located in one corner of the localization cell and via cable connected to RTLS LLE or laptop with RTLS Hub
+
+## Router GL-AR300M Configuration
+
+<Callout emoji="ℹ️" type="info">
+ **Tip:** The router is delivered to you comes with manufacturer's default configuration.
+</Callout>
+
+For router configuration please follow these steps
+1. Plug the router to power supply via micro USB connector. You can use any USB charger as a power supply. Connect your computer to its **LAN** port by using an Ethernet cable. Be sure that the computer Ethernet interface is set as a **DHCP Client**.
+2. Open your web browser and type in the following IP Address: **192.168.8.1**
+3. Choose language and go next.
+4. Type in a new password **locusrtls** and click submit.
+5. Click on **WIRELESS** and **Modify** the WiFi settings.
+6. Change **Wi-Fi Name** (SSID) and **Wi-FI Key** (password), which is set on Anchors.
+    - **Wi-Fi Name:** Locus RTLS
+    - **Wi-FI Key:** rtlswifi
+
+_Insert screenshots of the router config _
+
+7. Go to the section **MORE SETTINGS** and **LAN IP** settings.
+8. Change default router address to new IP address: **192.168.88.1**
+9. Wait until the router reboots. If it does not redirect you automatically, type in the new IP Address: **192.168.88.1**
+10. Then the router setup is complete. The new credentials are:
+    - **Username**: root
+    - **Password**: locuswifi
+11. Now you can start deploying the Anchors.
+    
+<Callout emoji="ℹ️" type="info">
+ **Tip:** You can save the router configuration file and save it as a backup.
+</Callout>
