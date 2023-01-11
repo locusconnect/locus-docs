@@ -1,9 +1,11 @@
+
 {
-  "TagConfigurationRules": "Tag Configutaion Rules",
+  "TagConfigurationRules": "Tag Configuration Rules",
   "AnchorConfigurationRules": "Anchor Configuration Rules",
   "SiteSurvey": "Site Survey",
   "AnchorTopologyPlanning":"Anchor Topology Planning in Locus Planner",
-  "NetworkLayout" : "Networking Laoyout",
-  "RTLSHubConfiguration":"RTLS Hub Configuration"
+  "NetworkLayout" : "Networking Layout",
+  "RTLSHubConfiguration":"RTLS Hub Configuration",
+  "Troubleshooting":"Troubleshooting"
 
 }
