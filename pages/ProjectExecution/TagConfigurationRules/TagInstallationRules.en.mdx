@@ -1,3 +1,32 @@
-# About
+import { Callout } from 'nextra-theme-docs'
+import { Tab, Tabs } from 'nextra-theme-docs'
 
-This is the about page! This page is shown on the navbar.
+# Tag Installation and Deployment
+
+It's important to follow specific rules when deploying tags, including making sure they have line-of-sight to anchors. This is because proper placement is crucial for setting up the tags correctly. Once they are correctly placed, you can begin configuring the tags.
+
+The Alexander tags come in various models that differ primarily in their enclosures, power supplies, and equipped sensors, although all     of them possess motion detection capabilities based on an accelerometer.
+
+Please find more details about Tag in the details below :
+
+ _show a table explaining different product versions and features_
+## Tag Placement guidelines
+The pictures below explain possible deployment of tag in a typical environment for several use-cases.
+
+<Callout type="warning" emoji="⚠️">
+  Try to keep **LOS** between anchor and tag as much as possile.
+</Callout>
+
+_insert a image explaining different types of deplyoment_
+
+<Callout type="info" emoji="ℹ️">
+An optimal placement is crucial for UWB signal transmission as the human body significantly attenuates the signal; therefore, recommended placement for the tag includes wrist, shoulder, or helmet, while back or chest placement is challenging due to the limited visibility of the tag to the anchors.
+</Callout>
+
+## Tag Mounting matters
+ Below is an example of how to mount a tag Alexander so that there is better understanding between line-of-sight vs. non-line-of-sight and overall performance.
+ The test environment is clean corridor environment without any obstacles. You may notice that NLOS example is with lot of jitter and jumps in position.
+
+_Show an image of LOS vs NLOS and they comparision GIF_
+
+ > To remove NLOS condition, you may either increase the number of anchors deployed pr change the position of existing anchors into more open region so as to have better LOS. Apart from anchors tag mounting can be done properly as explained in above exmaple.

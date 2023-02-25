@@ -17,6 +17,9 @@ const config: DocsThemeConfig = {
   sidebar: {
     defaultMenuCollapseLevel:"0",
   },
+  toc: {
+    float:true,
+  },
 };
 
 export default config;
