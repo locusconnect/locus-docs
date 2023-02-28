@@ -1,6 +1,20 @@
 import { Callout } from 'nextra-theme-docs'
 
-# Networking Prerequisite
+# Networking Prerequisites
 
+	- Ensure minimum Cat 5e PoE cables
+	- The RTLS network should be isolated either via dedicated deloyment or VLAN to improve security
+	- Consider installing a remote access ability to RTLS server to get full support from Locus team.
+	
+## Key guidelines for RTLS Networking
 
+	- **The length of the cables between the power source and anchors should not exceed 100m** (minimum category: Cat 5E). PoE extenders can be used for longer distances. 
+	- After deployment, all cables must be tested to ensure reliable data connection and power supply.
+	- Ideally, anchors should be on a **dedicated VLAN or isolated network to RTLS Hub** if possible.
+	- Ensure that any access lists (ACLs) on switches within the network are either disabled or properly configured 
+	- Properly configure the firewall and **allow all necessary communication ports**
+	
+	## Example Network Topology  
+
+![Network Layout](/assets/photos/networkLayout.png)	
 
