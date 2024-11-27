@@ -15,7 +15,7 @@ const config: DocsThemeConfig = {
     { locale: "zh", text: "中文" },
   ],
   sidebar: {
-    defaultMenuCollapseLevel:"0",
+    defaultMenuCollapseLevel:0,
   },
   toc: {
     float:true,
