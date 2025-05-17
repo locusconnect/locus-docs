@@ -33,13 +33,14 @@ h4 { font-size: 1.125rem; font-weight: 500; }
 
 .nextra-nav-container a { 
   color: #000 !important; 
-  font-weight: 500; 
+  font-weight: 900; 
   font-family: inherit; 
   letter-spacing: 0.01em; 
   transition: color 0.2s, background-color 0.2s;
   border-radius: 4px; 
   padding: 8px 14px; 
   margin: 0 2px;
+  font-size: 1.4rem;
 } 
 
 .nextra-nav-container a:hover,
@@ -52,9 +53,46 @@ h4 { font-size: 1.125rem; font-weight: 500; }
 .nextra-nav-container .nextra-logo { 
   font-family: 'Montserrat', sans-serif; 
   font-weight: 800; 
-  font-size: 1.6rem; 
+  font-size: 2rem; 
   letter-spacing: 0.02em; 
   color: #F39200 !important; 
   padding: 4px 0; 
+}
+
+/* Sidebar Styling (Light Theme) */
+.nextra-sidebar-container {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb; /* Light grey for sidebar */
+  border-right: 1px solid #e5e7eb;
+}
+
+.nextra-sidebar-container a {
+ color: #151B29; 
+}
+
+.nextra-sidebar-container a.active {
+  color: #F39200; 
+  font-weight: 600;
+  border-right: 2px solid #F39200;
+  background-color: rgba(243, 146, 0, 0.05);
+}
+
+/* Content Area Adjustments (Light Theme) */
+.nx-prose a {
+  color: #F39200; 
+  text-decoration: none;
+}
+
+.nx-prose a:hover {
+  text-decoration: underline;
+}
+
+/* All html.dark rules will be removed here */
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  .nextra-nav-container .nextra-logo {
+    font-size: 1.5rem !important; /* Reduced font size for mobile */
+  }
 }
 
