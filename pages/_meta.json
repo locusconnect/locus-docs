@@ -1,0 +1,20 @@
+{
+  "index": "Overview",
+  "RtlsKit": "RTLS Kit",
+  "ProjectExecution":"Project Execution",
+  "RTLS_Hub": "RTLS Hub",
+  "RtlsAnchors":"RTLS Anchors",
+  "RtlsTags":"RTLS Tags",
+  "RtlsTechnology":"RTLS Technology",
+  "RtlsRfPlanner":"RTLS RF Planner",
+  "API_Interfaces": "API Interfaces",
+  "DeviceCareAndWarranties":"Device Care & Warranties",
+  "Troubleshooting_&_FAQ": "Troubleshooting & FAQ",
+  "Changelog":"Changelog",
+  "Website": {
+    "title": "Website ↗",
+    "type": "page",
+    "href": "https://locusconnect.com",
+    "newWindow": true
+  }
+}

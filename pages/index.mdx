@@ -1,0 +1,32 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Locus RTLS Overview
+
+  The Locus real-time location system (RTLS) is built and designed with large,
+  scalable and industrial deployments in mind. The Locus RTLS Enterprise Edition
+  can position thousands of tags over large areas with 10 to 30 cm accuracy. The
+  Enterprise Edition hardware supports a wide range of settings that allow
+  fine tuning and custom optimisations. Date update rate, radio range, battery
+  life and additional sensor read-outs can all be adjusted to fit the customised
+  application at hand.
+
+![systemOverview](public/assets/photos/SystemOverview.png)
+
+## System Components
+
+Before getting started, it is crucial to understand and review the main building blocks of Locus RTLS. The Enterprise positioning system
+
+- **UWB Hardware (A network of Anchors and tags)** : The Locus Hardware comprising of Locus Tags (mobile trackers) and Locus Anchors (stationary base stations) are the backbone for the real-time location system.
+- **Locus Location Engine (LLE)** : The LLE is a physical edge device housing the core RTLS positioning server and connects to the Anchors through Ethernet (Cat 5.e). It is responsible for gathering all data received form anchors and transforms it into a cartesian coordinate (position). By Connecting to this Edge server, you can receive the real-time position data. There maybe multiple instances of LLEs in a single RTLS project .
+- **The Locus 3D Software** : The Locus 3D Software is an enterprise application software and interface to install, configure and visualize the real-time position updates from Location engine. It can be complete run locally from the Location engine itself or it can be remotely accessed using Locus Partner Portal online.
+
+## RTLS Tools
+
+Apart from the above three components of the RTLS system, Locus Connect also provide additional software tools
+
+- **Locus RF Planner** - A stand alone site survey tool for system installation personnel and system integrators. This tool help analyse, floorplans, no. of anchors needed and radio coverage to the installation teams
+- **Locus 3D Map Generator** : Map generator is a one click cloud bases SaaS for designing, mapping and converting 2D floorplans to an embeddable 3D model. It is available to the licensees of Locus RTLS on Locus cloud portal. You can use this tool to convert your existing floor plans images (in`.jpg` or `.png`) into a 3D model file (`.obj` or `.gltf`). The map generator tool can also import third-party props (3D-object) into it's canvas for customizing the floorplans in 3D.
+
+<Callout emoji="⚠️" type="warning">
+ **Locus 3D Map Generator** is currently in BETA Development Stage. Available to partners upon request.
+</Callout>

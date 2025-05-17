@@ -1,0 +1,85 @@
+import { Callout } from 'nextra-theme-docs'
+
+# RTLS Hub Setup
+
+Each RTLS Studio version is available as a **virtual image file**. It is the easiest way how to install RTLS . It is beneficial for beginners as well as for small PoC or demos. To deploy RTLS Studio in VirtualBox, you need to have VirtualBox software installed on your host PC. The RTLS Hub is also software available for [native Ubuntu  installation](../RTLS_Hub/RtlsHubInstallGuide).
+
+<Callout emoji="ℹ️" type="info">
+ **VirtualBox Installation Requirements**:** 
+ - RTLS Hub Virtual Box image **.zip package** (downloadable from [Locus Portal](https://portal.locusconnect.com))
+ - Installed VM VirtualBox on your PC (downloadable from https://www.virtualbox.org/)
+</Callout>
+
+## Installation
+
+1. Go to the website of [Oracle VirtualBox](https://www.virtualbox.org/) and click on **Download VirtualBox 7.0**
+
+_Insert Image_
+
+2. Download the latest VirtualBox package for Windows host.
+
+_Insert Image_
+
+3. Open the downloaded file and finish the installation process of VirtualBox.
+
+_Insert Image_
+
+4. After the installation of VirtualBox is successfully completed, you need to **download RTLS Studio VirtualBox Image** on **[Locus Portal  section -> Downloads](https://portal.locusconnect.com/downloads)** 
+
+_Insert Image_
+
+5. Once you have the VirtualBox image of RTLS Studio, **open VirtualBox and add the image**.
+
+_Insert Image_
+
+6. Then **select the image and press "open"**. The image will be added to the VirtualBox.
+
+_Insert Image_
+
+7. Now, make sure that the setting of the image is correct. **Go to Settings section Network**.
+
+_Insert Image_
+
+8. **Ethernet network adapter must be selected as well as cable connected check box must be checked**.
+
+_Insert Image_
+
+9. After these steps, the RTLS Hub should UP and runnning.
+
+_Insert Image_
+
+
+<Callout emoji="ℹ️" type="info">
+ Once the Virtual Box is running, your computer will need to have an Ethernet cable plugged in. Otherwise, you will not be able to connect to RTLS Studio
+ 
+Please also ensure that Virtual Box VM has been set with least 2 CPU cores. For the laptop please set it to full-performance mode instead of power-saving mode
+</Callout>
+
+10. **After the software installation is complete, it is time to deploy and connect all the Anchors**
+--- 
+## Troubleshooting Issue - Virtualization is disabled.
+
+It may happen that the virtualization is disabled in the host machine.
+
+1. If that is the case, you need to enable virtualization in BIOS. To do so, go to Search and type “Advanced startup” and select the first option. Then click “Restart now”. This will restart your computer.
+
+_Insert Image_
+
+2. Next, click the “Troubleshoot” option.
+
+_Insert Image_
+
+3. Then click the “Advanced options” button.
+
+_Insert Image_
+
+4. Select the “UEFI Firmware Settings” here.
+
+_Insert Image_
+
+
+This will guide you to BIOS. Here you need to find the “Virtualization VT-x” option and select “enable”. On most computers, this can be found under “Advanced” or “Security” tabs but this option differs depending on your computer. After you have enabled virtualization, save the settings and exit BIOS. Then launch VirtualBox again and the image should load without any errors.
+
+
+
+

@@ -1,11 +1,11 @@
 {
-  "LocatorKitOverview":"Locator Kit Overview",
-  "LocatorKitAssembly":"Locator Kit Assembly",
-  "AnchorDeploymentRules": "Anchor Deployment Rules",
-  "WiredNetwork":"Wired Networking",
-  "WirelessNetwork":"Wireless Networking",
-  "SystemRequirements":"System Requirements",
-  "RTLSHub":"RTLS Hub Deployment",
-  "DemoVideo":"DEMO Video Guide",
-  "MaintenanceAndGuide":"Maintenance & Care"
+  "LocatorKitOverview": "定位套件概述",
+  "LocatorKitAssembly": "定位套件组装",
+  "AnchorDeploymentRules": "锚点部署规则",
+  "WiredNetwork": "有线网络",
+  "WirelessNetwork": "无线网络",
+  "SystemRequirements": "系统要求",
+  "RTLSHub": "RTLS 中心部署",
+  "DemoVideo": "演示视频指南",
+  "MaintenanceAndGuide": "维护与保养"
 }

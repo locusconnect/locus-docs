@@ -1,23 +1,19 @@
-# Nextra Docs Template 
+# Locus Documentation
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+This is a repository for Locus RLTS documentation.
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+[**Live Demo →**](https://docs.locusconnect.com)
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+## Adding a button
 
-## Quick Start
+```html
+<div class="relative w-20">
+  <a href="/files/TOC.pdf" target="_blank" rel="noopener noreferrer" alt="Kit Contents" >  
+    <img src="/assets/thumbnails/KitContents.png" alt="image" class="w-20 bg-orange-500/10 dark:bg-orange-500/10 rounded-lg p-2 shadow-md shadow-primary-100 dark:shadow-md dark:shadow-primary-1000/10" padding="1px" />
+      <button className=" hover:bg-orange-300/10 dark:hover:bg-orange-100/10 absolute top-0 left-0 right-0 bottom-0 m-auto font-bold text-2xl text-orange-600 dark:text-orange-50">
+        PDF
+      </button>
+  </a>
+</div>
 
-Click the button to clone this repository and deploy it on Vercel:
-
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
-
-## Local Development
-
-First, run `pnpm i` to install the dependencies.
-
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
-
-## License
-
-This project is licensed under the MIT License.
+```

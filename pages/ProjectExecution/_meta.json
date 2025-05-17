@@ -1,0 +1,11 @@
+
+{
+  "TagConfigurationRules": "Tag Configuration Rules",
+  "AnchorInstallationRules": "Anchor Installation Rules",
+  "SiteSurvey": "Site Survey",
+  "AnchorLayoutPlanning":"Anchor Layout Planning",
+  "NetworkLayout" : "Networking Layout",
+  "AnchorDeployment":"Anchor Deployment",
+  "RTLSHubConfiguration":"RTLS Hub Configuration",
+  "Troubleshooting":"Troubleshooting"
+}
