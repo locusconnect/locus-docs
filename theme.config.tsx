@@ -7,6 +7,7 @@ const config: DocsThemeConfig = {
       titleTemplate: "%s – Locus Documentation",
     };
   },
+  
   i18n: [
     { locale: 'en', text: 'English' },
     { locale: 'zh', text: '中文' }
@@ -24,6 +25,7 @@ const config: DocsThemeConfig = {
         content="https://docs.locusconnect.com/assets/photos/og.png"
       />
       <link type="image/svg+xml" rel="icon" sizes="any" href='https://docs.locusconnect.com/assets/photos/locus_icon.svg'/>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
     </>
   ),
   logo: (
