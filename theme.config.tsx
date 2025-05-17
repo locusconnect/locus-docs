@@ -7,6 +7,10 @@ const config: DocsThemeConfig = {
       titleTemplate: "%s – Locus Documentation",
     };
   },
+  i18n: [
+    { locale: 'en', text: 'English' },
+    { locale: 'zh', text: '中文' }
+  ],
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />

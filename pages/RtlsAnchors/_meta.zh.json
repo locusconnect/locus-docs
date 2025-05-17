@@ -1,4 +1,9 @@
 {
-  "title": "RTLS 锚点",
-  "display": "hidden"
-}
+  "AnchorOverview":"锚点概述",
+  "TechnicalSpecifications":"技术规格",
+  "PowerSupply":"电源供应",
+  "AssemblyAndMounting":"组装和安装",
+  "Accessories":"配件",
+  "SafetyAndRegulatoryInformation":"安全和法规信息",
+  "AnchorLedIndication":"锚点LED指示灯"
+} 

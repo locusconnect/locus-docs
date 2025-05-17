@@ -1,4 +1,8 @@
 {
-  "title": "RTLS 标签",
-  "display": "hidden"
-}
+  "TagOverview":"标签概述",
+  "DefaultConfigurations":"默认配置",
+  "SmartSleepModes":"智能睡眠模式",
+  "TagBattery": "标签电池",
+  "TagPeripherals":"标签外设",
+  "TagCustomisation":"标签定制"
+} 

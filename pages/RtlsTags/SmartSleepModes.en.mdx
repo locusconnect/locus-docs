@@ -1,0 +1,117 @@
+# Smart Sleep Modes
+
+Locus RTLS tags feature advanced power management capabilities through Smart Sleep Modes. These intelligent power-saving features significantly extend battery life while maintaining positioning functionality when needed.
+
+## Understanding Sleep Modes
+
+Smart Sleep Modes automatically adjust tag behavior based on environmental conditions and configuration settings, optimizing power consumption without manual intervention.
+
+## Available Sleep Modes
+
+| Mode | Description | Power Savings | Position Updates | Wake Trigger |
+|------|-------------|---------------|------------------|--------------|
+| Active | Full operation | None | Regular intervals | N/A |
+| Light Sleep | Reduced update rate | 40-60% | Reduced frequency | Motion or scheduled |
+| Deep Sleep | Minimal operation | 80-95% | On wake events only | Motion, scheduled, or proximity |
+| Hibernation | Ultra-low power | 99% | None until wake | Strong motion or external trigger |
+
+## Motion-Based Activation
+
+Tags equipped with accelerometers can automatically adjust their behavior based on movement:
+
+- When motion is detected, the tag increases its update rate for accurate tracking
+- When stationary for a defined period, the tag enters a power-saving mode
+- Sensitivity thresholds can be configured to match specific use cases
+
+Example configuration:
+
+```json
+{
+  "motionActivation": {
+    "enabled": true,
+    "sensitivityThreshold": 0.2,
+    "activeModeUpdateRate": 1.0,
+    "sleepModeUpdateRate": 0.1,
+    "sleepDelay": 300
+  }
+}
+```
+
+## Zone-Based Behavior
+
+Tags can be configured to change their sleep behavior based on location zones:
+
+- High-interest zones: Increased update rate
+- Standard zones: Normal update rate
+- Low-interest zones: Reduced update rate or deep sleep
+
+This allows for strategic power management across your facility.
+
+## Time-Based Scheduling
+
+Sleep modes can follow predefined schedules:
+
+- Work hours: Normal operation
+- After hours: Deep sleep mode
+- Weekends: Hibernation
+
+Example schedule configuration:
+
+```json
+{
+  "schedules": [
+    {
+      "days": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+      "timeRanges": [
+        {
+          "start": "08:00",
+          "end": "18:00",
+          "mode": "active",
+          "updateRate": 1.0
+        },
+        {
+          "start": "18:00",
+          "end": "08:00",
+          "mode": "deepSleep",
+          "updateRate": 0.1
+        }
+      ]
+    },
+    {
+      "days": ["saturday", "sunday"],
+      "timeRanges": [
+        {
+          "start": "00:00",
+          "end": "23:59",
+          "mode": "hibernation"
+        }
+      ]
+    }
+  ]
+}
+```
+
+## Battery Life Impact
+
+The following table shows typical battery life improvements with Smart Sleep Modes:
+
+| Usage Scenario | Without Sleep Modes | With Sleep Modes | Improvement |
+|----------------|---------------------|------------------|-------------|
+| 24/7 active asset | 6 months | 18 months | 3x |
+| 8-hour shift, weekdays | 12 months | 36 months | 3x |
+| Occasional use | 18 months | 48+ months | 2.5x+ |
+
+## Configuration
+
+Sleep mode settings can be configured through:
+
+1. Locus RTLS Hub interface
+2. Locus Configuration API
+3. Tag profile settings
+
+## Best Practices
+
+- Analyze movement patterns before configuring motion sensitivity
+- Test wake-up sensitivity in real-world conditions
+- Balance power savings with application requirements
+- Consider environmental factors that might trigger false motion detection

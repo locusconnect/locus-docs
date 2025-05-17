@@ -1,0 +1,109 @@
+# API Interfaces
+
+The Locus RTLS system provides several API interfaces that allow integration with your existing systems and applications. This documentation covers the available APIs, authentication methods, and common usage scenarios.
+
+## Available APIs
+
+| API | Purpose | Protocol | Documentation |
+|-----|---------|----------|---------------|
+| Positioning API | Real-time position data access | WebSocket/REST | [Details](#positioning-api) |
+| Configuration API | System configuration | REST | [Details](#configuration-api) |
+| Tag Management API | Tag registration and control | REST | [Details](#tag-management-api) |
+| Historical Data API | Access to historical position data | REST | [Details](#historical-data-api) |
+| Status API | System health and diagnostics | REST | [Details](#status-api) |
+
+## Authentication
+
+All Locus APIs use token-based authentication:
+
+```bash
+curl -X POST https://[your-locus-server]/api/auth/login 
+   -H "Content-Type: application/json" 
+   -d '{"username": "your_username", "password": "your_password"}'
+```
+
+The response will include a JWT token for subsequent requests:
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "expires": "2023-12-31T23:59:59Z"
+}
+```
+
+Include this token in the Authorization header for all API requests:
+
+```bash
+curl -X GET https://[your-locus-server]/api/positions
+   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+```
+
+## Positioning API
+
+The Positioning API provides real-time access to tag position data. It supports both WebSocket connections for live data streaming and REST endpoints for polling.
+
+### WebSocket Example
+
+```javascript
+const socket = new WebSocket('wss://[your-locus-server]/api/positions/live');
+
+socket.onopen = function(e) {
+  socket.send(JSON.stringify({
+    "token": "your_authentication_token",
+    "tags": ["tag1", "tag2"] // Optional filter
+  }));
+};
+
+socket.onmessage = function(event) {
+  const positionData = JSON.parse(event.data);
+  console.log(positionData);
+};
+```
+
+### Response Format
+
+```json
+{
+  "tagId": "asset_123",
+  "timestamp": "2023-09-17T14:23:45.123Z",
+  "position": {
+    "x": 12.34,
+    "y": 45.67,
+    "z": 1.23
+  },
+  "accuracy": 0.15,
+  "additionalData": {
+    "battery": 85,
+    "temperature": 23.5,
+    "motion": true
+  }
+}
+```
+
+## Configuration API
+
+The Configuration API allows you to configure the Locus RTLS system programmatically, including anchor and tag settings.
+
+## Tag Management API
+
+The Tag Management API provides endpoints for registering, updating, and managing tags in your RTLS system.
+
+## Historical Data API
+
+The Historical Data API allows you to query and export historical position data for analysis and reporting.
+
+## Status API
+
+The Status API provides system health and diagnostic information for monitoring and maintenance.
+
+## Code Examples
+
+Additional code examples in various languages (Python, Java, C#, etc.) are available in the [Developer Resources](https://developer.locusconnect.com/examples) section.
+
+## Rate Limits
+
+API rate limits vary by endpoint and subscription tier. Please refer to the specific endpoint documentation for details.
+
+## Support
+
+For API support and questions, please contact Locus Connect technical support or use the [Developer Community Forum](https://community.locusconnect.com). 
