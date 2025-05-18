@@ -30,6 +30,18 @@ const config: DocsThemeConfig = {
       />
       <link type="image/svg+xml" rel="icon" sizes="any" href='https://docs.locusconnect.com/assets/photos/locus_icon.svg'/>
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
+      {/* Google tag (gtag.js) */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-0WLKXL1TSZ"></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0WLKXL1TSZ');
+          `,
+        }}
+      />
     </>
   ),
   logo: (

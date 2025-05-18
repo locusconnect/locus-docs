@@ -1,40 +1,39 @@
+# System Requirements for RTLS Locator Kit
 
+Meeting the specified system requirements is crucial for a successful and performant deployment of the RTLS Locator Kit. This page outlines the necessary hardware and software prerequisites for both the client computer/server running the RTLS Hub and the RTLS components themselves.
 
-# System Requirements
+## Component Requirements
 
-General system requirements for RTLS Locator deployment are:
+### Computer & Peripherals (for RTLS Hub)
+- ✅ **Processor:** x64 architecture with VTx (Virtualization Technology) enabled in BIOS/UEFI.
+- ✅ **Network:** Ethernet port available for wired anchor communication (if applicable) and initial router setup.
+- ✅ **Wireless:** Wi-Fi card for wireless anchor communication (if applicable).
+- ✅ **GPU:** Basic internal or discrete GPU (Recommended if you plan to use the Locus 3D Software for visualization).
 
-### Computer & Peripherals
-  - ✅ x64 with VTx technology enabled
-  - ✅ Ethernet socket available
-  - ✅ Wi-Fi Card
-  - ✅ Basic Internal GPU (If plan to use )
+### Software (for RTLS Hub)
+- ✅ **Virtualization:** Oracle VirtualBox (latest stable version recommended).
+- ✅ **Web Browser:** Google Chrome (latest stable version recommended, as some Locus 3D Software features may have limited compatibility with other browsers).
 
-### Software
-  - ✅ VirtualBox
-  - ✅ Google Chrome browser 
-(some of the features might not work in other browsers)
+### RTLS Hardware (Locator Kit Contents)
+- ✅ Locus Tags
+- ✅ Locus Anchor Apollo (Wired/Wireless)
+- ✅ Power Supplies (e.g., Power Bank or 5V USB Adapters for wireless anchors/router)
 
-### RTLS Hardware
-  - ✅ Tags
-  - ✅ Anchor Apollo Wireless
-  - ✅ Power Supply ( Power Bank or 5V USB Adapter )
-- Other Recommended
-  - ✅ Tripods for anchor placement
-  
-## System Specifications
+### Other Recommended Equipment
+- ✅ Tripods or suitable mounting hardware for optimal anchor placement.
 
-The server or laptop where you deploy RTLS Hub should have a powerful enough CPU. It is very important to have a **powerful enough CPU** on the server. You should have a strong single-thread rating but also enough threads because RTLS Studio is a multicore application. 
+## RTLS Hub Server Specifications
 
-An example of a server suitable for RTLS Kit deployment: 
+The server or laptop where you deploy the RTLS Hub software (typically running within VirtualBox) requires a sufficiently powerful CPU. A strong single-thread performance is important, but an adequate number of cores/threads is also necessary as the RTLS Hub is a multi-core application.
 
-<center>
- |Installation Size|CPU Type|CPU Spec.|CPU Single Thread Ratings|CPU Ratings|Recommended RAM Size
-|-----------|----|---------|---|-------|-------
-|< 10 Anchors & <br/> < 10 Tags with 500 ms RR   |   Intel Celeron G1610T | 2/2  |1241| 1341 | 4 GB| 
-</center>
-   
+An example of a server suitable for a typical RTLS Locator Kit deployment is detailed below. Use CPU benchmark websites like [www.cpubenchmark.net](https://www.cpubenchmark.net/) to compare your existing or planned hardware against these recommendations.
 
-Your device should have a similar CPU power as the CPU model recommended in the table. For comparison is recommended to use [www.cpubenchmark.net](https://www.cpubenchmark.net/) to check the performance of each CPU. 
+| Installation Size                  | CPU Type             | CPU Spec. (Cores/Threads) | CPU Single Thread Rating | CPU Mark | Recommended RAM (for VM) |
+|------------------------------------|----------------------|---------------------------|--------------------------|----------|--------------------------|
+| < 10 Anchors & < 10 Tags @ 0.5s RR | Intel Celeron G1610T | 2/2                       | 1241                     | 1341     | 4 GB                     |
 
-For more details for see page [Server System Specification](..//ProjectExecution/NetworkLayout/ServerSystemSpecification).
+*RR = Refresh Rate*
+
+For more detailed server specifications, especially for larger deployments beyond the scope of a single Locator Kit, please see the page [Server System Specification](../ProjectExecution/NetworkLayout/ServerSystemSpecification).
+
+Ensuring your hardware meets these guidelines will help guarantee a smooth and reliable RTLS experience.

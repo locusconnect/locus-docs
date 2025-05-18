@@ -1,28 +1,32 @@
 import { Callout } from 'nextra-theme-docs'
 
+# Wired Networking for Locator Kit
 
-# Wired Networking
+This section covers the setup and best practices for wired networking using the RTLS Locator Kit. A wired Ethernet-based network is the recommended architecture for most deployments, offering superior stability and performance, especially for larger demonstrations, Proof of Concepts (PoCs), and production projects.
 
 <Callout emoji="ℹ️" type="info">
- **Tip:** Recommended network architecture is an Ethernet-based network and the network **should be dedicated to RTLS** if possible.
+ **Tip:** Recommended network architecture is an Ethernet-based network, and the network **should be dedicated to RTLS** if possible for optimal performance and simplified troubleshooting.
 </Callout>
 
-RTLS Locator Kit is delivered pre-configured for Ethernet based wired communication. Therefore, wired deployment requires a few configuration changes. It includes one PoE switch, one wired router and set of cables (5x). 
+The RTLS Locator Kit is delivered pre-configured for Ethernet-based wired communication. Therefore, deploying the wired setup is straightforward and typically involves connecting the components as outlined below, with minimal software configuration changes required on the Locus equipment itself.
+The kit includes one PoE switch, one wired router, and a set of Ethernet cables (5x).
 
-👇🏻Wired deployment is suggested for larger demos. Our recommendation to use wired solution for a project or PoC.
+👇🏻Wired deployment is suggested for larger demos. Our recommendation is to use a wired solution for any project or PoC.
 
 ## Wired Network Planning Rules
-If you are considering deploying the RTLS kit via an Ethernet PoE switch follow the following networking planning rules:
-- **The cables should not exceed a 100 m length** (cable. category: Cat 5E) between the power source and the anchors. 
-  - For longer distances PoE extender can be used.
-- All the cables are tested after deployment - cables provide a reliable data connection and power. Optionally you can use [LAN tester](https://www.amazon.com/Klein-Tools-VDV526-100-Network-Explorer/dp/B07RT1J9MB) to verify the cabling.
-- The anchors should have **a dedicated VLAN** or **isolated network to RTLS Hub** if possible.
-- Make sure that no or properly configured access lists (ACLs) are active on the switches within the network.
-- The anchors and the RTLS Hub server software can be located on the different subnets.
-- Make sure the firewall is properly configured and all necessary communication [ports are allowed](../ProjectExecution/NetworkLayout/NetworkArchitectureAndPorts).
+If you are deploying the RTLS kit via an Ethernet PoE switch, adhere to the following network planning rules:
+- **Cable Length:** Ensure Ethernet cables (Cat 5E or better) do not exceed 100 meters (328 feet) between the power source (PoE switch) and the anchors. 
+  - For longer distances, a PoE extender can be used.
+- **Cable Integrity:** Test all cables after deployment to ensure they provide a reliable data connection and power. Optionally, use a [LAN tester](https://www.amazon.com/Klein-Tools-VDV526-100-Network-Explorer/dp/B07RT1J9MB) to verify cabling integrity.
+- **Network Segmentation:** If possible, anchors should have **a dedicated VLAN** or be on an **isolated physical network segment** connected to the RTLS Hub.
+- **Switch Configuration:** Ensure that no restrictive Access Control Lists (ACLs) are active on the switches within the network segment used by the RTLS components, or that they are properly configured to allow necessary traffic.
+- **Subnets:** The anchors and the RTLS Hub server software can be located on different subnets, provided routing is correctly configured between them.
+- **Firewall Configuration:** Make sure any firewalls are properly configured and all necessary communication [ports are allowed](../ProjectExecution/NetworkLayout/NetworkArchitectureAndPorts) for Locus RTLS traffic.
 
 <Callout emoji="ℹ️" type="info">
- The deafult IP arress range of Locator Kit Wired is **192.168.88.0/24**
+ The default IP address range of the Locator Kit Wired components (like the pre-configured router and anchors if set to DHCP by default within this range) is typically **192.168.88.0/24**.
 </Callout>
 
-_Insert image of Ethernet deployment topolgy_
+*(Placeholder: Diagram illustrating a typical wired Ethernet deployment topology. This would show anchors connected to a PoE switch, the PoE switch connected to a wired router, and the RTLS Hub (LLE or PC) also connected to the router or switch.)*
+
+Properly planning and implementing your wired network is key to a successful Locus RTLS deployment.
