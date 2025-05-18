@@ -57,5 +57,13 @@
     "socials": {
       "linkedin": "https://www.linkedin.com/company/locusconnect"
     }
-  }
+  },
+  "integrations": {
+    "ga4": {
+        "measurementId": "G-0WLKXL1TSZ"
+    },
+    "gtm": {
+        "tagId": "GTM-0WLKXL1TSZ"
+    }
+}
 }
