@@ -1,1 +1,64 @@
-# Locator Kit Overview
+import { Callout } from 'nextra-theme-docs'
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+# RTLS 定位器套件组装
+
+本页将指导您完成 Locus RTLS 定位器套件组件（包括锚点和标签）的开箱和组装。对于演示或测试等临时设置，将锚点安装在三脚架上通常是最便捷的方法。
+
+## 锚点开箱与组装
+RTLS 定位器套件包括 **锚点 (4个) 和三脚架转接头 (4个)**。将三脚架转接头组装到锚点上，然后将锚点组件安装到合适的三脚架上（例如，通常使用3米高的三脚架）。
+
+*(占位提示：使用提供的转接头正确安装在三脚架上的 Apollo 锚点图片。)*
+
+更多关于组装的详细信息，请参阅 **锚点组装指南**。
+
+*(占位提示：详细锚点组装指南的链接或嵌入式PDF。)*
+
+## 锚点供电
+
+Locus Apollo 锚点支持通过有源 PoE (IEEE 802.3af/at) 或无源 PoE (有线版)，以及通过 Micro-USB (无线版) 进行供电。
+
+<Callout type="info" emoji="ℹ️">
+  简单来说，**有源 PoE (IEEE 802.3af/at)** 指的是能够在供电设备（PSE，如PoE交换机）和受电设备（PD，如锚点）之间协商正确电压的任何类型的PoE。**无源 PoE** 则不进行此类协商，并始终以特定电压通过以太网电缆持续供电，无论连接的设备如何。
+</Callout>
+
+定位器套件可能包含两种 Apollo 锚点版本之一：有线版或无线版。请根据您的具体锚点类型遵循以下相应的指南。
+
+<Tabs items={['Anchor Apollo 有线版', 'Anchor Apollo 无线版']}>
+  <Tab>
+    **概述**: Anchor Apollo 有线版需要通过有线以太网 (PoE) 连接同时提供电源和网络回传。
+    
+    **布线**: 使用提供的以太网 (Cat.5e 或更高级别) 电缆为所有有线锚点供电。将锚点连接到套件中包含的 PoE 交换机或兼容的交换机。
+    
+    *(占位提示：显示多个 Anchor Apollo 有线版单元连接到 PoE 交换机的图表或照片。)*
+    
+    <Callout type="error" emoji="🚫">
+    **请勿同时将 Micro-USB 和 PoE 连接到 Anchor Apollo 有线版**。这可能会永久损坏锚点。Anchor Apollo 有线版设计为仅通过 PoE 供电。
+    </Callout>
+
+  </Tab>
+  <Tab>
+    **概述**: Anchor Apollo 无线版通过其 Micro-USB 端口供电，通常在移动部署时使用移动电源（不包含在套件中），或在固定设置时使用 USB 电源适配器。
+    
+    **布线**: 使用标准的 Micro-USB 电缆将 Anchor Apollo 无线版连接到移动电源。如果需要，您可以使用扎带或魔术贴将移动电源固定在三脚架上。
+    
+    *(占位提示：显示由移动电源供电的 Anchor Apollo 无线版图片，移动电源已固定在三脚架上。)*
+
+    <Callout type="error" emoji="🚫">
+    **请勿将 PoE 连接到 Anchor Apollo 无线版**。这可能会永久损坏锚点。Anchor Apollo 无线版设计为仅通过其 Micro-USB 端口供电。
+    </Callout>
+
+  </Tab>
+</Tabs>
+
+## Alexander 资产标签开箱与组装
+
+Alexander 资产标签由纽扣电池供电。RTLS 定位器套件通常包括两个标签和两枚 CR2032 纽扣电池。要激活标签，请拧开标签的后面板并插入纽扣电池，注意极性正确。
+
+*(占位提示：Alexander 标签组装指南的链接或嵌入式PDF，或分步图片。)*
+
+<Callout type="info" emoji="ℹ️">
+  将纽扣电池插入 Alexander 标签时，请务必检查其极性 (+/-)。错误插入可能会导致标签无法工作或损坏标签。
+</Callout>
+
+所有组件组装并通电后，您可以继续进行 [RTLS Hub 设置](./RTLSHub)。

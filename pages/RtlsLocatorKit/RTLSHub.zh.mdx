@@ -1,1 +1,75 @@
-# Locator Kit Overview
+import { Callout } from 'nextra-theme-docs'
+
+# RTLS Hub 定位器套件设置 (VirtualBox 方法)
+
+本指南详细介绍了使用 VirtualBox 虚拟机镜像安装 RTLS Hub 软件的过程，这通常是针对演示或小型概念验证 (PoC) 项目快速上手 RTLS 定位器套件的最快方法。虽然也支持原生 Ubuntu 安装 (请参阅[RTLS Hub 安装指南](../RTLS_Hub/RtlsHubInstallGuide))，但本节重点介绍 VirtualBox 部署方式。
+
+每个 RTLS Hub 版本都以**虚拟机镜像文件 (.ova 或 .vbox)** 的形式提供。此方法对初学者以及小规模部署非常有益。
+
+<Callout emoji="ℹ️" type="info">
+ **VirtualBox 安装要求**:
+ - RTLS Hub VirtualBox 镜像 **.zip 压缩包** (可从 [Locus Portal](https://portal.locusconnect.com) 下载)
+ - 已在您的主机PC上安装 Oracle VM VirtualBox 软件 (可从 [https://www.virtualbox.org/](https://www.virtualbox.org/) 下载)
+</Callout>
+
+## VirtualBox 和 RTLS Hub 镜像安装
+
+1.  访问 [Oracle VirtualBox](https://www.virtualbox.org/) 官方网站，点击 **下载 VirtualBox 7.0** (或最新的稳定版本)。
+    *(占位提示：VirtualBox 网站下载页面的截图。)*
+
+2.  为您的主机操作系统下载合适的 VirtualBox 安装包 (例如，Windows 主机)。
+    *(占位提示：显示在 VirtualBox 下载页面上选择 Windows 主机安装包的截图。)*
+
+3.  打开下载的安装程序文件，并按照屏幕上的提示完成 VirtualBox 的安装。
+    *(占位提示：VirtualBox 安装向导中某个步骤的截图。)*
+
+4.  成功安装 VirtualBox 后，从 **[Locus Portal -> 下载专区](https://portal.locusconnect.com/downloads)** 下载 **RTLS Hub VirtualBox 镜像**。
+    *(占位提示：Locus Portal 下载页面突出显示 RTLS Hub VirtualBox 镜像的截图。)*
+
+5.  下载 RTLS Hub 镜像 (例如 `.ova` 文件) 后，打开 VirtualBox 并选择 **文件 -> 导入虚拟电脑...** (如果您有解压缩的 `.vbox` 文件和关联的磁盘镜像，则选择 **虚拟电脑 -> 添加...**)。
+    *(占位提示：VirtualBox 管理器突出显示"导入虚拟电脑"菜单的截图。)*
+
+6.  浏览并选择下载的 RTLS Hub 镜像文件 (例如 `.ova`)，然后按 **"打开"** 或 **"下一步"**。按照提示导入虚拟电脑。该镜像随后将被添加到 VirtualBox 的虚拟机列表中。
+    *(占位提示：VirtualBox 导入虚拟电脑对话框显示所选镜像的截图。)*
+
+7.  启动虚拟机之前，请验证其设置。选择导入的 RTLS Hub 虚拟机，然后转到 **设置 -> 网络**。
+    *(占位提示：VirtualBox 虚拟机设置选中"网络"选项卡的截图。)*
+
+8.  确保 **网络连接方式 1** (或主网络适配器) 设置为 **桥接网卡**，并从 **界面名称** 下拉列表中选择您主机电脑活动的 **以太网网络适配器**。同时，确保选中 **接入网线** 复选框。
+    *(占位提示：VirtualBox 中的网络适配器设置截图，显示已选择"桥接网卡"并已选定主机以太网适配器。)*
+
+9.  完成这些步骤后，启动 RTLS Hub 虚拟机。此时它应该已启动并正在运行。
+    *(占位提示：RTLS Hub 虚拟机控制台成功启动后的截图，可能显示登录提示或 IP 地址。)*
+
+<Callout emoji="ℹ️" type="info">
+- VirtualBox 虚拟机运行后，您的主机电脑需要有活动的以太网连接（桥接到虚拟机的那个）。否则，您可能无法从网络上的其他设备连接到 RTLS Hub 服务。
+- 另请确保为 VirtualBox 虚拟机分配了至少2个CPU核心和足够的RAM (请参阅[系统需求](./SystemRequirements))。对于笔记本电脑，请确保电源计划设置为高性能模式而不是节能模式。
+</Callout>
+
+10. **软件安装和虚拟机启动完成后，即可部署并连接所有锚点至您的网络。**
+
+## 问题排查
+
+### BIOS/UEFI中禁用了虚拟化 (VT-x/AMD-V)
+
+主机硬件虚拟化功能可能被禁用，导致 VirtualBox 无法运行64位虚拟机或性能不佳。
+
+1.  如果是这种情况，您需要在计算机的 BIOS/UEFI 设置中启用虚拟化。在 Windows 上访问 BIOS/UEFI，通常可以转到 **设置 -> 更新和安全 -> 恢复 -> 高级启动**，然后点击 **"立即重新启动"**。
+    *(占位提示：Windows 高级启动选项的截图。)*
+
+2.  重启后，选择 **疑难解答**。
+    *(占位提示："选择一个选项"屏幕突出显示"疑难解答"的截图。)*
+
+3.  然后点击 **高级选项**。
+    *(占位提示："疑难解答"屏幕突出显示"高级选项"的截图。)*
+
+4.  选择 **UEFI 固件设置** (此选项可能会有所不同)。
+    *(占位提示："高级选项"中突出显示"UEFI 固件设置"的截图。)*
+
+这将重启您的计算机并进入 BIOS/UEFI 设置实用程序。虚拟化设置（通常称为 **Intel VT-x**、**AMD-V**、**SVM Mode** 或类似名称）的位置因制造商和 BIOS 版本而异。通常可以在"高级"、"CPU 配置"或"安全"选项卡下找到。找到该选项并将其**启用**。保存更改并退出 BIOS/UEFI。您的计算机将重新启动。然后，再次启动 VirtualBox，RTLS Hub 镜像应该可以无虚拟化相关错误地加载。
+
+<Callout type="warning" emoji="⚠️">
+  访问和修改 BIOS/UEFI 设置应谨慎操作。如果不确定，请查阅您的计算机或主板制造商的文档。
+</Callout>
+
+RTLS Hub 运行后，您可以通过其界面继续配置您的锚点和标签。

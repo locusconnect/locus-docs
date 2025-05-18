@@ -1,52 +1,51 @@
 import { Callout } from 'nextra-theme-docs'
 import { Tab, Tabs } from 'nextra-theme-docs'
 
-# RTLS Locator Kit Assembly 
+# RTLS Locator Kit Assembly
 
-The best way is to buy tripods locally and mount Anchor on a tripod for demo or testing purposes. You can deploy RTLS kit from the components included in the kit. 
+This page guides you through the unboxing and assembly of the Locus RTLS Locator Kit components, including Anchors and Tags. For temporary setups like demos or testing, mounting Anchors on tripods is often the most convenient method.
 
 ## Anchor Unboxing and Assembly
-The RTLS Locator Kit includes **Anchor (4x) and Tripod Adapter (4x)**. Assembly the tripod adapter to the Anchor and then mount the anchor assembly onto a 3m tripod. When it is done, mount them to a tripod as on the picture:
+The RTLS Locator Kit includes **Anchors (4x) and Tripod Adapters (4x)**. Assemble the tripod adapter to the Anchor and then mount the anchor assembly onto a suitable tripod (e.g., a 3m tripod is often used).
 
-_Insert a picture of anchor mounted on tripod_
+*(Placeholder: Image of an Anchor Apollo correctly mounted on a tripod using the provided adapter.)*
 
-Find more details about the assembly in the in **Assembly Guide:** 
+Find more details about the assembly in the **Anchor Assembly Guide**.
 
-_Insert a pdf having Anchor assembly guide_
+*(Placeholder: Link to or embedded PDF of the detailed Anchor Assembly Guide.)*
 
 ## Anchor Powering Up
 
-The Locus Anchor supports powering via Active or Passive PoE
+The Locus Anchor Apollo supports powering via Active PoE (IEEE 802.3af/at) or Passive PoE for the Wired version, and via Micro-USB for the Wireless version.
 
 <Callout type="info" emoji="ℹ️">
-  In simple terms, **Active PoE(IEEE 802.3af/at)** refers to any type of PoE that negotiates the correct voltage between the switch and the PoE-powered device. **Passive PoE** does no such negotiation, and as such is always sending electric current out over the ethernet cable at a certain voltage regardless of the device it's going to.
+  In simple terms, **Active PoE (IEEE 802.3af/at)** refers to any type of PoE that negotiates the correct voltage between the Power Sourcing Equipment (PSE, like a PoE switch) and the Powered Device (PD, like an Anchor). **Passive PoE** does no such negotiation and continuously sends electric current over the Ethernet cable at a specific voltage, regardless of the connected device.
 </Callout>
 
-Based on your purchase of Locator Kit there maybe two types of Anchor Version. Please follow respective guidelines for different types of Anchor Apollo.
-
+The Locator Kit may include one of two Anchor Apollo versions: Wired or Wireless. Please follow the respective guidelines below for your specific anchor type.
 
 <Tabs items={['Anchor Apollo Wired', 'Anchor Apollo Wireless']}>
   <Tab>
-    **Overview**: The Anchor Apollo Wired need layout of wired Ethernet cables (PoE) to deliver the power and the network backhaul simultaneously.
+    **Overview**: The Anchor Apollo Wired requires a wired Ethernet (PoE) connection to deliver both power and network backhaul simultaneously.
     
-    **Cabling**: Use the provided Ethernet (Cat.5e) cables to powerup all the Anchor. Interconnect the Anchors to PoE switch as shown below
+    **Cabling**: Use the provided Ethernet (Cat.5e or better) cables to power up all Wired Anchors. Interconnect the Anchors to the PoE switch included in your kit or a compatible one.
     
-    _Insert photo showing anchor connect to PoE switch_
+    *(Placeholder: Diagram or photo showing multiple Anchor Apollo Wired units connected to a PoE switch.)*
     
     <Callout type="error" emoji="🚫">
-    **Do not connect Micro-USB and PoE at the same time**. It may damage the Anchor permanently. The Anchor Apollo Wired is supposed to be powered only through PoE
+    **Do not connect Micro-USB and PoE at the same time to the Anchor Apollo Wired**. It may damage the Anchor permanently. The Anchor Apollo Wired is designed to be powered only through PoE.
     </Callout>
 
   </Tab>
   <Tab>
-    **Overview**: The Anchor Apollo Wireless need to be powered by powerbanks (not included in kit). 
+    **Overview**: The Anchor Apollo Wireless is powered via its Micro-USB port, typically using power banks (not included in the kit) for mobile deployments or USB power adapters for fixed setups.
     
-    **Cabling**: Interconnect an anchor with a standard USB-A cable to a powerbank that you bought. You can use a steel ziptie, or velcro tape to fasten the powerbank to tripod as shown below.
+    **Cabling**: Connect the Anchor Apollo Wireless to a power bank using a standard Micro-USB cable. You can use zip ties or Velcro tape to fasten the power bank to the tripod if needed.
     
-    _Insert multiple images of powerbank attached to anchor and tripod_ 
+    *(Placeholder: Images showing an Anchor Apollo Wireless powered by a power bank, with the power bank secured to a tripod.)*
 
     <Callout type="error" emoji="🚫">
-    **Do not connect Micro-USB and PoE at the same time**. It may damage the Anchor permanently. The Anchor Apollo Wireless is supposed to be powered only through Micro-USB
+    **Do not connect PoE to the Anchor Apollo Wireless**. It may damage the Anchor permanently. The Anchor Apollo Wireless is designed to be powered only through its Micro-USB port.
     </Callout>
 
   </Tab>
@@ -54,11 +53,13 @@ Based on your purchase of Locator Kit there maybe two types of Anchor Version. P
 
 ## Tag Alexander Asset Unboxing & Assembly
 
-Tag Alexander Asset is coin-cell powered. The two tags and two coin batteries are delivered within RTLS Locator kit. To make a tag working you have to unscrew the back panel of tag and insert a coin cell into the tag. Below you can find an Assembly Guide where you can find all the details.
+Tag Alexander Asset is coin-cell powered. The RTLS Locator kit typically includes two tags and two CR2032 coin batteries. To activate a tag, unscrew the back panel and insert a coin cell, observing correct polarity.
 
-_Insert PDF explaining Tag Assembly_
+*(Placeholder: Link to or embedded PDF of the Tag Alexander Assembly Guide, or step-by-step images.)*
 
 <Callout type="info" emoji="ℹ️">
-  Remember to check the polarity of the coin-cell while inserting it into the Tag Alexander
+  Remember to check the polarity (+/-) of the coin-cell while inserting it into the Tag Alexander. Incorrect insertion may prevent the tag from working or damage it.
 </Callout>
+
+Once all components are assembled and powered, you can proceed with the [RTLS Hub Setup](./RTLSHub).
   
