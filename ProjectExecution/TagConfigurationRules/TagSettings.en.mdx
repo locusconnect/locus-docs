@@ -1,0 +1,57 @@
+# Tag Settings
+
+## Tx Configuration
+
+In the Enterprise edition of RTLS, Tag Alexander is always is in Tx Only mode. The **DEFAULT** Tx configuration of tag is shown below.
+
+|**Default Settings**|**Preset value**|
+|----   |----   |
+|**Stationary Refresh Rate**| 5000ms on Tag Aexander | 
+|**Moving Refresh Rate**| 1000ms on Tag Aexander | 
+|**UWB Freq.**|6.5 Ghz|
+
+
+## Tag Key Settings
+
+The tag Alexander comes pre-equipped with a motion sensor to have a smart battery management. Consider the following parameters as per your use-case, becasue they typically affect each other and the overall RTLS configuration.
+
+|**Tag Settings**|**Impact on Max No. of Tags** _<br />(within the same location cell)_ |**Impact on Battery life**|
+|----|----|----|
+|**RR - Refrest rate**|<center> ✅<br />Yes </center>|<center> ✅<br/>Yes </center>|
+|**Sleep Settings**|<center> 🚫<br/>No </center>|<center> ✅<br/>Yes </center>| 
+
+## RR - Refresh Rate
+Refresh rate in UWB tags refers to the frequency of updates transmitted by the tag to the network. This frequency can vary based on the application needs, with a higher refresh rate providing more accurate and up-to-date information. However, a higher refresh rate can also result in increased power consumption and reduced battery life. Adjusting the refresh rate can help optimize UWB tag performance for different applications.
+It is the time interval between each **Tx** of Tag.
+
+Locus Alexander tags are eqipped with smart battery management firmaware that enable it to have dynamic refresh rates depending on motion vs stationary. The refresh rate (RR) is key setting for the battery lifetime. You can compare examples in the table below. 
+
+|<b>Use-cases</b>|<b>RR (Refresh rate)</b>|<b>Sleep RR(Sleep Refresh Rate)</b>|<b>Sleep Mode</b>|<b>Expected Battery Life </b>|
+|---|---|---|---|---|
+|Asset/Material tracking|500ms - 1000ms|5 min|Deferred Sleep|1 - 5 years|
+|Vehicle Tracking|200ms-1000ms|5 min|Instant Sleep|1 - 5 years|
+|People Tracking|1000ms-5000ms|5 min|Instant sleep|0.5 - 1 year|
+
+## Motion detection and Sleep models
+### Introduction
+Motion detection via the onboard accelerometer on tag Alexander detects whether the tag is in-motion vs. stationary. This information allows tag to go into sleep mode once the tag is stationary.
+- Motion detection and classification significantly prolongs the battery lifetime.
+- Motion detection decreases channel utlisation.
+- Certain use cases allow motion detection to track theft.
+
+## Tag sleep mode configuration
+The sleep mode configuration depend on the following two factors
+- Refresh rate in activity mode
+- refresh rate in sleeping mode
+
+For stationary tags, you can define **sleep mode types**:
+
+|**Sleep mode**|**Settings**|**Description**|
+|-|-|-|
+|Disabled|Active RR **=** Sleep RR|Tag send blink at regular interval and motion detection is in-active. When the active refresh rate is equal to sleep refresh rate, the tag automatically disables motion detection|
+|Instant Sleep|Active RR **≠** Sleep RR|Once a tag become stationary, tag adjust to sleep mode refresh rate and when the tag detect motion (i.e. activity), it adjust to active mode refresh rate. To set this simply have different values for Sleep Refresh rate and Active Refresh Rate.| 
+
+> The tag movement sensitivity is set to most sensitive value by default.
+## Battery lifetime
+It is mainly dependent on active refresh rate and sleep refresh rate.
+Please use our Tag [battery lifetime calculator]() for details.

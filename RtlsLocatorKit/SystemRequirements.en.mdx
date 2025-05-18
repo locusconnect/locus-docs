@@ -1,0 +1,39 @@
+# System Requirements for RTLS Locator Kit
+
+Meeting the specified system requirements is crucial for a successful and performant deployment of the RTLS Locator Kit. This page outlines the necessary hardware and software prerequisites for both the client computer/server running the RTLS Hub and the RTLS components themselves.
+
+## Component Requirements
+
+### Computer & Peripherals (for RTLS Hub)
+- ✅ **Processor:** x64 architecture with VTx (Virtualization Technology) enabled in BIOS/UEFI.
+- ✅ **Network:** Ethernet port available for wired anchor communication (if applicable) and initial router setup.
+- ✅ **Wireless:** Wi-Fi card for wireless anchor communication (if applicable).
+- ✅ **GPU:** Basic internal or discrete GPU (Recommended if you plan to use the Locus 3D Software for visualization).
+
+### Software (for RTLS Hub)
+- ✅ **Virtualization:** Oracle VirtualBox (latest stable version recommended).
+- ✅ **Web Browser:** Google Chrome (latest stable version recommended, as some Locus 3D Software features may have limited compatibility with other browsers).
+
+### RTLS Hardware (Locator Kit Contents)
+- ✅ Locus Tags
+- ✅ Locus Anchor Apollo (Wired/Wireless)
+- ✅ Power Supplies (e.g., Power Bank or 5V USB Adapters for wireless anchors/router)
+
+### Other Recommended Equipment
+- ✅ Tripods or suitable mounting hardware for optimal anchor placement.
+
+## RTLS Hub Server Specifications
+
+The server or laptop where you deploy the RTLS Hub software (typically running within VirtualBox) requires a sufficiently powerful CPU. A strong single-thread performance is important, but an adequate number of cores/threads is also necessary as the RTLS Hub is a multi-core application.
+
+An example of a server suitable for a typical RTLS Locator Kit deployment is detailed below. Use CPU benchmark websites like [www.cpubenchmark.net](https://www.cpubenchmark.net/) to compare your existing or planned hardware against these recommendations.
+
+| Installation Size                  | CPU Type             | CPU Spec. (Cores/Threads) | CPU Single Thread Rating | CPU Mark | Recommended RAM (for VM) |
+|------------------------------------|----------------------|---------------------------|--------------------------|----------|--------------------------|
+| < 10 Anchors & < 10 Tags @ 0.5s RR | Intel Celeron G1610T | 2/2                       | 1241                     | 1341     | 4 GB                     |
+
+*RR = Refresh Rate*
+
+For more detailed server specifications, especially for larger deployments beyond the scope of a single Locator Kit, please see the page [Server System Specification](../ProjectExecution/NetworkLayout/ServerSystemSpecification).
+
+Ensuring your hardware meets these guidelines will help guarantee a smooth and reliable RTLS experience.

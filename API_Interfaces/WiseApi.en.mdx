@@ -1,0 +1,423 @@
+# Locus WISE Analytics API Documentation
+
+## Overview
+The Locus WISE (Wearable Insights & Sports Analytics Engine) API provides comprehensive endpoints for tracking, analyzing, and visualizing player performance data captured from wearable sensors. It is designed for sports teams, athletic trainers, and researchers to gain deep insights into player movement, exertion, and biomechanics. The API supports real-time data collection, robust session management, and advanced performance analytics.
+
+## Base URL
+```
+http://localhost:5001/api
+```
+
+## Authentication
+API requests require an authentication token passed in the headers:
+
+```
+Authorization: <API_TOKEN>
+Content-Type: application/json
+```
+
+## WebSocket Events
+The API uses Socket.IO for real-time communication.
+
+### Connect to WebSocket
+```javascript
+const socket = io('http://localhost:5001');
+```
+
+### Events
+
+#### 1. Get Players
+```javascript
+// Emit event
+socket.emit('get_players');
+
+// Listen for response
+socket.on('players_list', (data) => {
+  // Array of player objects
+  // [{player_id, name, team_name, etc}]
+});
+```
+
+#### 2. Get Player Sessions  
+```javascript
+// Emit event
+socket.emit('get_player_sessions', {
+  player_id: 'player123'
+});
+
+// Listen for response
+socket.on('sessions_list', (data) => {
+  // Array of session objects
+  // [{session_id, start_time, end_time, etc}]
+});
+```
+
+#### 3. Get WISE Analytics
+```javascript
+// Request analytics for a session
+socket.emit('get_player_analytics', {
+  player_id: 'player123',
+  session_id: 'session456'
+});
+
+// Listen for analytics response
+socket.on('player_analytics_response', (data) => {
+  /* Response format:
+  {
+    steps: { count: number },
+    jumps: { count: number },
+    speeds: {
+      max: number,
+      average: number,
+      data: number[]
+    },
+    acceleration_magnitude: {
+      data: number[],
+      timestamps: number[]  
+    },
+    tracking_data: [{
+      timestamp_micros: number,
+      x_position: number,
+      y_position: number
+    }],
+    floorplan: {
+      imageUrl: string,
+      x: number,
+      y: number,
+      scale: number,
+      angle: number
+    }
+  }
+  */
+});
+
+// Listen for progress updates
+socket.on('progress', (data) => {
+  // Processing progress 0-100%
+});
+
+// Listen for errors
+socket.on('error', (error) => {
+  // Error handling
+});
+```
+
+#### 4. Delete Session
+```javascript
+// Emit delete event
+socket.emit('delete_session', {
+  session_id: 'session456'
+});
+
+// Listen for confirmation
+socket.on('session_deleted', (data) => {
+  // {session_id: 'session456'} 
+});
+```
+
+## REST Endpoints
+
+### 1. Get Players
+```
+GET api/players
+```
+
+Response:
+```json
+{
+  "players": [
+    {
+      "player_id": "string",
+      "name": "string",
+      "initials": "string",
+      "height": "number",
+      "weight": "number",
+      "team_id": "string",
+      "team_name": "string"
+    }
+  ]
+}
+```
+
+### 2. Get Player Sessions
+```
+GET api/players/{player_id}/sessions
+```
+
+Response:
+```json
+{
+  "sessions": [
+    {
+      "session_id": "string",
+      "start_time": "datetime",
+      "end_time": "datetime", 
+      "duration": "number",
+      "data_points": "number",
+      "status": "active|completed"
+    }
+  ]
+}
+```
+
+### 3. Get WISE Analytics
+
+**Endpoint:** `/api/analytics`  
+**Method:** `POST`  
+**Description:** Process and retrieve analytics data for a player's session.
+
+**Request Headers:**
+```
+Content-Type: application/json
+```
+
+**Request Body:**
+```json
+{
+  "player_id": "string",     // Required: Unique identifier for the player
+  "session_id": "string"     // Required: Unique identifier for the session
+}
+```
+
+**Success Response:**
+```json
+{
+  "speeds": {
+    "data": [10.5, 12.3, 11.7, ...],     // Speed values in km/h
+    "timestamps": [1620000000000, ...],   // Timestamps in microseconds
+    "average": 11.5,                      // Average speed in km/h
+    "max": 15.2                          // Maximum speed in km/h
+  },
+  "displacement": {
+    "data": [0.0, 0.1, 0.3, ...],       // Cumulative displacement values
+    "total": 5.2                         // Total displacement in meters
+  },
+  "steps": {
+    "count": 120                         // Total number of steps detected
+  },
+  "jumps": {
+    "count": 5                           // Total number of jumps detected
+  },
+  "acceleration_magnitude": {
+    "data": [0.5, 0.6, 0.7, ...]        // Acceleration magnitude values
+  },
+  "tracking_data": [
+    {
+      "timestamp_micros": 1620000000000,
+      "x_position": 1.0,
+      "y_position": 2.0
+    },
+    ...
+  ]
+}
+```
+
+**Error Responses:**
+```json
+{
+  "error": "Session not found"
+}
+```
+```json
+{
+  "error": "No tracking data found"
+}
+```
+
+**Example Request:**
+```python
+import requests
+
+url = 'http://localhost:5001/api/analytics'
+data = {
+    'player_id': 'player123',
+    'session_id': 'session456'
+}
+headers = {'Content-Type': 'application/json'}
+
+response = requests.post(url, json=data, headers=headers)
+print(response.json())
+```
+
+**cURL Example:**
+```bash
+curl -X POST http://localhost:5001/api/analytics \
+     -H "Content-Type: application/json" \
+     -d '{"player_id": "player123", "session_id": "session456"}'
+```
+
+**Status Codes:**
+- 200: Success
+- 400: Bad Request - Invalid input data
+- 404: Not Found - Session or player not found
+- 500: Internal Server Error
+
+For further assistance or questions regarding the WISE API, please consult the Locus Connect support channels or developer community.
+
+## Data Models
+
+### Player
+```typescript
+interface Player {
+  player_id: string;
+  name: string;
+  initials: string;
+  height: number;
+  weight: number;
+  team_id: string;
+  team_name: string;
+}
+```
+
+### Session
+```typescript
+interface Session {
+  session_id: string;
+  player_id: string;
+  start_time: string;
+  end_time: string;
+  duration: number;
+  data_points: number;
+  status: 'active' | 'completed';  
+}
+```
+
+### Analytics
+```typescript
+interface Analytics {
+  steps: {
+    count: number;
+  };
+  jumps: {
+    count: number;
+  };
+  speeds: {
+    max: number;
+    average: number;
+    data: number[];
+  };
+  acceleration_magnitude: {
+    data: number[];
+    timestamps: number[];
+  };
+  tracking_data: {
+    timestamp_micros: number;
+    x_position: number;
+    y_position: number;
+  }[];
+  floorplan?: {
+    imageUrl: string;
+    x: number;
+    y: number;
+    scale: number;
+    angle: number;
+  };
+}
+```
+
+## Error Handling
+The API uses standard HTTP status codes and returns error messages in the following format:
+
+```json
+{
+  "error": "Error message",
+  "status": 400
+}
+```
+
+Common error codes:
+- 400: Bad Request
+- 401: Unauthorized 
+- 404: Resource Not Found
+- 500: Internal Server Error
+
+## Rate Limiting
+The API implements rate limiting of 100 requests per minute per IP address. Exceeding this limit will return a 429 Too Many Requests error.
+
+## Example Usage
+
+### JavaScript/TypeScript
+```typescript
+import { io } from 'socket.io-client';
+
+// Connect to WebSocket
+const socket = io('http://localhost:5001');
+
+// Get players
+socket.emit('get_players');
+
+socket.on('players_list', (players) => {
+  console.log('Players:', players);
+});
+
+// Get analytics for a player session
+socket.emit('get_player_analytics', {
+  player_id: 'player123',
+  session_id: 'session456'
+});
+
+socket.on('player_analytics_response', (analytics) => {
+  console.log('Analytics:', analytics);
+  
+  // Process analytics data
+  const {steps, jumps, speeds, acceleration_magnitude} = analytics;
+  
+  // Update UI with results
+  displayMetrics(steps.count, jumps.count, speeds.max);
+  
+  // Plot time series data
+  plotSpeedGraph(speeds.data);
+  plotAccelerationGraph(acceleration_magnitude.data, acceleration_magnitude.timestamps);
+});
+
+// Handle errors
+socket.on('error', (error) => {
+  console.error('Socket error:', error);
+});
+```
+
+### Python 
+```python
+import socketio
+import asyncio
+
+# Initialize Socket.IO client
+sio = socketio.AsyncClient()
+
+@sio.event
+async def connect():
+    print('Connected to server')
+    
+    # Get players
+    await sio.emit('get_players')
+
+@sio.event
+def players_list(data):
+    print('Players:', data)
+
+@sio.event
+def player_analytics_response(data):
+    print('Analytics:', data)
+    # Process analytics data
+    
+async def main():
+    await sio.connect('http://localhost:5001')
+    await sio.emit('get_player_analytics', {
+        'player_id': 'player123',
+        'session_id': 'session456'
+    })
+    await sio.wait()
+
+asyncio.run(main())
+```
+
+## Best Practices
+
+1. Always handle WebSocket disconnections and reconnections gracefully
+2. Implement proper error handling for both REST and WebSocket calls
+3. Use appropriate data validation before sending requests
+4. Cache responses when appropriate to minimize server load
+5. Close WebSocket connections when they are no longer needed
+
+## Support
+For API support and bug reports, please open an issue on our [GitHub repository](https://github.com/your-repo/issues).

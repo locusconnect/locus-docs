@@ -1,0 +1,107 @@
+# RTLS Hub Known Issues
+
+## Current Version Issues
+
+This document outlines known issues in the current version of Locus RTLS Hub (v4.2) and provides workarounds where available.
+
+### Critical Issues
+
+| Issue ID | Description | Affected Components | Workaround | Fix Status |
+|----------|-------------|---------------------|------------|------------|
+| HUB-1023 | Database connection may time out after extended idle periods | Database, Core Services | Implement a keep-alive connection policy | Scheduled for v4.3 |
+| HUB-1045 | Real-time monitoring may become unresponsive with more than 1000 concurrent tags | Web Interface, Monitoring | Limit dashboard views to 500 tags or fewer | Patch available (4.2.3) |
+| HUB-1048 | System may fail to auto-recover after unexpected power loss | Core Services | Implement watchdog service or UPS | In development |
+
+### High Priority Issues
+
+| Issue ID | Description | Affected Components | Workaround | Fix Status |
+|----------|-------------|---------------------|------------|------------|
+| HUB-982 | Historical data export may time out for large date ranges | Analytics, Database | Export data in smaller date range increments | Scheduled for v4.3 |
+| HUB-997 | Automatic anchor discovery may miss anchors on complex networks | Configuration | Use manual anchor registration | In testing |
+| HUB-1008 | Zone-based alerts may not trigger if tags move very quickly between zones | Monitoring, Alerting | Increase zone buffer areas or use velocity-based filtering | Patch available (4.2.3) |
+
+### Performance Issues
+
+| Issue ID | Description | Affected Components | Workaround | Fix Status |
+|----------|-------------|---------------------|------------|------------|
+| HUB-976 | 3D visualization performance degrades with complex floor plans | Web Interface, Visualization | Use simplified 2D views for large areas | Optimization in progress |
+| HUB-988 | System memory usage increases over time on servers with 8GB RAM | Core Services, Database | Restart services weekly or increase server RAM | Under investigation |
+| HUB-1015 | Report generation can cause high CPU utilization | Analytics, Reporting | Schedule reports during off-peak hours | Optimization scheduled |
+
+### UI/UX Issues
+
+| Issue ID | Description | Affected Components | Workaround | Fix Status |
+|----------|-------------|---------------------|------------|------------|
+| HUB-965 | Tag filter settings reset when switching between views | Web Interface, Monitoring | Save custom filter configurations | Fixed in v4.2.3 |
+| HUB-979 | Color coding legend may not display correctly on some mobile browsers | Web Interface | Use desktop browser for full functionality | Scheduled for v4.3 |
+| HUB-1002 | Some UI elements may overlap on 1366x768 resolution screens | Web Interface | Use 1920x1080 or higher resolution | Fixed in v4.2.3 |
+
+## Version-Specific Issues
+
+### Version 4.2.2
+
+* System logs may grow excessively large over time (HUB-1033)
+* Firmware update process may stall at 90% completion (HUB-1038)
+* Custom report templates may not save correctly (HUB-1042)
+
+### Version 4.2.1
+
+* Integration with some third-party systems may fail after 24 hours (HUB-1006)
+* Tag battery level reporting may be inaccurate (HUB-1012)
+* Email alerts may be delayed under high system load (HUB-1018)
+
+### Version 4.2.0
+
+* Initial database setup may fail on systems with non-standard character sets (HUB-985)
+* User permissions not correctly applied to new analytics features (HUB-989)
+* System timezone changes may cause historical data gaps (HUB-992)
+
+## Browser Compatibility
+
+The RTLS Hub web interface has known issues with the following browsers:
+
+* Internet Explorer (all versions) - Not supported, use Edge instead
+* Safari versions prior to 14.0 - Limited functionality
+* Firefox on Linux - Some visualization features may not work correctly
+* Chrome on Windows 7 - Performance issues with 3D visualization
+
+## Hardware Compatibility
+
+The following hardware configurations may experience issues:
+
+* Virtual machines with dynamic resource allocation
+* Systems with Intel graphics prior to HD 4000 series
+* Network interfaces using certain Realtek chipsets
+* Systems with less than 8GB RAM
+
+## Reporting New Issues
+
+If you encounter an issue not listed in this document:
+
+1. Check that you are running the latest version and patches
+2. Search the knowledge base at https://support.locusconnect.com
+3. Collect relevant information:
+   * Error messages and screenshots
+   * System logs
+   * Steps to reproduce the issue
+   * Environment details
+4. Submit a support ticket through the customer portal
+5. For urgent issues, contact technical support directly
+
+## Upcoming Fixes
+
+The following issues are scheduled to be fixed in upcoming releases:
+
+### Version 4.2.3 (Patch)
+
+* HUB-1045: Performance issues with large tag counts
+* HUB-1008: Zone-based alert reliability
+* HUB-965: Tag filter persistence
+* HUB-1002: UI layout on lower resolutions
+
+### Version 4.3 (Next Major Release)
+
+* HUB-1023: Database timeout issues
+* HUB-982: Historical data export performance
+* HUB-979: Mobile browser compatibility
+* Complete redesign of the reporting engine

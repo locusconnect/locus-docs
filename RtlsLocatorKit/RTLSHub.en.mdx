@@ -1,0 +1,79 @@
+import { Callout } from 'nextra-theme-docs'
+
+# RTLS Hub Setup for Locator Kit (VirtualBox Method)
+
+This guide details the installation of RTLS Hub software using a VirtualBox virtual image, which is often the quickest way to get started with the RTLS Locator Kit for demonstrations or small Proof of Concepts (PoCs). While native Ubuntu installation is also an option (see [RTLS Hub Installation Guide](../RTLS_Hub/RtlsHubInstallGuide)), this section focuses on the VirtualBox deployment.
+
+Each RTLS Hub version is available as a **virtual image file (.ova or .vbox)**. This method is beneficial for beginners and for small-scale deployments.
+
+<Callout emoji="ℹ️" type="info">
+ **VirtualBox Installation Requirements**:
+ - RTLS Hub VirtualBox image **.zip package** (downloadable from [Locus Portal](https://portal.locusconnect.com))
+ - Oracle VM VirtualBox software installed on your host PC (downloadable from [https://www.virtualbox.org/](https://www.virtualbox.org/))
+</Callout>
+
+## VirtualBox and RTLS Hub Image Installation
+
+1.  Go to the official website of [Oracle VirtualBox](https://www.virtualbox.org/) and click on **Download VirtualBox 7.0** (or the latest stable version).
+    *(Placeholder: Screenshot of the VirtualBox website download page.)*
+
+2.  Download the appropriate VirtualBox package for your host operating system (e.g., Windows host).
+    *(Placeholder: Screenshot showing the selection of the Windows host package on the VirtualBox download page.)*
+
+3.  Open the downloaded installer file and follow the on-screen prompts to complete the installation of VirtualBox.
+    *(Placeholder: Screenshot of a step in the VirtualBox installation wizard.)*
+
+4.  After successfully installing VirtualBox, download the **RTLS Hub VirtualBox Image** from the **[Locus Portal -> Downloads section](https://portal.locusconnect.com/downloads)**.
+    *(Placeholder: Screenshot of the Locus Portal downloads page highlighting the RTLS Hub VirtualBox image.)*
+
+5.  Once the RTLS Hub image (e.g., a `.ova` file) is downloaded, open VirtualBox and select **File -> Import Appliance...** (or **Machine -> Add...** if you have an unzipped `.vbox` file and associated disk images).
+    *(Placeholder: Screenshot of VirtualBox Manager with "Import Appliance" menu highlighted.)*
+
+6.  Browse to and select the downloaded RTLS Hub image file (e.g., `.ova`) and press **"Open"** or **"Next"**. Follow the prompts to import the appliance. The image will then be added to the VirtualBox list of virtual machines.
+    *(Placeholder: Screenshot of the VirtualBox import appliance dialog showing the selected image.)*
+
+7.  Before starting the VM, verify its settings. Select the imported RTLS Hub VM and go to **Settings -> Network**.
+    *(Placeholder: Screenshot of VirtualBox VM settings with the "Network" tab selected.)*
+
+8.  Ensure that for **Adapter 1** (or the primary network adapter), it is **Attached to: Bridged Adapter**, and select your host computer's active **Ethernet network adapter** from the **Name** dropdown. Also, ensure the **Cable connected** checkbox is checked.
+    *(Placeholder: Screenshot of Network Adapter settings in VirtualBox, showing "Bridged Adapter" selected and the host Ethernet adapter chosen.)*
+
+9.  After these steps, start the RTLS Hub virtual machine. It should now be up and running.
+    *(Placeholder: Screenshot of the RTLS Hub VM console after a successful boot, possibly showing a login prompt or IP address.)*
+
+<Callout emoji="ℹ️" type="info">
+- Once the VirtualBox VM is running, your host computer will need to have an active Ethernet connection (the one bridged to the VM). Otherwise, you may not be able to connect to the RTLS Hub services from other devices on your network.
+- Please also ensure that the VirtualBox VM has been allocated at least 2 CPU cores and sufficient RAM (refer to [System Requirements](./SystemRequirements)). For laptops, ensure the power plan is set to a high-performance mode rather than power-saving.
+</Callout>
+
+10. **After the software installation and VM startup are complete, it is time to deploy and connect all the Anchors**
+
+## Troubleshooting
+
+### Virtualization (VT-x/AMD-V) is disabled in BIOS/UEFI
+
+It may happen that hardware virtualization is disabled on the host machine, preventing VirtualBox from running 64-bit VMs or performing optimally.
+
+1.  If this is the case, you need to enable virtualization in your computer's BIOS/UEFI settings. To access BIOS/UEFI on Windows, you can often go to **Settings -> Update & Security -> Recovery -> Advanced startup** and click **"Restart now"**.
+    *(Placeholder: Screenshot of Windows Advanced Startup options.)*
+
+2.  After the restart, choose **Troubleshoot**.
+    *(Placeholder: Screenshot of the "Choose an option" screen with "Troubleshoot" highlighted.)*
+
+3.  Then click **Advanced options**.
+    *(Placeholder: Screenshot of the "Troubleshoot" screen with "Advanced options" highlighted.)*
+
+4.  Select **UEFI Firmware Settings** (this option might vary).
+    *(Placeholder: Screenshot of "Advanced options" with "UEFI Firmware Settings" highlighted.)*
+
+This will restart your computer and take you to the BIOS/UEFI setup utility. The location of virtualization settings (often called **Intel VT-x**, **AMD-V**, **SVM Mode**, or similar) varies by manufacturer and BIOS version. It is typically found under "Advanced", "CPU Configuration", or "Security" tabs. Find the option and **Enable** it. Save the changes and exit BIOS/UEFI. Your computer will restart. Then, launch VirtualBox again, and the RTLS Hub image should load without virtualization-related errors.
+
+<Callout type="warning" emoji="⚠️">
+  Accessing and modifying BIOS/UEFI settings should be done carefully. If you are unsure, consult your computer or motherboard manufacturer's documentation.
+</Callout>
+
+With the RTLS Hub running, you can proceed to configure your anchors and tags through its interface.
+
+
+
+

@@ -1,0 +1,51 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Wireless Networking for Locator Kit
+
+This section details the setup and configuration of wireless networking for the RTLS Locator Kit. Wireless installation is primarily suggested for small demonstrations and technology presentations. For project deployments or Proof of Concepts (PoCs), we strongly recommend a wired solution for optimal stability and performance.
+
+👇🏻Wireless installation is suggested **only for small demos** and a technology presentation on RTLS. Our recommendation to use wired solution for a project or PoC.
+
+## Wireless Communication Flow
+The RTLS Locator Kit, when used wirelessly, employs UWB communication among the anchors to transmit location data to a designated Master Anchor. This Master Anchor then relays the data back to the client system (hosting the RTLS Hub) via the Wi-Fi router provided in the kit.
+
+*(Placeholder: A simplified diagram illustrating data flow: Tags -> Slave Anchors (UWB) -> Master Anchor (UWB) -> Wi-Fi Router (Wi-Fi) -> Client System with RTLS Hub.)*
+
+## Wireless Network Planning Rules
+The wireless network topology should adhere to the following example:
+
+*(Placeholder: Image showing three wireless slave anchors in a square geometry, all communicating wirelessly with a Master Anchor. The Master Anchor is then connected via an Ethernet cable to the Wi-Fi router, which in turn connects to the RTLS LLE or a laptop running RTLS Hub.)*
+
+The three wireless anchors in a square geometry connect wirelessly to the Master Anchor. The Master Anchor is typically located in one corner of the localization cell and is connected via an Ethernet cable to the RTLS LLE or a laptop running RTLS Hub (via the Wi-Fi router).
+
+## Router GL-AR300M Configuration
+
+<Callout emoji="ℹ️" type="info">
+ **Tip:** The router is delivered to you with the manufacturer's default configuration.
+</Callout>
+
+For router configuration, please follow these steps:
+1. Plug the router into a power supply via its micro USB connector. You can use any standard USB charger. Connect your computer to the router's **LAN** port using an Ethernet cable. Ensure your computer's Ethernet interface is set as a **DHCP Client**.
+2. Open your web browser and navigate to the IP Address: **192.168.8.1**
+3. Choose your preferred language and proceed.
+4. Set a new router admin password: **locusrtls** and click submit.
+5. Click on **WIRELESS** and then **Modify** the Wi-Fi settings.
+6. Change the **Wi-Fi Name (SSID)** and **Wi-Fi Key (password)** to the values intended for the Anchors' wireless connection:
+    - **Wi-Fi Name:** Locus RTLS
+    - **Wi-Fi Key:** rtlswifi
+
+*(Placeholder: Screenshots illustrating the router configuration steps: e.g., wireless settings page showing SSID and Key fields, LAN IP change page.)*
+
+7. Go to the section **MORE SETTINGS** and select **LAN IP** settings.
+8. Change the default router IP address to: **192.168.88.1**
+9. Wait for the router to reboot. If it doesn't redirect you automatically, navigate to the new IP Address in your browser: **192.168.88.1**
+10. The router setup is now complete. The new router admin credentials are:
+    - **Username**: root
+    - **Router Admin Password**: locusrtls (Note: This is the password you set in step 4. The Wi-Fi key `rtlswifi` is for devices connecting to the Wi-Fi network.)
+11. You can now start deploying the Anchors.
+    
+<Callout emoji="ℹ️" type="info">
+ **Tip:** You can save the router configuration to a file as a backup.
+</Callout>
+
+Once the router is configured and your anchors are powered on, they should automatically connect to the specified Wi-Fi network. Refer to the anchor documentation for further steps on verifying their connection and status.
