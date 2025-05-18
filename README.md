@@ -1,36 +1,32 @@
-# Locus Documentation
+# Mintlify Starter Kit
 
-This is the documentation website for Locus Connect Technologies Co. Ltd. built with [Nextra](https://nextra.site) 4.x.
+Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
 
-## Development
+- Guide pages
+- Navigation
+- Customizations
+- API Reference pages
+- Use of popular components
 
-```bash
-# Install dependencies
-npm install
+### Development
 
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
-```
-
-## Technology Stack
-
-- [Next.js](https://nextjs.org/) 14.x
-- [Nextra](https://nextra.site) 4.x
-- [Nextra Docs Theme](https://nextra.site/docs/docs-theme/start) 4.x
-- [Tailwind CSS](https://tailwindcss.com/)
-
-## Notes
-
-This documentation website has been upgraded to Nextra 4.x, which includes various improvements and new features compared to the previous version. See the [Nextra changelog](https://github.com/shuding/nextra/blob/main/packages/nextra-theme-docs/CHANGELOG.md) for details.
-
-[**Live Demo →**](https://docs.locusconnect.com)
-
-## Adding a button
+Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
 
 ```
+npm i -g mintlify
+```
+
+Run the following command at the root of your documentation (where docs.json is)
+
+```
+mintlify dev
+```
+
+### Publishing Changes
+
+Install our Github App to auto propagate changes from your repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
+
+#### Troubleshooting
+
+- Mintlify dev isn't running - Run `mintlify install` it'll re-install dependencies.
+- Page loads as a 404 - Make sure you are running in a folder with `docs.json`
