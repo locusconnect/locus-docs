@@ -13,36 +13,149 @@
       {
         "language": "en",
         "groups": [
-          {
-            "group": "Get Started",
+           {
+            "group": "Getting Started",
             "pages": [
               "Overview",
-              "quickstart"
+              {
+                "group": "RTLS Kit",
+                "pages": [
+                  "RtlsLocatorKit/LocatorKitOverview.en",
+                  "RtlsLocatorKit/LocatorKitAssembly.en",
+                  "RtlsLocatorKit/AnchorDeploymentRules.en",
+                  "RtlsLocatorKit/WiredNetwork.en",
+                  "RtlsLocatorKit/WirelessNetwork.en",
+                  "RtlsLocatorKit/SystemRequirements.en",
+                  "RtlsLocatorKit/RtlsHubInstallation.en",
+                  "RtlsLocatorKit/MaintenanceAndCare.en"
+                ]
+              }
+            ]
+           },
+           {
+            "group": "Deployment Guide",
+            "pages": [
+              {
+                "group": "Tag Configuration",
+                "pages": [
+                  "ProjectExecution/TagConfigurationRules/TagInstallationRules.en",
+                  "ProjectExecution/TagConfigurationRules/TagSettings.en",
+                  "ProjectExecution/TagConfigurationRules/TagPopulationDensity.en"
+                ]
+              },
+              {
+                "group": "Anchor Installation",
+                "pages": [
+                  "ProjectExecution/AnchorInstallationRules/AnchorInstallationRules.en",
+                  "ProjectExecution/AnchorInstallationRules/AnchorWiredInstallation.en",
+                  "ProjectExecution/AnchorInstallationRules/AnchorWirelessInstallation.en",
+                  "ProjectExecution/AnchorInstallationRules/AnchorStartup.en"
+                ]
+              },
+              
+              "ProjectExecution/AnchorLayoutPlanning.en",
+              "ProjectExecution/SiteSurvey.en",
+              {
+                "group": "Networking Layout",
+                "pages": [
+                  "ProjectExecution/NetworkLayout/NetworkArchitectureAndPorts",
+                  "ProjectExecution/NetworkLayout/ServerSystemSpecification",
+                  "ProjectExecution/NetworkLayout/StorageQuotaSpecification"
+                ]
+              },
+              "ProjectExecution/AnchorDeployment.en",
+              {
+                "group": "RTLS Hub Configuration",
+                "pages": [
+                  "ProjectExecution/RTLSHubConfiguration/SettingUpRtlsHub.en",
+                  "ProjectExecution/RTLSHubConfiguration/ConfiguringFloorplans.en",
+                  "ProjectExecution/RTLSHubConfiguration/AnchorCoordinates.en",
+                
+                  "ProjectExecution/RTLSHubConfiguration/GeofenceConfiguration.en"
+                ]
+              },
+              {
+                "group": "Troubleshooting",
+                "pages": [
+                  "ProjectExecution/Troubleshooting/AnchorLed.en",
+                  "ProjectExecution/Troubleshooting/DataPayload.en",
+                  "ProjectExecution/Troubleshooting/RTLSSystemPerformance.en",
+                  "ProjectExecution/Troubleshooting/RaiseSupportTicket.en"
+                ]
+              }
             ]
           },
           {
-            "group": "Essentials",
+            "group": "RTLS Hub Software",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "RTLS_Hub/SoftwareTour.en",
+              {
+                "group": "RTLS Hub Documentation",
+                "pages": [
+                  "RTLS_Hub/Documentation/RtlsHubOverview.en",
+                  "RTLS_Hub/Documentation/DashboardControls.en",
+                  "RTLS_Hub/Documentation/FloorplanMenu.en",
+                  "RTLS_Hub/Documentation/TagManagement.en",
+                  "RTLS_Hub/Documentation/UsersAndApi.en",
+                  "RTLS_Hub/Documentation/WiseAnalytics.en"
+                ]
+              },
+              "RTLS_Hub/RtlsHubInstallGuide.en",
+              "RTLS_Hub/KnownIssues.en"
             ]
           },
           {
-            "group": "API Documentation",
+            "group": "RTLS Anchor Software",
             "pages": [
+              "RtlsAnchors/AnchorOverview.en",
+              "RtlsAnchors/TechnicalSpecifications.en",
+              "RtlsAnchors/PowerSupply.en",
+              "RtlsAnchors/AssemblyAndMounting.en",
+              "RtlsAnchors/SafetyAndRegulatoryInformation.en",
+              "RtlsAnchors/AnchorLedIndication.en"
+            ]
+          },
+          {
+            "group": "RTLS Tags",
+            "pages": [
+              {
+                "group": "Tag Types",
+                "pages": [
+                  "RtlsTags/TagTypes/index.en",
+                  "RtlsTags/TagTypes/LC01Series",
+                  "RtlsTags/TagTypes/LC03Series",
+                  "RtlsTags/TagTypes/OtherTags.en"
+                
+                ]
+              },
+              "RtlsTags/SmartSleepModes.en",
+              "RtlsTags/TagBattery",
+              "RtlsTags/TagPeripherals",
+              "RtlsTags/DefaultConfigurations.en"
+            ]
+          },
+          {
+            "group": "UWB Technology Overview",
+            "pages": [
+              "RtlsTechnology/UwbTechnology.en",
+              "RtlsTechnology/UwbChannelsAndProfiles.en",
+              "RtlsTechnology/RtlsSystemArchitecture.en",
+              {
+                "group": "Radio Performance Parameters",
+                "pages": [
+                  "RtlsTechnology/RfPerformanceParameters/FirstPath.en",
+                  "RtlsTechnology/RfPerformanceParameters/LOS.en",
+                  "RtlsTechnology/RfPerformanceParameters/Rssi.en"
+                ]
+              }
+            ]
+          },
+          
+          {
+            "group": "API & Integration",
+            "pages": [
+              "API_Interfaces",
               "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete"
             ]
           }
         ]
@@ -55,7 +168,7 @@
   },
   "footer": {
     "socials": {
-      "linkedin": "https://www.linkedin.com/company/locusconnect"
+      "linkedin": "https://www.linkedin.com/company/locus-connect"
     }
   },
   "integrations": {
@@ -65,5 +178,8 @@
     "gtm": {
         "tagId": "GTM-0WLKXL1TSZ"
     }
-}
+  },
+  "icons": {
+    "library": "fontawesome"
+  }
 }

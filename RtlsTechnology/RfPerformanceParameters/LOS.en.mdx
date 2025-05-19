@@ -1,0 +1,114 @@
+---
+title: 'Line of Sight'
+description: 'Line of Sight (LOS) parameters are critical metrics used in Locus RTLS to determine the quality and reliability of radio connections between system components. These parameters help distinguish between direct signal paths and obstructed or reflected paths.'
+---
+
+## Overview
+
+Line of Sight (LOS) parameters are critical metrics used in Locus RTLS to determine the quality and reliability of radio connections between system components. These parameters help distinguish between direct signal paths and obstructed or reflected paths.
+
+## Key LOS Parameters
+
+### Channel Impulse Response (CIR)
+
+The Channel Impulse Response provides a complete picture of how the UWB signal propagates through the environment:
+
+* Captures all signal paths including direct and reflected components
+* Measured in the time domain with nanosecond resolution
+* Used to analyze multipath characteristics and signal quality
+
+![Channel Impulse Response Example](https://via.placeholder.com/600x300?text=Channel+Impulse+Response+Example)
+
+### Leading Edge Detection
+
+Leading Edge Detection identifies the first arriving signal component:
+
+* Utilizes advanced algorithms to identify the direct path
+* Critical for accurate time-of-flight calculations
+* Affected by signal-to-noise ratio and multipath interference
+
+### Line of Sight Probability (LOS-P)
+
+Line of Sight Probability estimates the likelihood that a measurement comes from a direct path:
+
+* Expressed as a percentage (0-100%)
+* Based on multiple signal characteristics
+* Used to weight measurements in position calculations
+
+| LOS-P Value | Interpretation | Position Reliability |
+|-------------|----------------|---------------------|
+| 90-100% | Clear line of sight | Very high |
+| 70-90% | Mostly clear with minor obstructions | High |
+| 40-70% | Partial obstructions | Moderate |
+| 10-40% | Significant obstructions | Low |
+| 0-10% | No line of sight (NLOS) | Very low |
+
+## LOS vs. NLOS Conditions
+
+### Line of Sight (LOS)
+
+* Direct, unobstructed path between transmitter and receiver
+* Provides most accurate distance measurements
+* Characterized by:
+  * Strong first path signal
+  * Short time-of-arrival
+  * Consistent measurements
+
+### Non-Line of Sight (NLOS)
+
+* Obstructed direct path, signal reaches receiver via reflections
+* Results in less accurate distance measurements
+* Characterized by:
+  * Weaker first path signal
+  * Delayed time-of-arrival
+  * Higher variability in measurements
+
+## Using LOS Parameters
+
+### In System Design
+
+* Place anchors to maximize LOS between nodes
+* Account for NLOS paths in coverage planning
+* Optimize the number and placement of anchors
+
+### In Position Calculation
+
+* Apply different weightings to LOS and NLOS measurements
+* Use NLOS identification to filter out unreliable data
+* Apply correction algorithms to NLOS measurements
+
+### In System Monitoring
+
+* Track LOS parameters over time to detect changes
+* Identify new obstructions or environmental changes
+* Predict potential system performance degradation
+
+## LOS Parameter Analysis Tools
+
+The Locus RTLS Hub provides several tools for LOS parameter analysis:
+
+### Real-time Monitoring
+
+* View live LOS parameters for all system links
+* Set thresholds for alerts and notifications
+* Filter by link type, quality, or location
+
+### Historical Analysis
+
+* Track parameter changes over time
+* Correlate with system performance metrics
+* Generate reports for system optimization
+
+### Link Quality Maps
+
+* Visualize LOS quality across your deployment area
+* Identify problematic zones for improvement
+* Plan system expansion with LOS considerations
+
+## Best Practices
+
+* Regularly monitor LOS parameters as part of system maintenance
+* Use LOS parameters to guide anchor placement and adjustments
+* Consider both LOS probability and signal strength when evaluating links
+* Be aware of temporal factors that can affect LOS (moving equipment, people, etc.)
+* Establish baseline LOS parameters after initial installation
