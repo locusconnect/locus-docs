@@ -10,7 +10,13 @@
   "favicon": "/favicon.svg",
   "seo": {
     "metatags": {
-        "og:image": "/images/og.png"
+      "title": "Overview - Locus RTLS Documentation",
+      "description": "Discover Locus RTLS - A powerful industrial positioning system with 10-30cm accuracy. Complete guide to hardware, software, and deployment.",
+      "og:url": "https://docs.locusconnect.com",
+      "og:type": "website",
+      "og:title": "Overview - Locus RTLS Documentation",
+      "og:description": "Discover Locus RTLS - A powerful industrial positioning system with 10-30cm accuracy. Complete guide to hardware, software, and deployment.",
+      "og:image": "/images/og.png"
     }
   },
   "navigation": {
@@ -174,7 +180,6 @@
               "Changelog/v1.0.0-Changelog"
             ]
           }
-
         ]
       }
     ]
