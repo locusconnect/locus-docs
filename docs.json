@@ -3,14 +3,23 @@
   "theme": "maple",
   "name": "Locus RTLS Documentation",
   "colors": {
-    "primary": "#9A3412",
-    "light": "#EA580C",
-    "dark": "#9A3412"
+    "primary": "#F2A532",
+    "light": "#F2A532",
+    "dark": "#5B3F18"
+  },
+  "background": {
+    "decoration": "grid"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "contextual": {
+    "options": ["copy", "view", "chatgpt", "claude"]
   },
   "favicon": "/favicon.svg",
   "seo": {
     "metatags": {
-        "og:image": "/images/og.png"
+      "og:image": "/images/og.png"
     }
   },
   "navigation": {
@@ -170,11 +179,8 @@
           },
           {
             "group": "Changelog",
-            "pages": [
-              "Changelog/v1.0.0-Changelog"
-            ]
+            "pages": ["Changelog/v1.0.0-Changelog"]
           }
-
         ]
       }
     ]
