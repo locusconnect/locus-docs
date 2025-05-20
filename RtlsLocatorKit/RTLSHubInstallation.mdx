@@ -1,12 +1,10 @@
-import { Callout } from 'nextra-theme-docs'
-
 # RTLS Hub Setup for Locator Kit (VirtualBox Method)
 
 This guide details the installation of RTLS Hub software using a VirtualBox virtual image, which is often the quickest way to get started with the RTLS Locator Kit for demonstrations or small Proof of Concepts (PoCs). While native Ubuntu installation is also an option (see [RTLS Hub Installation Guide](../RTLS_Hub/RtlsHubInstallGuide)), this section focuses on the VirtualBox deployment.
 
 Each RTLS Hub version is available as a **virtual image file (.ova or .vbox)**. This method is beneficial for beginners and for small-scale deployments.
 
-<Callout emoji="ℹ️" type="info">
+<Callout type="info">
  **VirtualBox Installation Requirements**:
  - RTLS Hub VirtualBox image **.zip package** (downloadable from [Locus Portal](https://portal.locusconnect.com))
  - Oracle VM VirtualBox software installed on your host PC (downloadable from [https://www.virtualbox.org/](https://www.virtualbox.org/))
@@ -41,7 +39,7 @@ Each RTLS Hub version is available as a **virtual image file (.ova or .vbox)**. 
 9.  After these steps, start the RTLS Hub virtual machine. It should now be up and running.
     *(Placeholder: Screenshot of the RTLS Hub VM console after a successful boot, possibly showing a login prompt or IP address.)*
 
-<Callout emoji="ℹ️" type="info">
+<Callout type="info">
 - Once the VirtualBox VM is running, your host computer will need to have an active Ethernet connection (the one bridged to the VM). Otherwise, you may not be able to connect to the RTLS Hub services from other devices on your network.
 - Please also ensure that the VirtualBox VM has been allocated at least 2 CPU cores and sufficient RAM (refer to [System Requirements](./SystemRequirements)). For laptops, ensure the power plan is set to a high-performance mode rather than power-saving.
 </Callout>
@@ -68,7 +66,7 @@ It may happen that hardware virtualization is disabled on the host machine, prev
 
 This will restart your computer and take you to the BIOS/UEFI setup utility. The location of virtualization settings (often called **Intel VT-x**, **AMD-V**, **SVM Mode**, or similar) varies by manufacturer and BIOS version. It is typically found under "Advanced", "CPU Configuration", or "Security" tabs. Find the option and **Enable** it. Save the changes and exit BIOS/UEFI. Your computer will restart. Then, launch VirtualBox again, and the RTLS Hub image should load without virtualization-related errors.
 
-<Callout type="warning" emoji="⚠️">
+<Callout type="warning">
   Accessing and modifying BIOS/UEFI settings should be done carefully. If you are unsure, consult your computer or motherboard manufacturer's documentation.
 </Callout>
 

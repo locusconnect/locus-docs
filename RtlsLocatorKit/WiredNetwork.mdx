@@ -1,10 +1,8 @@
-import { Callout } from 'nextra-theme-docs'
-
 # Wired Networking for Locator Kit
 
 This section covers the setup and best practices for wired networking using the RTLS Locator Kit. A wired Ethernet-based network is the recommended architecture for most deployments, offering superior stability and performance, especially for larger demonstrations, Proof of Concepts (PoCs), and production projects.
 
-<Callout emoji="ℹ️" type="info">
+<Callout type="info">
  **Tip:** Recommended network architecture is an Ethernet-based network, and the network **should be dedicated to RTLS** if possible for optimal performance and simplified troubleshooting.
 </Callout>
 
@@ -23,7 +21,7 @@ If you are deploying the RTLS kit via an Ethernet PoE switch, adhere to the foll
 - **Subnets:** The anchors and the RTLS Hub server software can be located on different subnets, provided routing is correctly configured between them.
 - **Firewall Configuration:** Make sure any firewalls are properly configured and all necessary communication [ports are allowed](../ProjectExecution/NetworkLayout/NetworkArchitectureAndPorts) for Locus RTLS traffic.
 
-<Callout emoji="ℹ️" type="info">
+<Callout type="info">
  The default IP address range of the Locator Kit Wired components (like the pre-configured router and anchors if set to DHCP by default within this range) is typically **192.168.88.0/24**.
 </Callout>
 
