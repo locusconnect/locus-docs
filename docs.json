@@ -20,14 +20,14 @@
               {
                 "group": "RTLS Kit",
                 "pages": [
-                  "RtlsLocatorKit/LocatorKitOverview.en",
-                  "RtlsLocatorKit/LocatorKitAssembly.en",
-                  "RtlsLocatorKit/AnchorDeploymentRules.en",
-                  "RtlsLocatorKit/WiredNetwork.en",
-                  "RtlsLocatorKit/WirelessNetwork.en",
-                  "RtlsLocatorKit/SystemRequirements.en",
-                  "RtlsLocatorKit/RTLSHubInstallation.en",
-                  "RtlsLocatorKit/MaintenanceAndCare.en"
+                  "RtlsLocatorKit/LocatorKitOverview",
+                  "RtlsLocatorKit/LocatorKitAssembly",
+                  "RtlsLocatorKit/AnchorDeploymentRules",
+                  "RtlsLocatorKit/WiredNetwork",
+                  "RtlsLocatorKit/WirelessNetwork",
+                  "RtlsLocatorKit/SystemRequirements",
+                  "RtlsLocatorKit/RTLSHubInstallation",
+                  "RtlsLocatorKit/MaintenanceAndCare"
                 ]
               }
             ]
@@ -38,22 +38,22 @@
               {
                 "group": "Tag Configuration",
                 "pages": [
-                  "ProjectExecution/TagConfigurationRules/TagInstallationRules.en",
-                  "ProjectExecution/TagConfigurationRules/TagSettings.en",
-                  "ProjectExecution/TagConfigurationRules/TagPopulationDensity.en"
+                  "ProjectExecution/TagConfigurationRules/TagInstallationRules",
+                  "ProjectExecution/TagConfigurationRules/TagSettings",
+                  "ProjectExecution/TagConfigurationRules/TagPopulationDensity"
                 ]
               },
               {
                 "group": "Anchor Installation",
                 "pages": [
-                  "ProjectExecution/AnchorInstallationRules/AnchorInstallationRules.en",
-                  "ProjectExecution/AnchorInstallationRules/AnchorWiredInstallation.en",
-                  "ProjectExecution/AnchorInstallationRules/AnchorWirelessInstallation.en",
-                  "ProjectExecution/AnchorInstallationRules/AnchorStartup.en"
+                  "ProjectExecution/AnchorInstallationRules/AnchorInstallationRules",
+                  "ProjectExecution/AnchorInstallationRules/AnchorWiredInstallation",
+                  "ProjectExecution/AnchorInstallationRules/AnchorWirelessInstallation",
+                  "ProjectExecution/AnchorInstallationRules/AnchorStartup"
                 ]
               },
-              "ProjectExecution/AnchorLayoutPlanning.en",
-              "ProjectExecution/SiteSurvey.en",
+              "ProjectExecution/AnchorLayoutPlanning",
+              "ProjectExecution/SiteSurvey",
               {
                 "group": "Networking Layout",
                 "pages": [
@@ -62,23 +62,23 @@
                   "ProjectExecution/NetworkLayout/StorageQuotaSpecification"
                 ]
               },
-              "ProjectExecution/AnchorDeployment.en",
+              "ProjectExecution/AnchorDeployment",
               {
                 "group": "RTLS Hub Configuration",
                 "pages": [
-                  "ProjectExecution/RTLSHubConfiguration/SettingUpRtlsHub.en",
-                  "ProjectExecution/RTLSHubConfiguration/ConfiguringFloorplans.en",
-                  "ProjectExecution/RTLSHubConfiguration/AnchorCoordinates.en",
-                  "ProjectExecution/RTLSHubConfiguration/GeofenceConfiguration.en"
+                  "ProjectExecution/RTLSHubConfiguration/SettingUpRtlsHub",
+                  "ProjectExecution/RTLSHubConfiguration/ConfiguringFloorplans",
+                  "ProjectExecution/RTLSHubConfiguration/AnchorCoordinates",
+                  "ProjectExecution/RTLSHubConfiguration/GeofenceConfiguration"
                 ]
               },
               {
                 "group": "Troubleshooting",
                 "pages": [
-                  "ProjectExecution/Troubleshooting/AnchorLed.en",
-                  "ProjectExecution/Troubleshooting/DataPayload.en",
-                  "ProjectExecution/Troubleshooting/RTLSSystemPerformance.en",
-                  "ProjectExecution/Troubleshooting/RaiseSupportTicket.en"
+                  "ProjectExecution/Troubleshooting/AnchorLed",
+                  "ProjectExecution/Troubleshooting/DataPayload",
+                  "ProjectExecution/Troubleshooting/RTLSSystemPerformance",
+                  "ProjectExecution/Troubleshooting/RaiseSupportTicket"
                 ]
               }
             ]
@@ -86,31 +86,31 @@
           {
             "group": "RTLS Hub Software",
             "pages": [
-              "RTLS_Hub/SoftwareTour.en",
+              "RTLS_Hub/SoftwareTour",
               {
                 "group": "RTLS Hub Documentation",
                 "pages": [
-                  "RTLS_Hub/Documentation/RtlsHubOverview.en",
-                  "RTLS_Hub/Documentation/DashboardControls.en",
-                  "RTLS_Hub/Documentation/FloorplanMenu.en",
-                  "RTLS_Hub/Documentation/TagManagementMenu.en",
-                  "RTLS_Hub/Documentation/UsersAndApi.en",
-                  "RTLS_Hub/Documentation/WiseAnalytics.en"
+                  "RTLS_Hub/Documentation/RtlsHubOverview",
+                  "RTLS_Hub/Documentation/DashboardControls",
+                  "RTLS_Hub/Documentation/FloorplanMenu",
+                  "RTLS_Hub/Documentation/TagManagementMenu",
+                  "RTLS_Hub/Documentation/UsersAndApi",
+                  "RTLS_Hub/Documentation/WiseAnalytics"
                 ]
               },
-              "RTLS_Hub/RtlsHubInstallGuide.en",
-              "RTLS_Hub/KnownIssues.en"
+              "RTLS_Hub/RtlsHubInstallGuide",
+              "RTLS_Hub/KnownIssues"
             ]
           },
           {
             "group": "RTLS Anchor Software",
             "pages": [
-              "RtlsAnchors/AnchorOverview.en",
-              "RtlsAnchors/TechnicalSpecifications.en",
-              "RtlsAnchors/PowerSupply.en",
-              "RtlsAnchors/AssemblyAndMounting.en",
-              "RtlsAnchors/SafetyAndRegulatoryInformation.en",
-              "RtlsAnchors/AnchorLedIndication.en"
+              "RtlsAnchors/AnchorOverview",
+              "RtlsAnchors/TechnicalSpecifications",
+              "RtlsAnchors/PowerSupply",
+              "RtlsAnchors/AssemblyAndMounting",
+              "RtlsAnchors/SafetyAndRegulatoryInformation",
+              "RtlsAnchors/AnchorLedIndication"
             ]
           },
           {
@@ -119,30 +119,30 @@
               {
                 "group": "Tag Types",
                 "pages": [
-                  "RtlsTags/TagTypes/index.en",
+                  "RtlsTags/TagTypes/index",
                   "RtlsTags/TagTypes/LC01Series",
                   "RtlsTags/TagTypes/LC03Series",
-                  "RtlsTags/TagTypes/OtherTags.en"
+                  "RtlsTags/TagTypes/OtherTags"
                 ]
               },
-              "RtlsTags/SmartSleepModes.en",
+              "RtlsTags/SmartSleepModes",
               "RtlsTags/TagBattery",
               "RtlsTags/TagPeripherals",
-              "RtlsTags/DefaultConfigurations.en"
+              "RtlsTags/DefaultConfigurations"
             ]
           },
           {
             "group": "UWB Technology Overview",
             "pages": [
-              "RtlsTechnology/UwbTechnology.en",
-              "RtlsTechnology/UwbChannelsAndProfiles.en",
-              "RtlsTechnology/RtlsSystemArchitecture.en",
+              "RtlsTechnology/UwbTechnology",
+              "RtlsTechnology/UwbChannelsAndProfiles",
+              "RtlsTechnology/RtlsSystemArchitecture",
               {
                 "group": "Radio Performance Parameters",
                 "pages": [
-                  "RtlsTechnology/RfPerformanceParameters/FirstPath.en",
-                  "RtlsTechnology/RfPerformanceParameters/LOS.en",
-                  "RtlsTechnology/RfPerformanceParameters/Rssi.en"
+                  "RtlsTechnology/RfPerformanceParameters/FirstPath",
+                  "RtlsTechnology/RfPerformanceParameters/LOS",
+                  "RtlsTechnology/RfPerformanceParameters/Rssi"
                 ]
               }
             ]
@@ -150,23 +150,23 @@
           {
             "group": "API & Integration",
             "pages": [
-              "API_Interfaces/MqttApi.en",
-              "API_Interfaces/ApiClientExamples.en",
-              "API_Interfaces/ApiPayloadSamples.en"
+              "API_Interfaces/MqttApi",
+              "API_Interfaces/ApiClientExamples",
+              "API_Interfaces/ApiPayloadSamples"
             ]
           },
           {
             "group": "Device Care",
             "pages": [
-              "DeviceCare/DeviceCare.en",
-              "DeviceCare/HwWarranties.en",
-              "DeviceCare/LocusSupportServices.en"
+              "DeviceCare/DeviceCare",
+              "DeviceCare/HwWarranties",
+              "DeviceCare/LocusSupportServices"
             ]
           },
           {
             "group": "Changelog",
             "pages": [
-              "Changelog/v1.0.0-Changelog.en"
+              "Changelog/v1.0.0-Changelog"
             ]
           }
 
