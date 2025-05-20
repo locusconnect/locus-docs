@@ -7,3 +7,5 @@ jspm_packages
 
 .next*
 pnpm-lock.yml
+
+*code-workspace
