@@ -40,18 +40,18 @@
           {
             "group": "Getting Started",
             "pages": [
-              "Overview",
+              "overview",
               {
                 "group": "RTLS Kit",
                 "pages": [
-                  "RtlsLocatorKit/LocatorKitOverview",
-                  "RtlsLocatorKit/LocatorKitAssembly",
-                  "RtlsLocatorKit/AnchorDeploymentRules",
-                  "RtlsLocatorKit/WiredNetwork",
-                  "RtlsLocatorKit/WirelessNetwork",
-                  "RtlsLocatorKit/SystemRequirements",
-                  "RtlsLocatorKit/RTLSHubInstallation",
-                  "RtlsLocatorKit/MaintenanceAndCare"
+                  "rtlslocatorkit/locatorkitoverview",
+                  "rtlslocatorkit/locatorkitassembly",
+                  "rtlslocatorkit/anchordeploymentrules",
+                  "rtlslocatorkit/wirednetwork",
+                  "rtlslocatorkit/wirelessnetwork",
+                  "rtlslocatorkit/systemrequirements",
+                  "rtlslocatorkit/rtlshubinstallation",
+                  "rtlslocatorkit/maintenanceandcare"
                 ]
               }
             ]
@@ -62,47 +62,47 @@
               {
                 "group": "Tag Configuration",
                 "pages": [
-                  "ProjectExecution/TagConfigurationRules/TagInstallationRules",
-                  "ProjectExecution/TagConfigurationRules/TagSettings",
-                  "ProjectExecution/TagConfigurationRules/TagPopulationDensity"
+                  "projectexecution/tagconfigurationrules/taginstallationrules",
+                  "projectexecution/tagconfigurationrules/tagsettings",
+                  "projectexecution/tagconfigurationrules/tagpopulationdensity"
                 ]
               },
               {
                 "group": "Anchor Installation",
                 "pages": [
-                  "ProjectExecution/AnchorInstallationRules/AnchorInstallationRules",
-                  "ProjectExecution/AnchorInstallationRules/AnchorWiredInstallation",
-                  "ProjectExecution/AnchorInstallationRules/AnchorWirelessInstallation",
-                  "ProjectExecution/AnchorInstallationRules/AnchorStartup"
+                  "projectexecution/anchorinstallationrules/anchorinstallationrules",
+                  "projectexecution/anchorinstallationrules/anchorwiredinstallation",
+                  "projectexecution/anchorinstallationrules/anchorwirelessinstallation",
+                  "projectexecution/anchorinstallationrules/anchorstartup"
                 ]
               },
-              "ProjectExecution/AnchorLayoutPlanning",
-              "ProjectExecution/SiteSurvey",
+              "projectexecution/anchorlayoutplanning",
+              "projectexecution/sitesurvey",
               {
                 "group": "Networking Layout",
                 "pages": [
-                  "ProjectExecution/NetworkLayout/NetworkArchitectureAndPorts",
-                  "ProjectExecution/NetworkLayout/ServerSystemSpecification",
-                  "ProjectExecution/NetworkLayout/StorageQuotaSpecification"
+                  "projectexecution/networklayout/networkarchitectureandports",
+                  "projectexecution/networklayout/serversystemspecification",
+                  "projectexecution/networklayout/storagequotaspecification"
                 ]
               },
-              "ProjectExecution/AnchorDeployment",
+              "projectexecution/anchordeployment",
               {
                 "group": "RTLS Hub Configuration",
                 "pages": [
-                  "ProjectExecution/RTLSHubConfiguration/SettingUpRtlsHub",
-                  "ProjectExecution/RTLSHubConfiguration/ConfiguringFloorplans",
-                  "ProjectExecution/RTLSHubConfiguration/AnchorCoordinates",
-                  "ProjectExecution/RTLSHubConfiguration/GeofenceConfiguration"
+                  "projectexecution/rtlshubconfiguration/settinguprtlshub",
+                  "projectexecution/rtlshubconfiguration/configuringfloorplans",
+                  "projectexecution/rtlshubconfiguration/anchorcoordinates",
+                  "projectexecution/rtlshubconfiguration/geofenceconfiguration"
                 ]
               },
               {
                 "group": "Troubleshooting",
                 "pages": [
-                  "ProjectExecution/Troubleshooting/AnchorLed",
-                  "ProjectExecution/Troubleshooting/DataPayload",
-                  "ProjectExecution/Troubleshooting/RTLSSystemPerformance",
-                  "ProjectExecution/Troubleshooting/RaiseSupportTicket"
+                  "projectexecution/troubleshooting/anchorled",
+                  "projectexecution/troubleshooting/datapayload",
+                  "projectexecution/troubleshooting/rtlssystemperformance",
+                  "projectexecution/troubleshooting/raisesupportticket"
                 ]
               }
             ]
@@ -110,31 +110,31 @@
           {
             "group": "RTLS Hub Software",
             "pages": [
-              "RTLS_Hub/SoftwareTour",
+              "rtls_hub/softwaretour",
               {
                 "group": "RTLS Hub Documentation",
                 "pages": [
-                  "RTLS_Hub/Documentation/RtlsHubOverview",
-                  "RTLS_Hub/Documentation/DashboardControls",
-                  "RTLS_Hub/Documentation/FloorplanMenu",
-                  "RTLS_Hub/Documentation/TagManagementMenu",
-                  "RTLS_Hub/Documentation/UsersAndApi",
-                  "RTLS_Hub/Documentation/WiseAnalytics"
+                  "rtls_hub/documentation/rtlshuboverview",
+                  "rtls_hub/documentation/dashboardcontrols",
+                  "rtls_hub/documentation/floorplanmenu",
+                  "rtls_hub/documentation/tagmanagementmenu",
+                  "rtls_hub/documentation/usersandapi",
+                  "rtls_hub/documentation/wiseanalytics"
                 ]
               },
-              "RTLS_Hub/RtlsHubInstallGuide",
-              "RTLS_Hub/KnownIssues"
+              "rtls_hub/rtlshubinstallguide",
+              "rtls_hub/knownissues"
             ]
           },
           {
             "group": "RTLS Anchor Software",
             "pages": [
-              "RtlsAnchors/AnchorOverview",
-              "RtlsAnchors/TechnicalSpecifications",
-              "RtlsAnchors/PowerSupply",
-              "RtlsAnchors/AssemblyAndMounting",
-              "RtlsAnchors/SafetyAndRegulatoryInformation",
-              "RtlsAnchors/AnchorLedIndication"
+              "rtlsanchors/anchoroverview",
+              "rtlsanchors/technicalspecifications",
+              "rtlsanchors/powersupply",
+              "rtlsanchors/assemblyandmounting",
+              "rtlsanchors/safetyandregulatoryinformation",
+              "rtlsanchors/anchorledindication"
             ]
           },
           {
@@ -143,30 +143,30 @@
               {
                 "group": "Tag Types",
                 "pages": [
-                  "RtlsTags/TagTypes/index",
-                  "RtlsTags/TagTypes/LC01Series",
-                  "RtlsTags/TagTypes/LC03Series",
-                  "RtlsTags/TagTypes/OtherTags"
+                  "rtlstags/tagtypes/index",
+                  "rtlstags/tagtypes/lc01series",
+                  "rtlstags/tagtypes/lc03series",
+                  "rtlstags/tagtypes/othertags"
                 ]
               },
-              "RtlsTags/SmartSleepModes",
-              "RtlsTags/TagBattery",
-              "RtlsTags/TagPeripherals",
-              "RtlsTags/DefaultConfigurations"
+              "rtlstags/smartsleepmodes",
+              "rtlstags/tagbattery",
+              "rtlstags/tagperipherals",
+              "rtlstags/defaultconfigurations"
             ]
           },
           {
             "group": "UWB Technology Overview",
             "pages": [
-              "RtlsTechnology/UwbTechnology",
-              "RtlsTechnology/UwbChannelsAndProfiles",
-              "RtlsTechnology/RtlsSystemArchitecture",
+              "rtlstechnology/uwbtechnology",
+              "rtlstechnology/uwbchannelsandprofiles",
+              "rtlstechnology/rtlsystemarchitecture",
               {
                 "group": "Radio Performance Parameters",
                 "pages": [
-                  "RtlsTechnology/RfPerformanceParameters/FirstPath",
-                  "RtlsTechnology/RfPerformanceParameters/LOS",
-                  "RtlsTechnology/RfPerformanceParameters/Rssi"
+                  "rtlstechnology/rfperformanceparameters/firstpath",
+                  "rtlstechnology/rfperformanceparameters/los",
+                  "rtlstechnology/rfperformanceparameters/rssi"
                 ]
               }
             ]
@@ -174,22 +174,22 @@
           {
             "group": "API & Integration",
             "pages": [
-              "API_Interfaces/MqttApi",
-              "API_Interfaces/ApiClientExamples",
-              "API_Interfaces/ApiPayloadSamples"
+              "api_interfaces/mqttapi",
+              "api_interfaces/apiclientexamples",
+              "api_interfaces/apipayloadsamples"
             ]
           },
           {
             "group": "Device Care",
             "pages": [
-              "DeviceCare/DeviceCare",
-              "DeviceCare/HwWarranties",
-              "DeviceCare/LocusSupportServices"
+              "devicecare/devicecare",
+              "devicecare/hwwarranties",
+              "devicecare/locussupportservices"
             ]
           },
           {
             "group": "Changelog",
-            "pages": ["Changelog/v1.0.0-Changelog"]
+            "pages": ["changelog/v1.0.0-changelog"]
           }
         ]
       }
