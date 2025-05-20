@@ -32,6 +32,14 @@
       "og:site_name": "Locus RTLS Documentation"
     }
   },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@locusconnect.com"
+      }
+    ]
+  },
   "navigation": {
     "languages": [
       {
