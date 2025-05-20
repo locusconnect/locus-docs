@@ -35,12 +35,12 @@
   "navbar": {
     "links": [
       {
-        "label": "Locus Portal",
-        "href": "https://portal.locusconnect.com"
+        "label": "Locus Homepage",
+        "href": "https://www.locusconnect.com"
       },
       {
         "label": "Support",
-        "href": "mailto:support@locusconnect.com"
+        "href": "https://support.locusconnect.com"
       }
     ]
   },
