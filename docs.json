@@ -13,7 +13,7 @@
       {
         "language": "en",
         "groups": [
-           {
+          {
             "group": "Getting Started",
             "pages": [
               "Overview",
@@ -26,13 +26,13 @@
                   "RtlsLocatorKit/WiredNetwork.en",
                   "RtlsLocatorKit/WirelessNetwork.en",
                   "RtlsLocatorKit/SystemRequirements.en",
-                  "RtlsLocatorKit/RtlsHubInstallation.en",
+                  "RtlsLocatorKit/RTLSHubInstallation.en",
                   "RtlsLocatorKit/MaintenanceAndCare.en"
                 ]
               }
             ]
-           },
-           {
+          },
+          {
             "group": "Deployment Guide",
             "pages": [
               {
@@ -52,7 +52,6 @@
                   "ProjectExecution/AnchorInstallationRules/AnchorStartup.en"
                 ]
               },
-              
               "ProjectExecution/AnchorLayoutPlanning.en",
               "ProjectExecution/SiteSurvey.en",
               {
@@ -70,7 +69,6 @@
                   "ProjectExecution/RTLSHubConfiguration/SettingUpRtlsHub.en",
                   "ProjectExecution/RTLSHubConfiguration/ConfiguringFloorplans.en",
                   "ProjectExecution/RTLSHubConfiguration/AnchorCoordinates.en",
-                
                   "ProjectExecution/RTLSHubConfiguration/GeofenceConfiguration.en"
                 ]
               },
@@ -95,7 +93,7 @@
                   "RTLS_Hub/Documentation/RtlsHubOverview.en",
                   "RTLS_Hub/Documentation/DashboardControls.en",
                   "RTLS_Hub/Documentation/FloorplanMenu.en",
-                  "RTLS_Hub/Documentation/TagManagement.en",
+                  "RTLS_Hub/Documentation/TagManagementMenu.en",
                   "RTLS_Hub/Documentation/UsersAndApi.en",
                   "RTLS_Hub/Documentation/WiseAnalytics.en"
                 ]
@@ -125,7 +123,6 @@
                   "RtlsTags/TagTypes/LC01Series",
                   "RtlsTags/TagTypes/LC03Series",
                   "RtlsTags/TagTypes/OtherTags.en"
-                
                 ]
               },
               "RtlsTags/SmartSleepModes.en",
@@ -150,14 +147,29 @@
               }
             ]
           },
-          
           {
             "group": "API & Integration",
             "pages": [
-              "API_Interfaces",
-              "api-reference/introduction"
+              "API_Interfaces/MqttApi.en",
+              "API_Interfaces/ApiClientExamples.en",
+              "API_Interfaces/ApiPayloadSamples.en"
+            ]
+          },
+          {
+            "group": "Device Care",
+            "pages": [
+              "DeviceCare/DeviceCare.en",
+              "DeviceCare/HwWarranties.en",
+              "DeviceCare/LocusSupportServices.en"
+            ]
+          },
+          {
+            "group": "Changelog",
+            "pages": [
+              "Changelog/v1.0.0-Changelog.en"
             ]
           }
+
         ]
       }
     ]
@@ -173,10 +185,10 @@
   },
   "integrations": {
     "ga4": {
-        "measurementId": "G-0WLKXL1TSZ"
+      "measurementId": "G-0WLKXL1TSZ"
     },
     "gtm": {
-        "tagId": "GTM-0WLKXL1TSZ"
+      "tagId": "GTM-0WLKXL1TSZ"
     }
   },
   "icons": {
