@@ -22,19 +22,14 @@
       "title": "Overview - Locus RTLS Documentation",
       "description": "Discover Locus RTLS - A powerful industrial positioning system with 10-30cm accuracy. Complete guide to hardware, software, and deployment.",
       "keywords": "Locus RTLS, RTLS, Real-Time Location System, UWB, indoor positioning, asset tracking, industrial positioning",
-      "author": "Locus Connect",
+      "author": "Locus Connect Technologies Co. Ltd.",
       "language": "en",
-      "copyright": "Copyright 2025 Locus Connect",
+      "copyright": "Copyright 2025 Locus Connect Technologies Co. Ltd.",
       "og:url": "https://docs.locusconnect.com",
       "og:type": "website",
       "og:title": "Overview - Locus RTLS Documentation",
       "og:description": "Discover Locus RTLS - A powerful industrial positioning system with 10-30cm accuracy. Complete guide to hardware, software, and deployment.",
-      "og:image": "/images/og.png",
-      "og:site_name": "Locus RTLS Documentation",
-      "twitter:card": "summary_large_image",
-      "twitter:title": "Overview - Locus RTLS Documentation",
-      "twitter:description": "Discover Locus RTLS - A powerful industrial positioning system with 10-30cm accuracy. Complete guide to hardware, software, and deployment.",
-      "twitter:image": "/images/og.png"
+      "og:site_name": "Locus RTLS Documentation"
     }
   },
   "navigation": {
