@@ -19,17 +19,21 @@
   "favicon": "/favicon.svg",
   "seo": {
     "metatags": {
-      "title": "Locus RTLS Documentation - Industrial Real-Time Location System Guide",
-      "description": "Discover Locus RTLS - A powerful industrial positioning system with 10-30cm accuracy. Complete guide to hardware, software, and deployment.",
-      "keywords": "Locus RTLS, RTLS, Real-Time Location System, UWB, indoor positioning, asset tracking, industrial positioning",
+      "title": "Locus RTLS Documentation | Industrial UWB Location System Guide",
+      "description": "Comprehensive guide to Locus RTLS: hardware, software, deployment, and troubleshooting for industrial real-time location systems.",
+      "keywords": "Locus RTLS, UWB, industrial location, asset tracking, real-time location system, RTLS deployment, anchor setup, tag configuration",
       "author": "Locus Connect Technologies Co. Ltd.",
       "language": "en",
       "copyright": "Copyright 2025 Locus Connect Technologies Co. Ltd.",
       "og:url": "https://docs.locusconnect.com",
       "og:type": "website",
-      "og:title": "Locus RTLS Documentation - Industrial Real-Time Location System Guide",
-      "og:description": "Discover Locus RTLS - A powerful industrial positioning system with 10-30cm accuracy. Complete guide to hardware, software, and deployment.",
-      "og:site_name": "Locus RTLS Documentation"
+      "og:title": "Locus RTLS Documentation | Industrial UWB Location System Guide",
+      "og:description": "Comprehensive guide to Locus RTLS: hardware, software, deployment, and troubleshooting.",
+      "og:site_name": "Locus RTLS Documentation",
+      "twitter:card": "summary_large_image",
+      "twitter:title": "Locus RTLS Documentation | Industrial UWB Location System Guide",
+      "twitter:description": "Comprehensive guide to Locus RTLS: hardware, software, deployment, and troubleshooting.",
+      "twitter:site": "@YourCompanyHandle"
     }
   },
   "navbar": {
