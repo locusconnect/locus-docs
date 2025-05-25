@@ -218,7 +218,8 @@
   "footer": {
     "socials": {
       "linkedin": "https://www.linkedin.com/company/locus-connect",
-      "facebook": "https://www.facebook.com/locusconnect"
+      "facebook": "https://www.facebook.com/locusconnect",
+      "twitter": "https://twitter.com/locusconnect"
     }
   },
   "integrations": {
