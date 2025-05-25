@@ -52,18 +52,18 @@
           {
             "group": "Getting Started",
             "pages": [
-              "overview",
+              "getting-started-overview",
               {
                 "group": "RTLS Kit",
                 "pages": [
-                  "rtlslocatorkit/locatorkitoverview",
-                  "rtlslocatorkit/locatorkitassembly",
-                  "rtlslocatorkit/anchordeploymentrules",
-                  "rtlslocatorkit/wirednetwork",
-                  "rtlslocatorkit/wirelessnetwork",
-                  "rtlslocatorkit/systemrequirements",
-                  "rtlslocatorkit/rtlshubinstallation",
-                  "rtlslocatorkit/maintenanceandcare"
+                  "rtls-locator-kit/locator-kit-overview",
+                  "rtls-locator-kit/locator-kit-assembly",
+                  "rtls-locator-kit/anchor-deployment-rules",
+                  "rtls-locator-kit/wired-network-setup",
+                  "rtls-locator-kit/wireless-network-setup",
+                  "rtls-locator-kit/system-requirements",
+                  "rtls-locator-kit/rtls-hub-installation-guide",
+                  "rtls-locator-kit/maintenance-and-care"
                 ]
               }
             ]
@@ -74,47 +74,47 @@
               {
                 "group": "Tag Configuration",
                 "pages": [
-                  "projectexecution/tagconfigurationrules/taginstallationrules",
-                  "projectexecution/tagconfigurationrules/tagsettings",
-                  "projectexecution/tagconfigurationrules/tagpopulationdensity"
+                  "deployment-guide/tag-configuration-rules/tag-installation-rules",
+                  "deployment-guide/tag-configuration-rules/tag-settings",
+                  "deployment-guide/tag-configuration-rules/tag-population-density"
                 ]
               },
               {
                 "group": "Anchor Installation",
                 "pages": [
-                  "projectexecution/anchorinstallationrules/anchorinstallationrules",
-                  "projectexecution/anchorinstallationrules/anchorwiredinstallation",
-                  "projectexecution/anchorinstallationrules/anchorwirelessinstallation",
-                  "projectexecution/anchorinstallationrules/anchorstartup"
+                  "deployment-guide/anchor-installation-rules/anchor-installation-rules",
+                  "deployment-guide/anchor-installation-rules/anchor-wired-installation",
+                  "deployment-guide/anchor-installation-rules/anchor-wireless-installation",
+                  "deployment-guide/anchor-installation-rules/anchor-startup"
                 ]
               },
-              "projectexecution/anchorlayoutplanning",
-              "projectexecution/sitesurvey",
+              "deployment-guide/anchor-layout-planning",
+              "deployment-guide/site-survey",
               {
                 "group": "Networking Layout",
                 "pages": [
-                  "projectexecution/networklayout/networkarchitectureandports",
-                  "projectexecution/networklayout/serversystemspecification",
-                  "projectexecution/networklayout/storagequotaspecification"
+                  "deployment-guide/networking-layout/network-architecture-and-ports",
+                  "deployment-guide/networking-layout/server-system-specification",
+                  "deployment-guide/networking-layout/storage-quota-specification"
                 ]
               },
-              "projectexecution/anchordeployment",
+              "deployment-guide/anchor-deployment",
               {
                 "group": "RTLS Hub Configuration",
                 "pages": [
-                  "projectexecution/rtlshubconfiguration/settinguprtlshub",
-                  "projectexecution/rtlshubconfiguration/configuringfloorplans",
-                  "projectexecution/rtlshubconfiguration/anchorcoordinates",
-                  "projectexecution/rtlshubconfiguration/geofenceconfiguration"
+                  "deployment-guide/rtls-hub-configuration/setting-up-rtls-hub",
+                  "deployment-guide/rtls-hub-configuration/configuring-floorplans",
+                  "deployment-guide/rtls-hub-configuration/anchor-coordinates",
+                  "deployment-guide/rtls-hub-configuration/geofence-configuration"
                 ]
               },
               {
                 "group": "Troubleshooting",
                 "pages": [
-                  "projectexecution/troubleshooting/anchorled",
-                  "projectexecution/troubleshooting/datapayload",
-                  "projectexecution/troubleshooting/rtlssystemperformance",
-                  "projectexecution/troubleshooting/raisesupportticket"
+                  "deployment-guide/troubleshooting-guide/anchor-led-indicators",
+                  "deployment-guide/troubleshooting-guide/data-payload-issues",
+                  "deployment-guide/troubleshooting-guide/rtls-system-performance",
+                  "deployment-guide/troubleshooting-guide/raise-support-ticket"
                 ]
               }
             ]
@@ -122,31 +122,31 @@
           {
             "group": "RTLS Hub Software",
             "pages": [
-              "rtls_hub/softwaretour",
+              "rtls-hub-software/software-tour-overview",
               {
                 "group": "RTLS Hub Documentation",
                 "pages": [
-                  "rtls_hub/documentation/rtlshuboverview",
-                  "rtls_hub/documentation/dashboardcontrols",
-                  "rtls_hub/documentation/floorplanmenu",
-                  "rtls_hub/documentation/tagmanagementmenu",
-                  "rtls_hub/documentation/usersandapi",
-                  "rtls_hub/documentation/wiseanalytics"
+                  "rtls-hub-software/rtls-hub-documentation/rtls-hub-overview",
+                  "rtls-hub-software/rtls-hub-documentation/dashboard-controls",
+                  "rtls-hub-software/rtls-hub-documentation/floorplan-menu-guide",
+                  "rtls-hub-software/rtls-hub-documentation/tag-management-menu-guide",
+                  "rtls-hub-software/rtls-hub-documentation/users-and-api-management",
+                  "rtls-hub-software/rtls-hub-documentation/wise-analytics-integration"
                 ]
               },
-              "rtls_hub/rtlshubinstallguide",
-              "rtls_hub/knownissues"
+              "rtls-hub-software/rtls-hub-installation-guide",
+              "rtls-hub-software/known-issues-and-fixes"
             ]
           },
           {
             "group": "RTLS Anchor",
             "pages": [
-              "rtlsanchors/anchoroverview",
-              "rtlsanchors/technicalspecifications",
-              "rtlsanchors/powersupply",
-              "rtlsanchors/assemblyandmounting",
-              "rtlsanchors/safetyandregulatoryinformation",
-              "rtlsanchors/anchorledindication"
+              "rtls-anchors/anchor-overview",
+              "rtls-anchors/technical-specifications",
+              "rtls-anchors/power-supply-options",
+              "rtls-anchors/assembly-and-mounting-guide",
+              "rtls-anchors/safety-and-regulatory-information",
+              "rtls-anchors/anchor-led-indications"
             ]
           },
           {
@@ -155,30 +155,30 @@
               {
                 "group": "Tag Types",
                 "pages": [
-                  "rtlstags/tagtypes/index",
-                  "rtlstags/tagtypes/lc01series",
-                  "rtlstags/tagtypes/lc03series",
-                  "rtlstags/tagtypes/othertags"
+                  "rtls-tags/tag-types/index",
+                  "rtls-tags/tag-types/lc01-series-tags",
+                  "rtls-tags/tag-types/lc03-series-tags",
+                  "rtls-tags/tag-types/other-tag-models"
                 ]
               },
-              "rtlstags/smartsleepmodes",
-              "rtlstags/tagbattery",
-              "rtlstags/tagperipherals",
-              "rtlstags/defaultconfigurations"
+              "rtls-tags/smart-sleep-modes",
+              "rtls-tags/tag-battery-information",
+              "rtls-tags/tag-peripherals-and-accessories",
+              "rtls-tags/default-tag-configurations"
             ]
           },
           {
             "group": "UWB Technology Overview",
             "pages": [
-              "rtlstechnology/uwbtechnology",
-              "rtlstechnology/uwbchannelsandprofiles",
-              "rtlstechnology/rtlsystemarchitecture",
+              "uwb-technology-overview/uwb-technology-explained",
+              "uwb-technology-overview/uwb-channels-and-profiles",
+              "uwb-technology-overview/rtls-system-architecture",
               {
                 "group": "Radio Performance Parameters",
                 "pages": [
-                  "rtlstechnology/rfperformanceparameters/firstpath",
-                  "rtlstechnology/rfperformanceparameters/los",
-                  "rtlstechnology/rfperformanceparameters/rssi"
+                  "uwb-technology-overview/radio-performance-parameters/first-path-signal",
+                  "uwb-technology-overview/radio-performance-parameters/line-of-sight-nlos",
+                  "uwb-technology-overview/radio-performance-parameters/rssi-explained"
                 ]
               }
             ]
@@ -186,22 +186,22 @@
           {
             "group": "API & Integration",
             "pages": [
-              "api_interfaces/mqttapi",
-              "api_interfaces/apiclientexamples",
-              "api_interfaces/apipayloadsamples"
+              "api-and-integration/mqtt-api-guide",
+              "api-and-integration/api-client-examples",
+              "api-and-integration/api-payload-samples"
             ]
           },
           {
             "group": "Device Care",
             "pages": [
-              "devicecare/devicecare",
-              "devicecare/hwwarranties",
-              "devicecare/locussupportservices"
+              "device-care/device-care-guide",
+              "device-care/hardware-warranties",
+              "device-care/locus-support-services"
             ]
           },
           {
             "group": "Changelog",
-            "pages": ["changelog/v1.0.0-changelog"]
+            "pages": ["changelog/v1-0-0-changelog"]
           }
         ]
       }
