@@ -1,6 +1,76 @@
 ---
-title: Anchor LED
+title: "Anchor LED"
+icon: "lightbulb"
+description: "Guide to understanding anchor LED indicators and their meanings"
+keywords: "anchor LED, status indicators, troubleshooting, RTLS hardware, system status"
 ---
+
+## LED Indicator Overview
+
+Locus RTLS anchors use LED indicators to communicate their status and operation mode. Understanding these indicators is crucial for system maintenance and troubleshooting.
+
+## LED Colors and Patterns
+
+| LED Color | Pattern | Status | Action Required |
+|-----------|---------|---------|----------------|
+| Blue | Solid | Power On | None - Normal operation |
+| Blue | Blinking | Startup/Boot | Wait for completion |
+| Green | Solid | Connected | None - Normal operation |
+| Green | Blinking | Data Transfer | None - Active communication |
+| Red | Solid | Error | Check error logs |
+| Red | Blinking | Configuration Mode | None if intentional |
+| Off | - | No Power | Check power connection |
+
+## Status Sequences
+
+### Normal Startup Sequence
+1. Blue blinking (Boot)
+2. Blue solid (Power)
+3. Green solid (Connected)
+4. Green blinking (Active)
+
+### Error Conditions
+
+<Callout type="warning" emoji="⚠️">
+  Red LED indicators usually require attention. Check the system logs and network status.
+</Callout>
+
+#### Common Error Patterns
+- Red rapid blink: Network error
+- Red slow blink: Configuration error
+- Red-Green alternate: Firmware update
+- Red solid: Hardware issue
+
+## Troubleshooting Guide
+
+### No LED
+1. Check power supply
+2. Verify PoE connection
+3. Inspect cable integrity
+4. Test power source
+
+### Red LED
+1. Check network connection
+2. Verify configuration
+3. Review system logs
+4. Check for firmware updates
+
+### Intermittent LED
+1. Monitor power stability
+2. Check network quality
+3. Verify cable connections
+4. Review environmental factors
+
+## Maintenance Tips
+
+- Regular LED check during system inspection
+- Document unusual patterns
+- Keep record of error occurrences
+- Schedule preventive maintenance
+
+<Callout type="info" emoji="ℹ️">
+  Always refer to the latest hardware documentation for specific LED patterns as they may vary by anchor model and firmware version.
+</Callout>
 
 
 

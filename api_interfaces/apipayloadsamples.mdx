@@ -1,11 +1,336 @@
 ---
 title: "API Payload Samples"
+icon: "file-code"
+description: "Comprehensive examples of request and response payloads for Locus RTLS API endpoints"
+keywords: "API, payloads, JSON, requests, responses, examples, MQTT"
 ---
 
 # API Payload Samples
 
-This section provides examples of request and response payloads for various API calls, helping you understand and construct your API interactions.
+## Overview
 
-*Content coming soon.*
+This guide provides detailed examples of message payloads for various Locus RTLS MQTT topics. Use these samples as references when implementing MQTT integrations.
 
-For more detailed information, please refer to the relevant API documentation or contact our support team.
+## Configuration
+
+### Anchor Configuration
+Topic: `rtls/anchor/config/anchor123`
+```json
+{
+    "anchor_id": "anchor123",
+    "name": "Warehouse North",
+    "position": {
+        "x": 0.0,
+        "y": 10.0,
+        "z": 2.5
+    },
+    "status": {
+        "state": "active",
+        "uptime": 1234567,
+        "last_seen": "2024-03-20T15:29:55Z"
+    },
+    "config": {
+        "channel": 5,
+        "power_level": 0,
+        "role": "initiator",
+        "update_rate": 10
+    },
+    "network": {
+        "ip": "192.168.1.100",
+        "mac": "00:11:22:33:44:55",
+        "rssi": -65
+    }
+}
+```
+
+### Update Anchor Configuration
+Topic: `rtls/anchor/config/anchor123/set`
+```json
+{
+    "name": "Warehouse North",
+    "position": {
+        "x": 0.0,
+        "y": 10.0,
+        "z": 2.5
+    },
+    "config": {
+        "channel": 5,
+        "power_level": 0,
+        "role": "initiator",
+        "update_rate": 10
+    }
+}
+```
+
+### Configuration Response
+Topic: `rtls/anchor/config/anchor123/response`
+```json
+{
+    "type": "config_response",
+    "timestamp": "2024-03-20T15:30:01Z",
+    "anchor_id": "anchor123",
+    "status": "success",
+    "applied_config": {
+        "channel": 5,
+        "power_level": 0,
+        "role": "initiator",
+        "update_rate": 10
+    },
+    "details": {
+        "restart_required": false,
+        "effective_time": "2024-03-20T15:30:02Z"
+    }
+}
+```
+
+## Analytics
+
+### Zone Analytics
+Topic: `rtls/analytics/zones/warehouse_1`
+```json
+{
+    "zone_id": "warehouse_1",
+    "timestamp": "2024-03-20T15:30:00Z",
+    "metrics": {
+        "active_tags": 25,
+        "dwell_time": {
+            "average": 1200,
+            "min": 300,
+            "max": 3600
+        },
+        "heatmap": {
+            "resolution": 1.0,
+            "data": [
+                [0.1, 0.2, 0.3],
+                [0.2, 0.5, 0.1],
+                [0.3, 0.1, 0.2]
+            ]
+        }
+    },
+    "alerts": [
+        {
+            "type": "occupancy",
+            "level": "warning",
+            "message": "High occupancy detected",
+            "timestamp": "2024-03-20T15:25:00Z"
+        }
+    ]
+}
+```
+
+### System Health
+Topic: `rtls/system/health`
+```json
+{
+    "timestamp": "2024-03-20T15:30:00Z",
+    "system_status": "operational",
+    "components": {
+        "anchors": {
+            "total": 12,
+            "active": 12,
+            "inactive": 0
+        },
+        "tags": {
+            "total": 50,
+            "active": 48,
+            "low_battery": 2
+        },
+        "network": {
+            "latency": 15,
+            "packet_loss": 0.1,
+            "bandwidth": 1.2
+        }
+    },
+    "alerts": [
+        {
+            "component": "tag",
+            "id": "tag125",
+            "type": "battery",
+            "level": "warning",
+            "message": "Low battery detected"
+        }
+    ]
+}
+```
+
+## Error Messages
+Topic: `rtls/errors`
+```json
+{
+    "error": {
+        "code": "VALIDATION_ERROR",
+        "message": "Invalid configuration parameters",
+        "details": {
+            "field": "position.x",
+            "reason": "Must be a number",
+            "value": "invalid"
+        }
+    }
+}
+```
+
+Topic: `rtls/system/errors`
+```json
+{
+    "error": {
+        "code": "UNAUTHORIZED",
+        "message": "Invalid or expired authentication token",
+        "details": {
+            "token_status": "expired",
+            "expires_at": "2024-03-20T14:30:00Z"
+        }
+    }
+}
+```
+
+## MQTT Payloads
+
+### Position Updates
+Topic: `rtls/position/updates/zone1/tag/tag123`
+```json
+{
+    "type": "position_update",
+    "timestamp": "2024-03-20T15:30:00Z",
+    "tag_id": "tag123",
+    "position": {
+        "x": 10.5,
+        "y": 20.3,
+        "z": 1.5
+    },
+    "quality": 0.95,
+    "anchor_count": 4,
+    "zone": "warehouse_1",
+    "velocity": {
+        "vx": 0.1,
+        "vy": 0.2,
+        "vz": 0.0
+    },
+    "metadata": {
+        "battery": 85,
+        "temperature": 23.5,
+        "firmware": "v2.1.0"
+    }
+}
+```
+
+### Tag Commands
+Topic: `rtls/tag/command/tag123`
+```json
+{
+    "type": "tag_command",
+    "timestamp": "2024-03-20T15:30:00Z",
+    "tag_id": "tag123",
+    "command": "update_rate",
+    "parameters": {
+        "rate": 10,
+        "duration": 3600,
+        "mode": "high_accuracy"
+    },
+    "correlation_id": "cmd_123456"
+}
+```
+
+### Command Responses
+Topic: `rtls/tag/response/tag123`
+```json
+{
+    "type": "command_response",
+    "timestamp": "2024-03-20T15:30:01Z",
+    "tag_id": "tag123",
+    "command": "update_rate",
+    "status": "success",
+    "correlation_id": "cmd_123456",
+    "details": {
+        "applied_rate": 10,
+        "battery_impact": "low"
+    }
+}
+```
+
+### Anchor Status
+Topic: `rtls/anchor/status/zone1/anchor/anchor123`
+```json
+{
+    "type": "anchor_status",
+    "timestamp": "2024-03-20T15:30:00Z",
+    "anchor_id": "anchor123",
+    "status": "active",
+    "metrics": {
+        "uptime": 1234567,
+        "temperature": 25.5,
+        "voltage": 12.1,
+        "rx_count": 1000,
+        "tx_count": 1000,
+        "cpu_load": 35,
+        "memory_usage": 45
+    },
+    "network": {
+        "rssi": -65,
+        "noise_floor": -95,
+        "connected_tags": 15
+    }
+}
+```
+
+### System Alerts
+Topic: `rtls/system/alerts`
+```json
+{
+    "type": "system_alert",
+    "timestamp": "2024-03-20T15:30:00Z",
+    "alert_id": "alert123",
+    "level": "warning",
+    "category": "hardware",
+    "source": {
+        "type": "anchor",
+        "id": "anchor123"
+    },
+    "message": "High temperature detected",
+    "details": {
+        "temperature": 45.5,
+        "threshold": 40.0,
+        "duration": 300
+    },
+    "recommended_action": "Check ventilation system"
+}
+```
+
+### Zone Occupancy
+Topic: `rtls/zone/warehouse_1/occupancy`
+```json
+{
+    "type": "zone_occupancy",
+    "timestamp": "2024-03-20T15:30:00Z",
+    "zone_id": "warehouse_1",
+    "occupancy": {
+        "current": 25,
+        "capacity": 50,
+        "percentage": 50
+    },
+    "tags": [
+        {
+            "tag_id": "tag123",
+            "dwell_time": 1200,
+            "entry_time": "2024-03-20T15:10:00Z"
+        }
+    ],
+    "thresholds": {
+        "warning": 40,
+        "critical": 45
+    }
+}
+```
+
+## Related Documentation
+
+- [MQTT API](./mqttapi)
+- [API Client Examples](./apiclientexamples)
+- [System Architecture](../rtlstechnology/rtlsystemarchitecture)
+
+<Callout type="info">
+All timestamps in payloads follow ISO 8601 format in UTC timezone.
+</Callout>
+
+<Callout type="warning">
+Some fields in the payloads may be optional or vary based on your system configuration and firmware versions.
+</Callout>

@@ -1,86 +1,176 @@
 ---
 title: "Tag Peripherals"
+icon: "microchip"
+description: "Comprehensive guide to Locus RTLS Tag peripherals, sensors, and integration options"
+keywords: "tag peripherals, sensors, interfaces, integration, RTLS accessories, tag expansion"
 ---
 
-Locus RTLS tags come with several pre-configured profiles to meet different application requirements. This guide explains the standard configurations and helps you select the most appropriate one for your use case.
+# Tag Peripherals and Interfaces
 
-## Configuration Profiles Overview
+## Overview
 
-| Profile | Update Rate | Battery Life | Accuracy | Best For |
-|---------|-------------|--------------|----------|----------|
-| High Precision | 10 Hz | 3-6 months | ±10 cm | Critical tracking applications |
-| Standard | 1 Hz | 1-2 years | ±20 cm | General asset tracking |
-| Power Save | 0.2 Hz | 3-5 years | ±30 cm | Long-term monitoring |
-| Motion Sensitive | Variable | 1-3 years | Variable | Mobile equipment |
-| Zoned | Event-based | 2-4 years | Zone level | Presence detection |
+Locus RTLS tags support various peripherals and interfaces to extend their functionality beyond basic positioning. This guide covers available peripherals, their integration, and common use cases.
 
-## High Precision Profile
+## Standard Peripherals
 
-The High Precision profile prioritizes location accuracy and update frequency.
+### Motion Sensors
+| Feature | Specification | Applications |
+|---------|--------------|--------------|
+| Type | 3-axis accelerometer | Movement detection |
+| Range | ±2g to ±16g | Impact monitoring |
+| Resolution | 16-bit | Activity analysis |
+| Power | Ultra-low power | Battery optimization |
 
-**Key Parameters:**
-- Update rate: 10 updates per second
-- Transmit power: Full power
-- Motion detection: Disabled
-- LED indication: Enabled
-- Sleep modes: Disabled
+### Temperature Sensors
+- Range: -40°C to +85°C
+- Accuracy: ±0.5°C
+- Resolution: 0.0625°C
+- Response time: < 2s
 
-**Best Applications:**
-- AGV navigation
-- Safety systems
-- Precision manufacturing
-- Performance analytics
+### User Interface Elements
+- Status LEDs
+- Push buttons
+- Buzzers
+- Vibration motors
+- Emergency alerts
 
-## Standard Profile
+## Advanced Sensors
 
-The Standard profile balances accuracy with battery life for everyday tracking needs.
+### Environmental Monitoring
+| Sensor | Range | Accuracy | Use Case |
+|--------|--------|----------|-----------|
+| Humidity | 0-100% RH | ±2% | Climate control |
+| Pressure | 300-1100 hPa | ±1 hPa | Altitude tracking |
+| Light | 0.01-83k lux | ±15% | Exposure monitoring |
+| Gas | Application specific | Varies | Safety monitoring |
 
-**Key Parameters:**
-- Update rate: 1 update per second
-- Transmit power: Medium
-- Motion detection: Optional
-- LED indication: On events only
-- Sleep modes: Light sleep when stationary
+### Specialized Sensors
+- Magnetic field detection
+- Proximity sensing
+- Angular position
+- Tilt measurement
+- Rotation tracking
 
-**Best Applications:**
-- Inventory management
-- Asset tracking
-- Personnel tracking
-- Process monitoring
+## Communication Interfaces
 
-## Power Save Profile
+### Primary Interfaces
+```mermaid
+graph LR
+    classDef core fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:white
+    classDef interface fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
 
-The Power Save profile maximizes battery life for applications where frequent updates are not critical.
+    A[Tag Core<br>Processing Unit] --> B[UWB Radio<br>Positioning]
+    A --> C[BLE Interface<br>Configuration]
+    A --> D[USB Port<br>Programming]
+    A --> E[GPIO Ports<br>Expansion]
 
-**Key Parameters:**
-- Update rate: 1 update every 5 seconds
-- Transmit power: Low
-- Motion detection: Enabled
-- LED indication: Disabled
-- Sleep modes: Deep sleep when stationary
+    class A core
+    class B,C,D,E interface
 
-**Best Applications:**
-- Long-term asset storage
-- Rarely moved equipment
-- Environmental monitoring
-- Backup equipment tracking
+    style A fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:white
+    style B fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    style C fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    style D fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    style E fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
 
-## Changing Configurations
+    linkStyle 0,1,2,3 stroke:#455A64,stroke-width:2px
+```
 
-Default profiles can be changed using:
+### Digital I/O
+- Input channels: Up to 4
+- Output channels: Up to 2
+- Logic levels: 3.3V
+- Protection: ESD & overcurrent
 
-1. The Locus RTLS Hub configuration interface
-2. Locus Configuration API
-3. USB configuration adapter (for mass deployment)
+### Analog Interfaces
+- ADC inputs: 12-bit
+- Voltage range: 0-3.3V
+- Sampling rate: Up to 1kHz
+- Input protection: Yes
 
-## Custom Configurations
+## Integration Options
 
-For applications with specific requirements, custom configurations can be created by adjusting:
+### External Sensors
+1. Direct connection
+2. I²C interface
+3. SPI bus
+4. Analog inputs
+5. Digital inputs
 
-- Update frequency
-- Transmission power
-- Sensor activation thresholds
-- Sleep mode parameters
-- LED indicator behavior
+### Power Options
+- Battery powered
+- External DC
+- Energy harvesting
+- USB powered
+- Wireless charging
 
-Contact Locus support for assistance with custom configuration profiles for your specific application needs.
+## Common Applications
+
+### Industrial Monitoring
+- Machine status
+- Process variables
+- Environmental conditions
+- Equipment health
+- Safety parameters
+
+### Asset Management
+- Usage tracking
+- Condition monitoring
+- Maintenance alerts
+- Location history
+- Status reporting
+
+### Personnel Safety
+- Man-down detection
+- Emergency signaling
+- Environment monitoring
+- Access control
+- Activity tracking
+
+## Configuration
+
+### Peripheral Setup
+1. Hardware connection
+2. Software configuration
+3. Calibration
+4. Testing
+5. Validation
+
+### Data Collection
+| Method | Rate | Storage |
+|--------|------|---------|
+| Real-time | Up to 100Hz | Stream |
+| Buffered | 1Hz typical | Local |
+| Event-based | On trigger | Alert |
+| Logged | Configurable | Memory |
+
+## Development Support
+
+### Integration Tools
+- SDK access
+- API documentation
+- Example code
+- Test utilities
+- Debug tools
+
+### Custom Development
+- Hardware design support
+- Firmware customization
+- Protocol adaptation
+- Certification assistance
+- Integration consulting
+
+## Related Documentation
+
+- [LC01 Series](./tagtypes/lc01series)
+- [LC03 Series](./tagtypes/lc03series)
+- [Smart Sleep Modes](./smartsleepmodes)
+- [Default Configurations](./defaultconfigurations)
+
+<Callout type="warning">
+Peripheral integration may affect tag battery life and update rates. Always validate the complete solution under expected operating conditions.
+</Callout>
+
+<Callout type="info">
+Contact Locus support for detailed peripheral specifications and integration guidelines for your specific application requirements.
+</Callout>

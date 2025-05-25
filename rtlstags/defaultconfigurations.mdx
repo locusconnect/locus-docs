@@ -1,88 +1,218 @@
 ---
 title: "Default Configurations"
+icon: "sliders"
+description: "Complete guide to Locus RTLS Tag default configuration profiles and customization options"
+keywords: "tag configuration, RTLS settings, default profiles, tag setup, configuration management"
 ---
 
-# Default Configurations
+# Default Configuration Profiles
 
-Locus RTLS tags come with several pre-configured profiles to meet different application requirements. This guide explains the standard configurations and helps you select the most appropriate one for your use case.
+## Overview
 
-## Configuration Profiles Overview
+Locus RTLS tags come with pre-configured profiles optimized for common use cases. This guide helps you select and customize the most appropriate configuration for your application.
 
-| Profile | Update Rate | Battery Life | Accuracy | Best For |
-|---------|-------------|--------------|----------|----------|
-| High Precision | 10 Hz | 3-6 months | ±10 cm | Critical tracking applications |
-| Standard | 1 Hz | 1-2 years | ±20 cm | General asset tracking |
-| Power Save | 0.2 Hz | 3-5 years | ±30 cm | Long-term monitoring |
-| Motion Sensitive | Variable | 1-3 years | Variable | Mobile equipment |
-| Zoned | Event-based | 2-4 years | Zone level | Presence detection |
+## Standard Profiles
 
-## High Precision Profile
+### Profile Summary
+| Profile | Update Rate | Accuracy | Battery Life | Best For |
+|---------|-------------|----------|--------------|----------|
+| High Precision | 10Hz | ±10cm | 3-6 months | Critical tracking |
+| Standard | 1Hz | ±20cm | 1-2 years | General use |
+| Power Save | 0.2Hz | ±30cm | 3-5 years | Static assets |
+| Motion Based | Variable | Variable | 1-3 years | Mobile assets |
+| Zone Based | Event-based | Zone level | 2-4 years | Area monitoring |
 
-The High Precision profile prioritizes location accuracy and update frequency.
+### Profile Selection
+```mermaid
+flowchart TD
+    classDef decision fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:white
+    classDef profile fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
+    classDef start fill:#2196F3,stroke:#1976D2,stroke-width:2px,color:white
 
-**Key Parameters:**
-- Update rate: 10 updates per second
-- Transmit power: Full power
-- Motion detection: Disabled
-- LED indication: Enabled
-- Sleep modes: Disabled
+    A[Start Profile<br>Selection] --> B{Is Asset<br>Mobile?}
+    B -- Yes --> C{Need Critical<br>Tracking?}
+    B -- No --> D{Power Life<br>Priority?}
+    C -- Yes --> E[High Precision<br>Profile]
+    C -- No --> F[Motion Based<br>Profile]
+    D -- Yes --> G[Power Save<br>Profile]
+    D -- No --> H[Standard<br>Profile]
 
-**Best Applications:**
-- AGV navigation
-- Safety systems
-- Precision manufacturing
-- Performance analytics
+    class A start
+    class B,C,D decision
+    class E,F,G,H profile
 
-## Standard Profile
+    style A fill:#2196F3,stroke:#1976D2,stroke-width:2px,color:white
+    style B fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:white
+    style C fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:white
+    style D fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:white
+    style E fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
+    style F fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
+    style G fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
+    style H fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
 
-The Standard profile balances accuracy with battery life for everyday tracking needs.
+    linkStyle default stroke:#455A64,stroke-width:2px
+```
 
-**Key Parameters:**
-- Update rate: 1 update per second
-- Transmit power: Medium
-- Motion detection: Optional
-- LED indication: On events only
-- Sleep modes: Light sleep when stationary
+## Profile Details
 
-**Best Applications:**
-- Inventory management
-- Asset tracking
-- Personnel tracking
-- Process monitoring
+### High Precision Profile
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| Update Rate | 10Hz | Ten updates per second |
+| Radio Power | Maximum | Full range coverage |
+| Sleep Modes | Disabled | Continuous tracking |
+| Motion Detection | Optional | Application specific |
+| LED Indication | Enabled | Visual feedback |
 
-## Power Save Profile
+### Standard Profile
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| Update Rate | 1Hz | Once per second |
+| Radio Power | Medium | Balanced range |
+| Sleep Modes | Light | Power optimization |
+| Motion Detection | Enabled | Activity tracking |
+| LED Indication | Events | Status indication |
 
-The Power Save profile maximizes battery life for applications where frequent updates are not critical.
+### Power Save Profile
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| Update Rate | 0.2Hz | Every 5 seconds |
+| Radio Power | Minimum | Energy efficient |
+| Sleep Modes | Deep | Maximum savings |
+| Motion Detection | Enabled | Wake trigger |
+| LED Indication | Disabled | Power saving |
 
-**Key Parameters:**
-- Update rate: 1 update every 5 seconds
-- Transmit power: Low
-- Motion detection: Enabled
-- LED indication: Disabled
-- Sleep modes: Deep sleep when stationary
+### Motion Based Profile
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| Update Rate | Variable | Motion dependent |
+| Radio Power | Adaptive | Context based |
+| Sleep Modes | Smart | Motion triggered |
+| Motion Detection | Enhanced | Primary control |
+| LED Indication | Activity | Motion feedback |
 
-**Best Applications:**
-- Long-term asset storage
-- Rarely moved equipment
-- Environmental monitoring
-- Backup equipment tracking
+### Zone Based Profile
+| Parameter | Value | Description |
+|-----------|-------|-------------|
+| Update Rate | Event | Zone transitions |
+| Radio Power | Low | Area coverage |
+| Sleep Modes | Adaptive | Zone dependent |
+| Motion Detection | Basic | Support function |
+| LED Indication | Zones | Location status |
 
-## Changing Configurations
+## Configuration Parameters
 
-Default profiles can be changed using:
+### Radio Settings
+- Channel selection
+- Power levels
+- Data rates
+- Ranging modes
+- Protocol options
 
-1. The Locus RTLS Hub configuration interface
-2. Locus Configuration API
-3. USB configuration adapter (for mass deployment)
+### Power Management
+- Sleep thresholds
+- Wake intervals
+- Motion sensitivity
+- Battery monitoring
+- Power modes
 
-## Custom Configurations
+### Feature Control
+- LED behavior
+- Button functions
+- Sensor options
+- Alert conditions
+- Data logging
 
-For applications with specific requirements, custom configurations can be created by adjusting:
+## Customization Options
 
-- Update frequency
-- Transmission power
-- Sensor activation thresholds
-- Sleep mode parameters
-- LED indicator behavior
+### Basic Adjustments
+1. Update frequency
+2. Sleep behavior
+3. LED settings
+4. Motion sensitivity
+5. Alert thresholds
 
-Contact Locus support for assistance with custom configuration profiles for your specific application needs.
+### Advanced Settings
+| Setting | Range | Impact |
+|---------|--------|---------|
+| TX Power | -12 to +10 dBm | Range vs battery |
+| Sleep Delay | 1-3600s | Response vs power |
+| Motion Threshold | 0.01-2.0g | Sensitivity |
+| Wake Duration | 0.1-10s | Power usage |
+
+## Configuration Tools
+
+### RTLS Hub Interface
+- Profile selection
+- Parameter adjustment
+- Batch configuration
+- Template management
+- Configuration backup
+
+### API Integration
+- Remote configuration
+- Automated setup
+- Mass deployment
+- Profile management
+- Status monitoring
+
+## Deployment Guidelines
+
+### Initial Setup
+1. **Profile Selection**
+   - Use case analysis
+   - Environment review
+   - Performance needs
+   - Power requirements
+
+2. **Configuration**
+   - Basic parameters
+   - Feature activation
+   - Testing setup
+   - Performance validation
+
+3. **Optimization**
+   - Field testing
+   - Parameter tuning
+   - Battery validation
+   - Coverage verification
+
+### Best Practices
+- Start with standard profiles
+- Test before deployment
+- Document changes
+- Monitor performance
+- Regular review
+
+## Troubleshooting
+
+### Common Issues
+| Issue | Check | Solution |
+|-------|-------|----------|
+| Poor accuracy | Update rate | Increase frequency |
+| Short battery | Power settings | Optimize profile |
+| Missing updates | Sleep settings | Adjust triggers |
+| Range issues | TX power | Adjust power |
+
+### Validation Steps
+1. Verify settings
+2. Test performance
+3. Check coverage
+4. Monitor battery
+5. Review logs
+
+## Related Documentation
+
+- [Smart Sleep Modes](./smartsleepmodes)
+- [Tag Battery Guide](./tagbattery)
+- [Tag Peripherals](./tagperipherals)
+- [LC01 Series](./tagtypes/lc01series)
+- [LC03 Series](./tagtypes/lc03series)
+
+<Callout type="warning">
+Configuration changes can significantly impact system performance and battery life. Always test new configurations in a controlled environment before full deployment.
+</Callout>
+
+<Callout type="info">
+Contact Locus support for assistance with custom configurations or specific application requirements not covered by standard profiles.
+</Callout>

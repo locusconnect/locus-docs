@@ -1,102 +1,228 @@
 ---
-title: 'First Path Power'
-description: 'First Path Power is a critical RF performance parameter in Ultra-Wideband (UWB) positioning systems. It measures the power of the first signal component that arrives at a receiver, which typically represents the direct line-of-sight path between transmitter and receiver.'
+title: "First Path Power"
+icon: "bolt"
+description: "Comprehensive guide to First Path Power measurement, analysis, and optimization in Locus RTLS systems"
+keywords: "first path power, UWB, RF parameters, signal path, RTLS performance, multipath"
 ---
+
+# First Path Power
 
 ## Overview
 
-First Path Power is a critical RF performance parameter in Ultra-Wideband (UWB) positioning systems. It measures the power of the first signal component that arrives at a receiver, which typically represents the direct line-of-sight path between transmitter and receiver.
+First Path Power is a fundamental RF parameter in Ultra-Wideband (UWB) positioning systems that measures the power of the initial signal component arriving at a receiver. This metric is crucial for accurate distance estimation, path analysis, and system optimization.
 
-## Importance in RTLS
+## Signal Components
 
-In Locus RTLS, First Path Power measurements provide valuable information for:
+### Path Analysis
+```mermaid
+graph TD
+    classDef signal fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
+    classDef path fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:white
+    classDef metric fill:#2196F3,stroke:#1976D2,stroke-width:2px,color:white
 
-* Accurate distance estimation
-* Line-of-sight verification
-* Signal quality assessment
-* Multipath environment characterization
+    A[UWB Signal] --> B[First Path]
+    A --> C[Reflected Paths]
+    A --> D[Scattered Paths]
+    
+    B --> E[Power Analysis]
+    C --> E
+    D --> E
+    
+    E --> F[Path Metrics]
 
-## First Path Detection
+    class A signal
+    class B,C,D path
+    class E,F metric
+```
 
-### How It Works
+### Signal Characteristics
+| Component | Arrival Time | Power Level | Reliability |
+|-----------|-------------|-------------|-------------|
+| First Path | Earliest | Variable | Primary |
+| Reflections | Delayed | Often stronger | Secondary |
+| Scattering | Extended | Typically weak | Limited |
+| Noise | Continuous | Background | N/A |
 
-UWB systems can distinguish between the direct path signal and reflections (multipath) due to:
+## Measurement Parameters
 
-1. The extremely short duration of UWB pulses (nanoseconds)
-2. High time resolution of receivers
-3. Advanced signal processing algorithms
+### Power Metrics
+```mermaid
+mindmap
+    root((First Path<br>Analysis))
+        Power Level
+            Absolute power
+            SNR
+            Detection threshold
+        Time Domain
+            Arrival time
+            Pulse width
+            Rise time
+        Quality Metrics
+            Path ratio
+            Power ratio
+            Consistency
+```
 
-### First Path vs. Strongest Path
+### Performance Indicators
+| Metric | Good | Marginal | Poor |
+|--------|------|----------|------|
+| Power | Greater than \-85 dBm | \-85 to \-95 dBm | Less than \-95 dBm |
+| SNR | Greater than 10 dB | 5-10 dB | Less than 5 dB |
+| Path Ratio | Greater than 0.7 | 0.3-0.7 | Less than 0.3 |
+| Consistency | Less than 2 dB | 2-5 dB | Greater than 5 dB |
 
-* **First Path** - The first signal component to arrive, typically the direct path
-* **Strongest Path** - The signal component with the highest power, which may be a reflection
+## Signal Processing
 
-In ideal conditions, the first path and strongest path are identical. In complex environments with reflections, they may differ significantly.
+### Detection Process
+```mermaid
+sequenceDiagram
+    participant T as Transmitter
+    participant R as Receiver
+    participant P as Processor
+    
+    Note over T,R: Signal Transmission
+    T->>R: UWB Pulse
+    R->>P: Raw Samples
+    
+    Note over P: Processing
+    P->>P: Threshold Detection
+    P->>P: Peak Identification
+    P->>P: Path Separation
+    
+    Note over P: Analysis
+    P->>P: Power Calculation
+    P->>P: Quality Assessment
+```
 
-![First Path vs. Strongest Path](https://via.placeholder.com/600x300?text=First+Path+vs+Strongest+Path)
+### Analysis Methods
+1. **Signal Detection**
+   - Threshold crossing
+   - Leading edge
+   - Peak detection
+   - Noise filtering
 
-## First Path Power Metrics
+2. **Path Separation**
+   - Time windowing
+   - Power thresholds
+   - Pattern matching
+   - Statistical analysis
 
-Locus RTLS uses several metrics related to First Path Power:
+3. **Quality Assessment**
+   - SNR calculation
+   - Path ratios
+   - Consistency check
+   - Error estimation
 
-### First Path Power Level (FP-Power)
+## System Integration
 
-* Measured in dBm
-* Indicates the absolute power of the first arriving signal component
-* Typical values range from -80 dBm to -105 dBm
+### Performance Analysis
+```mermaid
+graph LR
+    classDef input fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:white
+    classDef process fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    classDef output fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
 
-### First Path to Total Power Ratio (FP-Ratio)
+    A[First Path Data] --> B[Quality Check]
+    B --> C[Distance Calc]
+    B --> D[Path Analysis]
+    B --> E[System Health]
 
-* Expressed as a percentage (0-100%)
-* Indicates what portion of the total received signal power is in the first path
-* Higher values indicate clearer line-of-sight conditions
+    class A input
+    class B process
+    class C,D,E output
+```
 
-## Using First Path Data
+### System Applications
+| Application | Use Case | Requirements | Benefits |
+|-------------|----------|--------------|----------|
+| Ranging | Distance measurement | High SNR | Accuracy |
+| Positioning | Location calculation | Good geometry | Precision |
+| Monitoring | System health | Stability | Reliability |
+| Diagnostics | Problem detection | Sensitivity | Maintenance |
 
-### Link Quality Assessment
+## Environmental Factors
 
-| FP-Power | FP-Ratio | Link Quality | Reliability |
-|----------|----------|--------------|------------|
-| High | High | Excellent | Very reliable |
-| High | Low | Good with multipath | Reliable with processing |
-| Low | High | Weak but clear | Moderately reliable |
-| Low | Low | Poor with multipath | Unreliable |
+### Impact Analysis
+```mermaid
+graph TD
+    classDef factor fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:white
+    classDef effect fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    classDef result fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
 
-### Installation Optimization
+    A[Environment] --> B[Physical Obstacles]
+    A --> C[RF Interference]
+    A --> D[Dynamic Changes]
+    
+    B --> E[Signal Attenuation]
+    C --> F[Noise Increase]
+    D --> G[Path Variation]
 
-First Path metrics are valuable during system installation:
+    class A factor
+    class B,C,D effect
+    class E,F,G result
+```
 
-* Verify direct line-of-sight between anchors
-* Identify areas with significant multipath issues
-* Optimize anchor placement for reliable ranging
-* Validate RF planning assumptions
+### Mitigation Strategies
+| Factor | Impact | Strategy | Implementation |
+|--------|--------|----------|----------------|
+| Obstacles | Attenuation | Path planning | Installation |
+| Interference | Noise | Channel selection | Configuration |
+| Multipath | Distortion | Processing | Algorithms |
+| Movement | Variation | Dynamic tracking | Software |
 
-## Factors Affecting First Path Power
+## System Optimization
 
-Several factors can influence First Path Power measurements:
+### Monitoring Tools
+1. **Real-time Analysis**
+   - Power levels
+   - Path ratios
+   - Quality metrics
+   - System alerts
 
-* **Distance** - Power decreases with increasing distance
-* **Obstacles** - Physical barriers attenuate the direct path
-* **Antenna orientation** - Affects signal radiation pattern
-* **Environmental reflectors** - Metal surfaces, walls, equipment
-* **Interference** - Other RF systems or electrical noise
+2. **Historical Analysis**
+   - Trend tracking
+   - Pattern detection
+   - Performance logs
+   - Issue correlation
 
-## Viewing and Using First Path Data
+3. **Diagnostic Tools**
+   - Path visualization
+   - Quality mapping
+   - Problem isolation
+   - Performance tuning
 
-### In the Locus RTLS Hub
+## Best Practices
 
-First Path data is accessible in the Locus RTLS Hub:
+### Implementation Guidelines
+1. **System Setup**
+   - Anchor placement
+   - Power levels
+   - Channel selection
+   - Initial calibration
 
-1. Navigate to System Diagnostics > RF Parameters
-2. Select the "First Path Analysis" view
-3. Choose anchor pairs or tag-anchor combinations
-4. View real-time or historical First Path metrics
+2. **Operation**
+   - Regular monitoring
+   - Performance checks
+   - Quality thresholds
+   - Alert handling
 
-### For Troubleshooting
+3. **Maintenance**
+   - Periodic validation
+   - System tuning
+   - Issue resolution
+   - Performance optimization
 
-First Path metrics help identify specific issues:
+## Related Documentation
 
-* Low FP-Power with high FP-Ratio: Check for distance or obstruction issues
-* High FP-Power with low FP-Ratio: Investigate multipath or reflection sources
-* Inconsistent readings: Look for intermittent interference
-* Asymmetric readings between devices: Check antenna alignment
+- [Line of Sight (LOS)](./los)
+- [RSSI](./rssi)
+- [UWB Technology](../uwbtechnology)
+- [System Architecture](../rtlsystemarchitecture)
+
+<Callout type="warning">
+First Path Power measurements are critical for accurate positioning. Regular monitoring and optimization of First Path parameters is essential for system reliability.
+</Callout>
+
+<Callout type="info">
+Contact Locus support for detailed First Path analysis tools and optimization recommendations for your specific deployment environment.
+</Callout>

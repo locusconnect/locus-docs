@@ -1,85 +1,138 @@
 ---
 title: "Anchor LED Indication"
+icon: "lightbulb"
+description: "Complete guide to understanding and interpreting LED indicators on Locus RTLS Anchors"
+keywords: "LED indicators, anchor status, troubleshooting, visual feedback, system status, diagnostic lights, RTLS anchor"
 ---
 
 # Anchor LED Indication
 
 ## LED Overview
 
-Locus RTLS Anchors feature multiple status LEDs that provide visual feedback on the anchor's operational state. Understanding these indicators helps with installation, troubleshooting, and maintenance.
+Locus RTLS Anchors feature multiple status LEDs that provide visual feedback on the anchor's operational state. Understanding these indicators is crucial for installation, troubleshooting, and maintenance.
 
-## LED Locations
+## LED Locations and Functions
 
-The Locus Anchor has the following LED indicators:
+### Physical Layout
+- **Power LED** (Green) - Top right, indicates power status
+- **Network LED** (Amber) - Adjacent to Ethernet port, shows network connectivity
+- **Status LED** (Multi-color) - Front center, displays operational state
+- **Activity LED** (Blue) - Front lower section, indicates UWB activity
 
-* **Power LED** (Green) - Top right of the unit
-* **Network LED** (Amber) - Adjacent to Ethernet port
-* **Status LED** (Multi-color) - Front center of the unit
-* **Activity LED** (Blue) - Front lower section of the unit
+### Visual Reference
+![Anchor LED Locations](../images/anchor-led-locations.png)
 
 ## LED Status Patterns
 
-### Power LED
+### Power LED (Green)
+| State | Meaning | Action Required |
+|-------|---------|----------------|
+| Solid Green | Normal power operation | None |
+| Off | No power supply | Check power connection |
+| Blinking Green | Power-on self-test | Wait for completion |
+| Rapid Blinking | Power issue detected | Check power source |
 
-| State | Meaning |
-|-------|---------|
-| Solid Green | Power is on and within normal operating range |
-| Off | No power is supplied to the anchor |
-| Blinking Green | Power-on self-test in progress |
+### Network LED (Amber)
+| State | Meaning | Action Required |
+|-------|---------|----------------|
+| Solid Amber | Network connected | None |
+| Blinking Amber | Network activity | None |
+| Off | No network connection | Check network cable |
+| Rapid Blink | Network error | Verify network settings |
 
-### Network LED
+### Status LED (Multi-color)
+| State | Meaning | Action Required |
+|-------|---------|----------------|
+| Solid Green | Normal operation | None |
+| Solid Red | Error condition | Check RTLS Hub |
+| Blinking Green | Configuration mode | None if intentional |
+| Blinking Red | Hardware fault | Contact support |
+| Red/Green Alternating | Firmware update | Do not power off |
+| Off | Not operational | Check power and config |
 
-| State | Meaning |
-|-------|---------|
-| Solid Amber | Active network connection established |
-| Blinking Amber | Network traffic activity |
-| Off | No network connection |
-| Rapid Blink | Network error condition |
+### Activity LED (Blue)
+| State | Meaning | Action Required |
+|-------|---------|----------------|
+| Blinking Blue | Tag detection | None |
+| Off | No UWB activity | Check if expected |
+| Rapid Blue | High tag traffic | Monitor system load |
+| Solid Blue | UWB error | Check configuration |
 
-### Status LED
+## Boot Sequence
 
-| State | Meaning |
-|-------|---------|
-| Solid Green | Anchor operating normally |
-| Solid Red | Error condition detected |
-| Blinking Green | Anchor is in setup/configuration mode |
-| Blinking Red | Hardware fault detected |
-| Alternating Red/Green | Firmware update in progress |
-| Off | Anchor is not operational |
+### Normal Boot Process
+1. **Power-Up** (0-5 seconds)
+   - All LEDs: Brief illumination
+   - Power LED: Solid green
+   
+2. **Initialization** (5-15 seconds)
+   - Status LED: Blinking green
+   - Network LED: Off
+   
+3. **Network Connection** (15-20 seconds)
+   - Network LED: Solid amber
+   - Status LED: Continues blinking
+   
+4. **System Ready** (20-30 seconds)
+   - Status LED: Solid green
+   - Activity LED: Begins normal operation
 
-### Activity LED
+### Boot Sequence Diagram
+```mermaid
+sequenceDiagram
+    participant P as Power LED
+    participant N as Network LED
+    participant S as Status LED
+    participant A as Activity LED
+    
+    Note over P,A: Power On
+    P->>P: Solid Green
+    N->>N: Off
+    S->>S: Blinking Green
+    A->>A: Off
+    
+    Note over P,A: Network Init
+    N->>N: Solid Amber
+    
+    Note over P,A: System Ready
+    S->>S: Solid Green
+    A->>A: Normal Operation
+```
 
-| State | Meaning |
-|-------|---------|
-| Blinking Blue | UWB radio activity (tag detection) |
-| Off | No UWB activity detected |
-| Rapid Blinking Blue | High volume of tag traffic |
+## Troubleshooting Guide
 
-## LED Sequences During Boot
+### Common Issues
+| LED Pattern | Issue | Solution |
+|------------|--------|----------|
+| All LEDs Off | No power | Check PoE/power supply |
+| Status Red | System error | Restart anchor |
+| Network Off | Connection lost | Verify network |
+| All Blinking | Recovery mode | Use RTLS Hub recovery |
 
-When an anchor is powered on, it goes through the following LED sequence:
-
-1. All LEDs illuminate briefly for self-test
-2. Power LED turns solid green
-3. Status LED blinks green during initialization
-4. Network LED turns on when network connection is established
-5. Status LED turns solid green when anchor is operational
-6. Activity LED blinks when UWB radio activity is detected
-
-## Troubleshooting With LEDs
-
-| Symptom | Possible Cause | Resolution |
-|---------|----------------|------------|
-| No LEDs on | No power to anchor | Check PoE connection and power source |
-| Status LED red | Anchor error condition | Restart anchor, check in RTLS Hub |
-| Network LED off | Network connection issue | Check cable and network equipment |
-| Status LED blinking red | Hardware fault | Contact support for assistance |
-| All LEDs blinking together | Anchor in recovery mode | Use RTLS Hub to restore firmware |
+### Advanced Diagnostics
+- **Multiple LED Patterns**
+  - Record the sequence of LED states
+  - Note any pattern changes
+  - Check environmental factors
+  - Document timing of changes
 
 ## LED Configuration
 
-LED behavior can be configured in the RTLS Hub software:
+### RTLS Hub Settings
+- Activity LED brightness control
+- Status LED enable/disable
+- Custom pattern configuration
+- Diagnostic mode settings
 
-* Activity LED intensity (High/Medium/Low/Off)
-* Status LED enable/disable
-* Custom LED patterns for specific deployments
+### Best Practices
+- Keep Activity LED enabled for monitoring
+- Use appropriate brightness for environment
+- Document custom LED configurations
+- Regular LED function verification
+
+## Related Documentation
+
+- [Anchor Overview](./anchoroverview)
+- [Technical Specifications](./technicalspecifications)
+- [Troubleshooting Guide](./troubleshooting)
+- [Power Supply Guide](./powersupply)

@@ -1,87 +1,175 @@
 ---
-title: "Tag Battery"
+title: "Tag Battery Management"
+icon: "battery-full"
+description: "Complete guide to Locus RTLS Tag battery management, including replacement procedures and optimization strategies"
+keywords: "tag battery, battery life, power management, battery replacement, power optimization, RTLS maintenance"
 ---
-# Tag Battery
 
-Locus RTLS tags come with several pre-configured profiles to meet different application requirements. This guide explains the standard configurations and helps you select the most appropriate one for your use case.
+# Tag Battery Management
 
-## Configuration Profiles Overview
+## Overview
 
-| Profile | Update Rate | Battery Life | Accuracy | Best For |
-|---------|-------------|--------------|----------|----------|
-| High Precision | 10 Hz | 3-6 months | ±10 cm | Critical tracking applications |
-| Standard | 1 Hz | 1-2 years | ±20 cm | General asset tracking |
-| Power Save | 0.2 Hz | 3-5 years | ±30 cm | Long-term monitoring |
-| Motion Sensitive | Variable | 1-3 years | Variable | Mobile equipment |
-| Zoned | Event-based | 2-4 years | Zone level | Presence detection |
+Proper battery management is crucial for maintaining reliable RTLS tag operation. This guide covers battery specifications, replacement procedures, and optimization strategies.
 
-## High Precision Profile
+## Battery Specifications
 
-The High Precision profile prioritizes location accuracy and update frequency.
+### Supported Battery Types
+| Tag Series | Battery Type | Capacity | Voltage | Quantity |
+|------------|--------------|----------|----------|-----------|
+| LC01 | CR2032 | 225mAh | 3.0V | 1x |
+| LC03 | CR2450 | 620mAh | 3.0V | 2x |
+| Vehicle Tags | External | N/A | 12-24V | N/A |
+| Special | Application specific | Varies | Varies | Varies |
 
-**Key Parameters:**
-- Update rate: 10 updates per second
-- Transmit power: Full power
-- Motion detection: Disabled
-- LED indication: Enabled
-- Sleep modes: Disabled
+### Expected Battery Life
+```mermaid
+graph TD
+    classDef primary fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:white
+    classDef factor fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    classDef result fill:#43A047,stroke:#2E7D32,stroke-width:2px,color:white
 
-**Best Applications:**
-- AGV navigation
-- Safety systems
-- Precision manufacturing
-- Performance analytics
+    A[Battery Life<br>Estimation] --> B[Update Rate<br>Frequency]
+    A --> C[Environmental<br>Conditions]
+    A --> D[Feature<br>Usage]
+    A --> E[Sleep Mode<br>Settings]
+    
+    B --> F[Expected<br>Battery Duration]
+    C --> F
+    D --> F
+    E --> F
 
-## Standard Profile
+    class A primary
+    class B,C,D,E factor
+    class F result
 
-The Standard profile balances accuracy with battery life for everyday tracking needs.
+    style A fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:white
+    style B fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    style C fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    style D fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    style E fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    style F fill:#43A047,stroke:#2E7D32,stroke-width:2px,color:white
+```
 
-**Key Parameters:**
-- Update rate: 1 update per second
-- Transmit power: Medium
-- Motion detection: Optional
-- LED indication: On events only
-- Sleep modes: Light sleep when stationary
+### Life Estimates
+| Configuration | Update Rate | Features | Life Expectancy |
+|---------------|-------------|----------|-----------------|
+| High Precision | 10Hz | All active | 3-6 months |
+| Standard | 1Hz | Basic | 1-2 years |
+| Power Save | 0.2Hz | Minimal | 3-5 years |
+| Motion Based | Variable | Selective | 1-3 years |
 
-**Best Applications:**
+## Battery Replacement
+
+### Replacement Procedure
+1. **Preparation**
+   - Clean workspace
+   - Proper tools
+   - New battery
+   - ESD protection
+
+2. **Tag Access**
+   - Power down tag
+   - Open battery compartment
+   - Note orientation
+   - Remove old battery
+
+3. **Installation**
+   - Clean contacts
+   - Insert new battery
+   - Verify polarity
+   - Close compartment
+
+4. **Verification**
+   - Power up check
+   - LED indication
+   - System detection
+   - Position verification
+
+### Safety Guidelines
+- Use approved batteries
+- Maintain polarity
+- Avoid metal tools
+- Clean environment
+- Proper disposal
+
+## Power Optimization
+
+### Configuration Strategies
+| Strategy | Impact | Trade-off |
+|----------|---------|-----------|
+| Reduce update rate | Major positive | Lower resolution |
+| Enable sleep modes | Major positive | Response delay |
+| Motion activation | Moderate positive | Setup complexity |
+| Sensor scheduling | Minor positive | Feature limitation |
+
+### Environmental Factors
+- Temperature impact
+- Signal strength
+- Motion frequency
+- Update demands
+- Feature usage
+
+## Monitoring Tools
+
+### Battery Status
+- Real-time monitoring
+- Historical trends
+- Alert thresholds
+- Replacement planning
+- Usage analytics
+
+### System Integration
+- RTLS Hub dashboard
+- Email notifications
+- API integration
+- Maintenance scheduling
+- Report generation
+
+## Maintenance Planning
+
+### Preventive Maintenance
+1. Regular inspections
+2. Scheduled replacements
+3. Performance monitoring
+4. Environmental checks
+5. System optimization
+
+### Best Practices
+- Batch replacements
+- Rotation strategy
 - Inventory management
-- Asset tracking
-- Personnel tracking
-- Process monitoring
+- Testing protocol
+- Documentation
 
-## Power Save Profile
+## Troubleshooting
 
-The Power Save profile maximizes battery life for applications where frequent updates are not critical.
+### Common Issues
+| Issue | Possible Cause | Solution |
+|-------|---------------|----------|
+| Short life | High update rate | Adjust configuration |
+| No power | Poor contact | Clean/adjust contacts |
+| Intermittent | Low battery | Replace battery |
+| System error | Configuration | Reset/reconfigure |
 
-**Key Parameters:**
-- Update rate: 1 update every 5 seconds
-- Transmit power: Low
-- Motion detection: Enabled
-- LED indication: Disabled
-- Sleep modes: Deep sleep when stationary
+### Diagnostic Steps
+1. Check battery voltage
+2. Verify configuration
+3. Test in known state
+4. Monitor performance
+5. Document findings
 
-**Best Applications:**
-- Long-term asset storage
-- Rarely moved equipment
-- Environmental monitoring
-- Backup equipment tracking
+## Related Documentation
 
-## Changing Configurations
+- [Smart Sleep Modes](./smartsleepmodes)
+- [Default Configurations](./defaultconfigurations)
+- [Tag Peripherals](./tagperipherals)
+- [LC01 Series](./tagtypes/lc01series)
+- [LC03 Series](./tagtypes/lc03series)
 
-Default profiles can be changed using:
+<Callout type="warning">
+Always use approved battery types and follow proper handling procedures. Incorrect battery replacement can damage tags or create safety hazards.
+</Callout>
 
-1. The Locus RTLS Hub configuration interface
-2. Locus Configuration API
-3. USB configuration adapter (for mass deployment)
-
-## Custom Configurations
-
-For applications with specific requirements, custom configurations can be created by adjusting:
-
-- Update frequency
-- Transmission power
-- Sensor activation thresholds
-- Sleep mode parameters
-- LED indicator behavior
-
-Contact Locus support for assistance with custom configuration profiles for your specific application needs.
+<Callout type="info">
+For specialized tag variants or custom power configurations, consult the specific product documentation or contact Locus support.
+</Callout>

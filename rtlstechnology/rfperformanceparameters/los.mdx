@@ -1,114 +1,229 @@
 ---
-title: 'Line of Sight'
-description: 'Line of Sight (LOS) parameters are critical metrics used in Locus RTLS to determine the quality and reliability of radio connections between system components. These parameters help distinguish between direct signal paths and obstructed or reflected paths.'
+title: "Line of Sight (LOS)"
+icon: "eye"
+description: "Comprehensive guide to Line of Sight parameters, measurement, and optimization in Locus RTLS systems"
+keywords: "LOS, line of sight, NLOS, RF parameters, signal path, UWB propagation, RTLS performance"
 ---
+
+# Line of Sight (LOS)
 
 ## Overview
 
-Line of Sight (LOS) parameters are critical metrics used in Locus RTLS to determine the quality and reliability of radio connections between system components. These parameters help distinguish between direct signal paths and obstructed or reflected paths.
+Line of Sight (LOS) parameters are fundamental metrics in Locus RTLS that characterize signal propagation paths between system components. These parameters are crucial for determining measurement quality, optimizing system performance, and ensuring reliable positioning.
 
-## Key LOS Parameters
+## Signal Propagation
 
-### Channel Impulse Response (CIR)
+### Path Types
+```mermaid
+graph TD
+    classDef los fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
+    classDef nlos fill:#F44336,stroke:#D32F2F,stroke-width:2px,color:white
+    classDef device fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:white
 
-The Channel Impulse Response provides a complete picture of how the UWB signal propagates through the environment:
+    A[Transmitter] --> B[Direct Path]
+    A --> C[Reflected Path]
+    A --> D[Diffracted Path]
+    
+    B --> E[Receiver]
+    C --> E
+    D --> E
 
-* Captures all signal paths including direct and reflected components
-* Measured in the time domain with nanosecond resolution
-* Used to analyze multipath characteristics and signal quality
+    class A,E device
+    class B los
+    class C,D nlos
+```
 
-![Channel Impulse Response Example](https://via.placeholder.com/600x300?text=Channel+Impulse+Response+Example)
+### Signal Characteristics
+| Path Type | Delay | Power | Reliability |
+|-----------|-------|-------|-------------|
+| Direct | Minimal | Strongest | Highest |
+| Reflected | Variable | Attenuated | Medium |
+| Diffracted | Extended | Weak | Low |
+| Scattered | Random | Very weak | Unreliable |
 
-### Leading Edge Detection
+## LOS Parameters
 
-Leading Edge Detection identifies the first arriving signal component:
+### Channel Impulse Response
+```mermaid
+graph LR
+    classDef signal fill:#2196F3,stroke:#1976D2,stroke-width:2px,color:white
+    classDef process fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    classDef result fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
 
-* Utilizes advanced algorithms to identify the direct path
-* Critical for accurate time-of-flight calculations
-* Affected by signal-to-noise ratio and multipath interference
+    A[UWB Signal] --> B[Channel Response]
+    B --> C[First Path]
+    B --> D[Multipath]
+    B --> E[Noise Floor]
+    
+    C --> F[Path Analysis]
+    D --> F
+    E --> F
 
-### Line of Sight Probability (LOS-P)
+    class A signal
+    class B,C,D,E process
+    class F result
+```
 
-Line of Sight Probability estimates the likelihood that a measurement comes from a direct path:
+### Quality Metrics
+| Parameter | LOS | NLOS | Impact |
+|-----------|-----|------|---------|
+| First Path Power | Greater than \-85 dBm | Less than \-85 dBm | Critical |
+| Path Loss | Less than \-20 dB/m | Greater than \-20 dB/m | High |
+| Delay Spread | Less than 20 ns | Greater than 20 ns | Medium |
+| SNR | Greater than 10 dB | Less than 10 dB | High |
 
-* Expressed as a percentage (0-100%)
-* Based on multiple signal characteristics
-* Used to weight measurements in position calculations
+## LOS Probability
 
-| LOS-P Value | Interpretation | Position Reliability |
-|-------------|----------------|---------------------|
-| 90-100% | Clear line of sight | Very high |
-| 70-90% | Mostly clear with minor obstructions | High |
-| 40-70% | Partial obstructions | Moderate |
-| 10-40% | Significant obstructions | Low |
-| 0-10% | No line of sight (NLOS) | Very low |
+### Classification Model
+```mermaid
+mindmap
+    root((LOS<br>Probability))
+        Signal Metrics
+            First path power
+            Rise time
+            Path loss
+        Channel Parameters
+            Delay spread
+            Coherence time
+            Bandwidth
+        Environmental Factors
+            Obstacles
+            Reflectors
+            Movement
+```
 
-## LOS vs. NLOS Conditions
+### Probability Ranges
+| Range | Classification | Reliability | Usage |
+|-------|---------------|-------------|--------|
+| 90-100% | Clear LOS | Very High | Primary |
+| 70-90% | Partial LOS | High | Secondary |
+| 40-70% | Mixed | Medium | Supplementary |
+| 10-40% | NLOS | Low | Conditional |
+| 0-10% | Deep NLOS | Very Low | Excluded |
 
-### Line of Sight (LOS)
+## System Implementation
 
-* Direct, unobstructed path between transmitter and receiver
-* Provides most accurate distance measurements
-* Characterized by:
-  * Strong first path signal
-  * Short time-of-arrival
-  * Consistent measurements
+### Measurement Process
+```mermaid
+sequenceDiagram
+    participant T as Tag
+    participant A as Anchor
+    participant E as Engine
+    
+    Note over T,A: Signal Transmission
+    T->>A: UWB Pulse
+    A->>E: Channel Data
+    
+    Note over E: Analysis
+    E->>E: Path Detection
+    E->>E: Quality Assessment
+    
+    Note over E: Classification
+    E->>E: LOS Probability
+```
 
-### Non-Line of Sight (NLOS)
+### Performance Optimization
+1. **Signal Analysis**
+   - Path detection
+   - Power measurement
+   - Timing analysis
+   - Quality metrics
 
-* Obstructed direct path, signal reaches receiver via reflections
-* Results in less accurate distance measurements
-* Characterized by:
-  * Weaker first path signal
-  * Delayed time-of-arrival
-  * Higher variability in measurements
+2. **Path Classification**
+   - LOS probability
+   - Path reliability
+   - Error estimation
+   - Confidence level
 
-## Using LOS Parameters
+3. **System Adaptation**
+   - Weight assignment
+   - Path selection
+   - Algorithm tuning
+   - Performance tracking
 
-### In System Design
+## Deployment Considerations
 
-* Place anchors to maximize LOS between nodes
-* Account for NLOS paths in coverage planning
-* Optimize the number and placement of anchors
+### Environmental Analysis
+```mermaid
+graph TD
+    classDef factor fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:white
+    classDef impact fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    classDef action fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
 
-### In Position Calculation
+    A[Environment] --> B[Static Obstacles]
+    A --> C[Dynamic Objects]
+    A --> D[RF Conditions]
+    
+    B --> E[Placement Strategy]
+    C --> F[Dynamic Adaptation]
+    D --> G[Channel Selection]
 
-* Apply different weightings to LOS and NLOS measurements
-* Use NLOS identification to filter out unreliable data
-* Apply correction algorithms to NLOS measurements
+    class A factor
+    class B,C,D impact
+    class E,F,G action
+```
 
-### In System Monitoring
+### Optimization Strategies
+| Factor | Strategy | Benefit | Implementation |
+|--------|----------|---------|----------------|
+| Coverage | Anchor density | Better LOS | Installation |
+| Obstacles | Height adjustment | Path clearance | Mounting |
+| Movement | Dynamic tracking | Path adaptation | Software |
+| Interference | Channel selection | Signal quality | Configuration |
 
-* Track LOS parameters over time to detect changes
-* Identify new obstructions or environmental changes
-* Predict potential system performance degradation
+## System Integration
 
-## LOS Parameter Analysis Tools
+### Monitoring Tools
+1. **Real-time Analysis**
+   - Path quality
+   - LOS probability
+   - Signal metrics
+   - System health
 
-The Locus RTLS Hub provides several tools for LOS parameter analysis:
+2. **Historical Tracking**
+   - Performance trends
+   - Quality changes
+   - Path stability
+   - System adaptation
 
-### Real-time Monitoring
-
-* View live LOS parameters for all system links
-* Set thresholds for alerts and notifications
-* Filter by link type, quality, or location
-
-### Historical Analysis
-
-* Track parameter changes over time
-* Correlate with system performance metrics
-* Generate reports for system optimization
-
-### Link Quality Maps
-
-* Visualize LOS quality across your deployment area
-* Identify problematic zones for improvement
-* Plan system expansion with LOS considerations
+3. **Optimization Tools**
+   - Coverage maps
+   - Quality analysis
+   - Path visualization
+   - Performance reports
 
 ## Best Practices
 
-* Regularly monitor LOS parameters as part of system maintenance
-* Use LOS parameters to guide anchor placement and adjustments
-* Consider both LOS probability and signal strength when evaluating links
-* Be aware of temporal factors that can affect LOS (moving equipment, people, etc.)
-* Establish baseline LOS parameters after initial installation
+### Implementation Guidelines
+1. **Design Phase**
+   - Site survey
+   - Coverage planning
+   - Anchor placement
+   - Path analysis
+
+2. **Installation**
+   - Height optimization
+   - Orientation setup
+   - Path validation
+   - Performance testing
+
+3. **Maintenance**
+   - Regular monitoring
+   - Path verification
+   - System tuning
+   - Performance optimization
+
+## Related Documentation
+
+- [RSSI](./rssi)
+- [First Path](./firstpath)
+- [UWB Technology](../uwbtechnology)
+- [System Architecture](../rtlsystemarchitecture)
+
+<Callout type="warning">
+LOS parameters significantly impact positioning accuracy. Regular monitoring and optimization of LOS conditions is essential for optimal system performance.
+</Callout>
+
+<Callout type="info">
+Contact Locus support for detailed LOS analysis tools and optimization recommendations for your specific deployment environment.
+</Callout>

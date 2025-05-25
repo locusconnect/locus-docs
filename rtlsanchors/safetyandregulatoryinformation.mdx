@@ -1,75 +1,177 @@
 ---
 title: "Safety and Regulatory Information"
+icon: "shield-check"
+description: "Essential safety guidelines and regulatory compliance information for Locus RTLS Anchors"
+keywords: "safety guidelines, regulatory compliance, FCC, CE, IC, environmental compliance, RF safety, installation safety"
 ---
 
 # Safety and Regulatory Information
 
-## Safety Precautions
+## Safety Guidelines
 
 ### Installation Safety
+![Safety Equipment](../images/safety-equipment.png)
 
-* Always disconnect power before installation or maintenance
-* Use appropriate safety equipment when mounting anchors at height
-* Secure all mounting hardware to prevent falling objects
-* Follow local building codes and regulations during installation
+| Activity | Required PPE | Additional Equipment |
+|----------|-------------|---------------------|
+| Height Work | Hard hat, harness | Ladder, platform |
+| Power Work | Insulated gloves | Voltage tester |
+| Drilling | Safety glasses, mask | Dust extraction |
+| General | Steel-toe boots | Tool belt |
 
 ### Electrical Safety
+```mermaid
+graph TD
+    A[Power Off] --> B[Verify Voltage]
+    B --> C[Install/Maintain]
+    C --> D[Verify Ground]
+    D --> E[Power On]
+    E --> F[Test Operation]
+```
 
-* Only use approved PoE power sources compliant with IEEE 802.3af
-* Do not expose the anchor to water or excessive moisture
-* Do not attempt to open the anchor enclosure
-* Ensure proper grounding of network equipment
+#### Power Requirements
+- IEEE 802.3af/at PoE only
+- Proper grounding required
+- Surge protection recommended
+- Circuit breaker protection
 
-### Radio Frequency Safety
-
-* The UWB radio in Locus anchors operates at very low power levels
-* RF emissions are well below international safety limits
-* Maintain minimum 20cm separation distance during operation
-* No special precautions are required for normal use
+### RF Safety Guidelines
+| Parameter | Limit | Notes |
+|-----------|-------|--------|
+| UWB Power | < 0.1W | Below safety limits |
+| Separation | 20cm min | During operation |
+| Exposure | Unrestricted | Normal use |
+| Interference | Minimal | Medical devices |
 
 ## Regulatory Compliance
 
 ### FCC Compliance (USA)
-
-This device complies with Part 15 of the FCC Rules. Operation is subject to the following two conditions:
-1. This device may not cause harmful interference
-2. This device must accept any interference received, including interference that may cause undesired operation
-
+```text
+This device complies with Part 15 of the FCC Rules.
 FCC ID: XXXXXRTLSAX
 
-### CE Compliance (European Union)
+Operation conditions:
+1. May not cause harmful interference
+2. Must accept received interference
+```
 
-This device complies with the essential requirements and other relevant provisions of Radio Equipment Directive (RED) 2014/53/EU.
+#### Technical Requirements
+- RF exposure compliance
+- EMC requirements
+- Spectrum usage rules
+- Labeling requirements
 
-### Industry Canada Compliance
+### CE Compliance (EU)
+![CE Mark](../images/ce-mark.png)
 
-This device complies with Industry Canada's license-exempt RSSs. Operation is subject to the following two conditions:
-1. This device may not cause interference
-2. This device must accept any interference, including interference that may cause undesired operation of the device
+#### Directives
+- RED 2014/53/EU
+- LVD 2014/35/EU
+- EMC 2014/30/EU
+- RoHS 2011/65/EU
 
+#### Standards
+| Standard | Description | Status |
+|----------|-------------|--------|
+| EN 300 220 | RF Requirements | Compliant |
+| EN 301 489 | EMC Requirements | Compliant |
+| EN 62368 | Safety Requirements | Compliant |
+| EN 50665 | RF Exposure | Compliant |
+
+### Industry Canada (IC)
+```text
 IC: XXXXX-RTLSAX
 
-## Environmental Information
+Compliance conditions:
+1. No interference operation
+2. Accept all interference
+```
 
-### Operating Environment
+## Environmental Specifications
 
-* Operating temperature: -20°C to +65°C
-* Storage temperature: -30°C to +70°C
-* Humidity: 5% to 95% non-condensing
-* IP65 rated for dust and water resistance
+### Operating Conditions
+| Parameter | Range | Notes |
+|-----------|-------|--------|
+| Temperature | -20°C to +65°C | Operating |
+| Storage | -30°C to +70°C | Non-operating |
+| Humidity | 5-95% | Non-condensing |
+| IP Rating | IP65 | Dust/water resistant |
 
 ### Environmental Compliance
 
-* RoHS compliant (Directive 2011/65/EU)
-* WEEE compliant (Directive 2012/19/EU)
-* Packaging complies with Packaging Directive (94/62/EC)
+#### RoHS Compliance
+- Lead-free construction
+- Compliant components
+- Proper documentation
+- Regular testing
 
-### Disposal Instructions
+#### WEEE Compliance
+![WEEE Symbol](../images/weee-symbol.png)
 
-* Do not dispose of this product as unsorted municipal waste
-* Contact local authorities for proper electronic waste disposal methods
-* For more information, contact Locus Connect customer service
+- Proper disposal required
+- Recycling programs
+- Collection points
+- Documentation
+
+## Product Lifecycle
+
+### Installation
+- Site survey required
+- Safety assessment
+- Proper mounting
+- Power verification
+
+### Operation
+- Regular inspection
+- Performance monitoring
+- Safety compliance
+- Update management
+
+### Maintenance
+- Scheduled checks
+- Safety procedures
+- Documentation
+- Proper tools
+
+### Disposal
+1. **Power Down**
+   - Proper shutdown
+   - Power isolation
+   - Network disconnect
+   
+2. **Removal**
+   - Safe dismounting
+   - Cable management
+   - Hardware collection
+   
+3. **Processing**
+   - Sort components
+   - Identify recyclables
+   - Proper disposal
+   - Documentation
 
 ## Warranty Information
 
-Locus RTLS Anchors are covered by a standard 2-year limited warranty. Extended warranty options are available at the time of purchase. For full warranty details, refer to the product documentation or contact Locus Connect customer service.
+### Coverage
+- 2-year standard warranty
+- Extended options available
+- Parts and labor included
+- Technical support
+
+### Terms
+- Proper installation required
+- Regular maintenance needed
+- Documentation mandatory
+- Registration recommended
+
+## Contact Information
+
+### Support Channels
+- Technical Support: support@locusconnect.com
+- Safety Inquiries: safety@locusconnect.com
+- Regulatory: compliance@locusconnect.com
+- General: info@locusconnect.com
+
+<Callout type="warning">
+Always follow local safety regulations and building codes during installation and maintenance. Maintain proper documentation of all safety procedures and regulatory compliance measures.
+</Callout>

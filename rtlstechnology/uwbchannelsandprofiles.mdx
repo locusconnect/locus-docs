@@ -1,40 +1,184 @@
 ---
-title: 'UWB Channels'
-description: 'Ultra-Wideband technology operates across multiple frequency channels, each with different characteristics. Locus RTLS supports the following UWB channels defined in the IEEE 802.15.4z standard:'
+title: "UWB Channels and Profiles"
+icon: "wave-square"
+description: "Comprehensive guide to Ultra-Wideband channels, frequency profiles, and selection criteria for Locus RTLS systems"
+keywords: "UWB channels, frequency profiles, IEEE 802.15.4z, channel selection, RF configuration, RTLS setup"
 ---
 
-## UWB Channel Overview
+# UWB Channels and Profiles
 
-Ultra-Wideband technology operates across multiple frequency channels, each with different characteristics. Locus RTLS supports the following UWB channels defined in the IEEE 802.15.4z standard:
+## Overview
 
-| Channel | Center Frequency | Bandwidth | Typical Use Case |
-|---------|------------------|-----------|------------------|
-| Channel 1 | 3494.4 MHz | 499.2 MHz | Standard indoor positioning |
-| Channel 2 | 3993.6 MHz | 499.2 MHz | High-performance indoor |
-| Channel 3 | 4492.8 MHz | 499.2 MHz | Specialized applications |
-| Channel 5 | 6489.6 MHz | 499.2 MHz | Global compatibility |
-| Channel 7 | 7987.2 MHz | 499.2 MHz | Low interference environments |
+Ultra-Wideband technology utilizes multiple frequency channels and operational profiles to optimize performance across different environments and use cases. This guide covers channel characteristics, selection criteria, and configuration recommendations.
 
-## Channel Selection Factors
+## Channel Specifications
 
-When selecting a UWB channel for your deployment, consider the following factors:
+### Channel Parameters
+| Channel | Center Freq (MHz) | Bandwidth (MHz) | PRF (MHz) | Power (dBm/MHz) |
+|---------|------------------|-----------------|-----------|-----------------|
+| 1 | 3494.4 | 499.2 | 16/64 | -41.3 |
+| 2 | 3993.6 | 499.2 | 16/64 | -41.3 |
+| 3 | 4492.8 | 499.2 | 16/64 | -41.3 |
+| 5 | 6489.6 | 499.2 | 16/64 | -41.3 |
+| 7 | 7987.2 | 499.2 | 16/64 | -41.3 |
 
-### Regulatory Compliance
+### Frequency Distribution
+```mermaid
+graph LR
+    classDef channel fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:white
+    classDef band fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
 
-* Different regions have different frequency regulations
-* Channel 5 has the broadest global acceptance
-* Channels 1-3 may have regional restrictions
+    A[UWB Spectrum] --> B[Low Band<br>3.1-4.8 GHz]
+    A --> C[High Band<br>6.0-10.6 GHz]
+    
+    B --> D[Ch 1]
+    B --> E[Ch 2]
+    B --> F[Ch 3]
+    C --> G[Ch 5]
+    C --> H[Ch 7]
 
-### Environmental Factors
+    class A band
+    class B,C band
+    class D,E,F,G,H channel
 
-* Signal propagation characteristics vary by frequency
-* Lower frequency channels offer better penetration through walls
-* Higher frequency channels may provide better precision
+    style A fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:white
+```
 
-### Interference Sources
+## Channel Characteristics
 
-* Existing wireless systems in the deployment area
-* Industrial equipment operating in similar frequencies
-* Other UWB systems in proximity
+### Performance Factors
+| Factor | Low Band (Ch 1-3) | High Band (Ch 5,7) |
+|--------|------------------|-------------------|
+| Range | Longer | Shorter |
+| Penetration | Better | Limited |
+| Precision | Good | Excellent |
+| Interference | More common | Less common |
+| Power needs | Lower | Higher |
+
+### Environmental Impact
+```mermaid
+mindmap
+    root((Channel<br>Factors))
+        Materials
+            Wall penetration
+            Metal reflection
+            Glass transmission
+        Environment
+            Indoor/Outdoor
+            Temperature
+            Humidity
+        Interference
+            WiFi systems
+            Industrial equipment
+            Other UWB
+```
+
+## Regional Compliance
+
+### Regulatory Overview
+| Region | Available Channels | Power Limits | Notes |
+|--------|-------------------|--------------|--------|
+| USA/FCC | 1,2,3,5,7 | -41.3 dBm/MHz | All bands |
+| EU/CE | 5,7 | -41.3 dBm/MHz | High band only |
+| Japan | 1,2,3 | -41.3 dBm/MHz | Low band only |
+| China | 5,7 | -41.3 dBm/MHz | High band only |
+
+### Compliance Requirements
+- Frequency restrictions
+- Power limitations
+- Duty cycle rules
+- Certification needs
+- Usage constraints
+
+## Channel Selection
+
+### Selection Process
+```mermaid
+flowchart TD
+    classDef decision fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:white
+    classDef factor fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
+    classDef result fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
+
+    A[Start Selection] --> B{Region?}
+    B --> C{Indoor/Outdoor?}
+    C --> D{Range Needs?}
+    D --> E{Interference?}
+    E --> F[Channel<br>Recommendation]
+
+    class B,C,D,E decision
+    class A factor
+    class F result
+```
+
+### Selection Criteria
+1. **Regulatory Compliance**
+   - Regional restrictions
+   - Power limits
+   - Usage rules
+   - Certification
+
+2. **Environmental Factors**
+   - Indoor/outdoor
+   - Building materials
+   - Space layout
+   - Obstacles
+
+3. **Performance Requirements**
+   - Range needs
+   - Accuracy goals
+   - Update rate
+   - Reliability
+
+## Operating Profiles
+
+### Standard Profiles
+| Profile | PRF | Data Rate | Range | Use Case |
+|---------|-----|-----------|--------|----------|
+| Default | 16 MHz | 850 kbps | 50m | General use |
+| Long Range | 16 MHz | 110 kbps | 100m | Extended range |
+| High Speed | 64 MHz | 6.8 Mbps | 30m | Fast updates |
+| Low Power | 16 MHz | 110 kbps | 30m | Battery life |
+
+### Profile Configuration
+- Channel selection
+- PRF setting
+- Preamble length
+- SFD selection
+- Data rate
+
+## Deployment Guidelines
+
+### Best Practices
+1. **Site Survey**
+   - RF environment
+   - Coverage needs
+   - Interference sources
+   - Physical layout
+
+2. **Channel Planning**
+   - Primary channel
+   - Backup channels
+   - Interference zones
+   - Power levels
+
+3. **Performance Validation**
+   - Range testing
+   - Accuracy checks
+   - Update rates
+   - Reliability
+
+## Related Documentation
+
+- [UWB Technology](./uwbtechnology)
+- [RTLS System Architecture](./rtlsystemarchitecture)
+- [RF Performance Parameters](./rfperformanceparameters)
+
+<Callout type="warning">
+Channel selection significantly impacts system performance. Always verify regulatory compliance and conduct thorough site surveys before deployment.
+</Callout>
+
+<Callout type="info">
+Contact Locus support for detailed channel planning assistance and region-specific deployment recommendations.
+</Callout>
 
 

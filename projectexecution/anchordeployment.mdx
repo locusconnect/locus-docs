@@ -1,13 +1,83 @@
 ---
-title: Anchor Deployment
+title: "Anchor Deployment"
+icon: "chart-network"
+description: "Guide for physical anchor installation and coordinate calculation using Leica Total Station"
+keywords: "anchor deployment, RTLS installation, Leica Total Station, coordinate calculation, system setup"
 ---
 
-After having all the estimations and data about the floorpan we can start rollout of physical anchor installation. 
+## Physical Deployment Process
 
-To do this we will need a **Leica Total Station** 
+After completing the floor plan and layout planning, follow these steps for physical anchor deployment:
 
-## Setting up Leica Total Station
-## Using Leica to calculate Anchor Co-ordinate
-## Saving the Anchor Co-ordinate 
+1. **Site Preparation**
+   - Verify mounting locations
+   - Check power availability
+   - Confirm network access
+   - Review safety requirements
 
-Abc
+2. **Equipment Setup**
+   - Leica Total Station
+   - Mounting hardware
+   - Network cables
+   - Power supplies
+   - Safety equipment
+
+## Using Leica Total Station
+
+### Initial Setup
+1. Position the Total Station at a known reference point
+2. Level and calibrate the instrument
+3. Set up the reference coordinates
+4. Verify line of sight to anchor locations
+
+### Coordinate Calculation
+1. Target each anchor location
+2. Record horizontal and vertical angles
+3. Measure distances
+4. Calculate X, Y, Z coordinates
+5. Document measurements
+
+<Callout type="warning" emoji="⚠️">
+  Accurate coordinate measurement is crucial for system performance. Double-check all measurements before proceeding.
+</Callout>
+
+## Coordinate Documentation
+
+### Required Information
+- Anchor ID
+- X, Y, Z coordinates
+- Reference points
+- Installation height
+- Orientation details
+
+### Data Format
+```json
+{
+  "anchor_id": "string",
+  "coordinates": {
+    "x": "float",
+    "y": "float",
+    "z": "float"
+  },
+  "reference_point": "string",
+  "installation_height": "float",
+  "orientation": "degrees"
+}
+```
+
+## Quality Assurance
+
+### Verification Steps
+1. Re-measure key points
+2. Cross-reference with plan
+3. Verify anchor orientation
+4. Test network connectivity
+5. Document final position
+
+### Documentation
+- As-built drawings
+- Coordinate sheets
+- Installation photos
+- Network details
+
+For detailed installation guidelines, refer to the [Anchor Installation Rules](/projectexecution/anchorinstallationrules/anchorinstallationrules).

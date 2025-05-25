@@ -1,20 +1,89 @@
 ---
-title: Network Architecture and Ports
+title: "Network Architecture and Ports"
+icon: "network-wired"
+description: "Overview of RTLS network architecture and required port configurations"
+keywords: "network architecture, ports configuration, RTLS network, system connectivity, network setup"
 ---
 
-# Network Architecture and Ports
+# Network Architecture
+
+The RTLS system requires specific network configurations to ensure optimal performance and security. Below is the recommended network architecture:
+
 ![Network Diagram Example](/assets/photos/NetworkDiagramExample.svg)
 
+## Network Components
+- RTLS Hub Server
+- Anchor Network
+- Client Network
+- Management Network
+- External Services
+
 ## Ports List
- Make sure to allow the following ports for the RTLS network
-	>All ports are TCP
-	
- |**Port Number**|**Port Description**|**Data Flow**|
- |---|----|---|
- ||||
- ||||
- ||||
- ||||
- ||||
+All ports listed are TCP unless otherwise specified:
+
+|**Port Number**|**Port Description**|**Data Flow**|
+|--------------|-------------------|-------------|
+|80|HTTP|Inbound - Web Interface|
+|443|HTTPS|Inbound - Secure Web Interface|
+|8080|RTLS Hub Service|Inbound - Anchor Communication|
+|8443|RTLS Hub Secure Service|Inbound - Secure Anchor Communication|
+|5432|PostgreSQL|Internal - Database Communication|
+|1883|MQTT|Internal - Message Broker|
+|8883|MQTT over TLS|Internal - Secure Message Broker|
+
+## Network Requirements
+
+### Bandwidth
+- Minimum 100 Mbps for anchor network
+- Gigabit recommended for server network
+- Low latency (<50ms) between components
+
+### VLAN Configuration
+1. **Management VLAN**
+   - RTLS Hub management
+   - System administration
+   - Monitoring tools
+
+2. **Anchor VLAN**
+   - Dedicated for anchors
+   - Isolated from general traffic
+   - QoS priority
+
+3. **Client VLAN**
+   - User access
+   - Web interface
+   - API connections
+
+### Security Considerations
+
+<Callout type="warning" emoji="⚠️">
+  Implement proper network segmentation and firewall rules to protect the RTLS system.
+</Callout>
+
+#### Recommended Rules
+- Restrict management access
+- Implement port security
+- Enable HTTPS only
+- Use TLS 1.2 or higher
+- Regular security audits
+
+## Troubleshooting
+
+### Common Issues
+1. **Connectivity Problems**
+   - Check physical connections
+   - Verify VLAN configurations
+   - Test port accessibility
+   - Review firewall rules
+
+2. **Performance Issues**
+   - Monitor bandwidth usage
+   - Check for network congestion
+   - Verify QoS settings
+   - Analyze latency metrics
+
+<Callout type="info" emoji="ℹ️">
+  Always consult your network administrator before making changes to network configuration.
+</Callout>
  
  

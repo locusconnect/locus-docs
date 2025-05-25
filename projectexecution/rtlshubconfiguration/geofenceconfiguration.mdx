@@ -1,5 +1,107 @@
 ---
-title: Geofence Configuration
+title: "Geofence Configuration"
+icon: "map-location-dot"
+description: "Configure and manage geofencing zones in your RTLS deployment"
+keywords: "geofencing, RTLS zones, location boundaries, area monitoring, zone alerts"
 ---
+
+## Understanding Geofencing
+
+Geofencing in RTLS allows you to create virtual boundaries around physical spaces. These boundaries can trigger alerts and actions when tags enter, exit, or remain within defined areas.
+
+## Creating Geofence Zones
+
+### Basic Zone Creation
+1. Open the RTLS Hub interface
+2. Navigate to Geofence Configuration
+3. Select "Create New Zone"
+4. Draw the zone boundary on the floor plan
+5. Set zone properties
+
+### Zone Types
+
+| Type | Description | Use Case |
+|------|-------------|----------|
+| Inclusion | Alert when entering | Authorized areas |
+| Exclusion | Alert when entering | Restricted areas |
+| Dwell | Alert after time threshold | Process monitoring |
+| Transit | Alert while passing through | Flow monitoring |
+
+## Zone Properties
+
+### Basic Settings
+- Zone name
+- Zone type
+- Active hours
+- Priority level
+- Associated tags/groups
+
+### Advanced Options
+- Entry delay
+- Exit delay
+- Dwell time thresholds
+- Overlap behavior
+
+## Alert Configuration
+
+<Callout type="info" emoji="ℹ️">
+  Configure appropriate alert methods based on your operational requirements and urgency levels.
+</Callout>
+
+### Alert Methods
+- Email notifications
+- SMS alerts
+- System dashboard
+- API webhooks
+- Mobile app push notifications
+
+### Alert Priority Levels
+
+| Level | Description | Response Time |
+|-------|-------------|---------------|
+| Critical | Immediate action required | Real-time |
+| High | Prompt attention needed | < 5 minutes |
+| Medium | Standard monitoring | < 15 minutes |
+| Low | Information only | Daily report |
+
+## Best Practices
+
+### Zone Design
+1. Avoid complex shapes
+2. Account for signal variations
+3. Include buffer zones
+4. Consider overlapping zones
+
+### Performance Optimization
+- Limit active zones per area
+- Balance update frequency
+- Monitor system load
+- Regular zone review
+
+## Integration Options
+
+### API Access
+```json
+{
+  "zone_id": "string",
+  "coordinates": [
+    {"x": float, "y": float},
+    // Additional points
+  ],
+  "type": "inclusion|exclusion|dwell|transit",
+  "rules": {
+    "dwell_time": "integer",
+    "priority": "string"
+  }
+}
+```
+
+### Webhook Configuration
+- Event-based triggers
+- Custom payload format
+- Authentication options
+- Retry policies
+
+For detailed integration steps, refer to our [API Documentation](/api/geofencing).
 
 

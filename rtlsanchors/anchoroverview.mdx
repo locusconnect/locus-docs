@@ -1,5 +1,8 @@
 ---
 title: "Anchor Overview"
+icon: "satellite-dish"
+description: "Comprehensive overview of Locus RTLS Anchors, their functionality, and role in real-time location systems"
+keywords: "RTLS anchors, UWB technology, positioning system, anchor deployment, location tracking, indoor positioning, real-time location"
 ---
 
 # Locus Anchor Overview
@@ -10,42 +13,66 @@ Locus Anchors are the foundational fixed reference points for any Locus Real-Tim
 
 A Locus Anchor is a stationary device mounted at known positions within your deployment area. Each anchor communicates with mobile tags and other anchors using Ultra-Wideband (UWB) radio technology. This technology allows for precise distance measurements (ranging) between devices, achieving centimeter-level accuracy for location calculations.
 
-*(Placeholder: Image of a standard Locus Anchor, e.g., the Anchor Apollo model.)*
+![Locus Anchor Apollo](../images/anchor-apollo.png)
 
 ## Key Features of Locus Anchors
 
-- **High Precision Positioning:** Enables tag location with typical accuracy of 10-30cm.
-- **Robust Network Connectivity:** Connects via standard Ethernet (supporting Power over Ethernet - PoE - for applicable models) for reliable data backhaul and easy integration into existing network infrastructure.
-- **Simplified Installation (PoE):** For PoE-enabled models, a single Ethernet cable provides both power and data, simplifying installation and reducing cabling costs.
-- **Industrial-Grade Design:** Features a robust housing suitable for deployment in various industrial and commercial environments.
-- **Scalable Architecture:** Designed to support large-scale deployments with potentially hundreds or thousands of anchors covering extensive areas.
-- **Streamlined Configuration:** Offers straightforward web-based setup and management tools for efficient deployment and maintenance.
+### Precision Technology
+- **High Precision Positioning:** Enables tag location with typical accuracy of 10-30cm
+- **Advanced UWB Radio:** Utilizes cutting-edge Ultra-Wideband technology
+- **Multi-Channel Support:** Operates across multiple UWB channels for optimal performance
+- **Angle of Arrival:** Supports advanced positioning techniques (model dependent)
+
+### Connectivity & Power
+- **Robust Network Connectivity:** Connects via standard Ethernet
+- **PoE Support:** Power over Ethernet on applicable models
+- **Flexible Power Options:** Support for various power configurations
+- **Reliable Data Backhaul:** Easy integration with existing infrastructure
+
+### Industrial Design
+- **Robust Housing:** IP65-rated enclosure for industrial environments
+- **Flexible Mounting:** Multiple mounting options including VESA compatibility
+- **Temperature Resistant:** Operates in -20°C to +65°C range
+- **Compact Form Factor:** Minimalist design for unobtrusive installation
 
 ## How Locus Anchors Work
 
-Locus Anchors operate collaboratively within a network to deliver precise positioning data:
+### Operating Principles
+1. **Fixed Reference Points:** Anchors are installed at surveyed positions
+2. **UWB Communication:** Continuous signal exchange with tags
+3. **Distance Measurement:** Precise Time-of-Flight calculations
+4. **Position Computation:** Real-time triangulation and multilateration
 
-1.  Anchors are installed at fixed, surveyed (known) positions within the operational environment.
-2.  Each anchor emits and receives UWB radio signals to and from mobile tags within its range.
-3.  By measuring the Time-of-Flight (ToF) of these UWB signals between a tag and multiple anchors, the system calculates precise distances.
-4.  The Locus Location Engine processes these distance measurements (and potentially other data like Angle of Arrival, if supported) from multiple anchors to triangulate or multilaterate the tag's coordinates in real-time.
+### System Integration
+- **Network Connection:** Standard Ethernet interface
+- **Central Management:** Integration with Locus Location Engine
+- **Configuration Options:** Web-based setup and management
+- **Firmware Updates:** Remote update capability
 
-## Typical Network Architecture
+## Network Architecture
 
-Locus Anchors connect to your local network via standard Ethernet and communicate with the central Locus Location Engine server. A typical deployment consists of:
+### Core Components
+- **Anchor Network:** Strategically placed fixed reference points
+- **Network Infrastructure:** Standard Ethernet switching and cabling
+- **Location Engine:** Central processing server
+- **Management Interface:** RTLS Hub software platform
 
-- Multiple Locus Anchors strategically installed throughout the desired coverage area.
-- Standard network infrastructure (switches, cabling) connecting anchors to the Locus Location Engine.
-- The Locus Location Engine server (hardware or virtual appliance) responsible for position calculations and system management.
-- Client applications (e.g., Locus 3D, middleware, custom integrations) for visualizing location data and utilizing system outputs.
+### Deployment Considerations
+- **Coverage Planning:** Strategic anchor placement
+- **Network Design:** Proper infrastructure setup
+- **Scalability:** Support for large-scale deployments
+- **Redundancy:** Fault-tolerant configuration options
 
 ## Next Steps
 
-To continue learning about Locus Anchors, please explore the following sections:
+To continue learning about Locus Anchors, please explore:
 
-- Review the [Technical Specifications](./TechnicalSpecifications) for detailed hardware information.
-- Learn about [Power Supply Options](./PowerSupply) for your specific anchor models and deployment.
-- Understand [Assembly and Mounting](./AssemblyAndMounting) procedures for optimal installation.
+- [Technical Specifications](./technicalspecifications) - Detailed hardware information
+- [Power Supply Options](./powersupply) - Power configuration guide
+- [Assembly and Mounting](./assemblyandmounting) - Installation procedures
+- [LED Indication](./anchorledindication) - Status indicator guide
+- [Safety Information](./safetyandregulatoryinformation) - Regulatory compliance
+- [Accessories](./accessories) - Available mounting options and add-ons
 
 Understanding the role and function of Locus Anchors is key to designing an effective RTLS solution.
 

@@ -1,120 +1,207 @@
 ---
 title: "Smart Sleep Modes"
+icon: "moon"
+description: "Detailed guide to Locus RTLS Tag smart sleep modes for optimal power management"
+keywords: "sleep modes, power management, battery optimization, RTLS configuration, power saving, tag settings"
 ---
+
 # Smart Sleep Modes
 
-Locus RTLS tags feature advanced power management capabilities through Smart Sleep Modes. These intelligent power-saving features significantly extend battery life while maintaining positioning functionality when needed.
+## Overview
 
-## Understanding Sleep Modes
+Smart Sleep Modes are sophisticated power management features that significantly extend tag battery life while maintaining essential functionality. This guide explains available sleep modes and their optimal usage.
 
-Smart Sleep Modes automatically adjust tag behavior based on environmental conditions and configuration settings, optimizing power consumption without manual intervention.
+## Sleep Mode Types
 
-## Available Sleep Modes
+### Basic Sleep Modes
+| Mode | Power State | Wake Trigger | Battery Impact |
+|------|-------------|--------------|----------------|
+| Light Sleep | Partial shutdown | Any event | 50% reduction |
+| Deep Sleep | Full shutdown | Scheduled/Motion | 90% reduction |
+| Hibernation | Complete shutdown | Manual/Scheduled | 99% reduction |
+| Adaptive | Dynamic | Context-based | 70-90% reduction |
 
-| Mode | Description | Power Savings | Position Updates | Wake Trigger |
-|------|-------------|---------------|------------------|--------------|
-| Active | Full operation | None | Regular intervals | N/A |
-| Light Sleep | Reduced update rate | 40-60% | Reduced frequency | Motion or scheduled |
-| Deep Sleep | Minimal operation | 80-95% | On wake events only | Motion, scheduled, or proximity |
-| Hibernation | Ultra-low power | 99% | None until wake | Strong motion or external trigger |
+### Mode Transitions
+```mermaid
+stateDiagram-v2
+    classDef active fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:white
+    classDef sleep fill:#FFA726,stroke:#F57C00,stroke-width:2px,color:white
+    classDef deep fill:#EF5350,stroke:#D32F2F,stroke-width:2px,color:white
+    classDef hibernate fill:#7E57C2,stroke:#512DA8,stroke-width:2px,color:white
 
-## Motion-Based Activation
+    [*] --> Active: Power On
+    Active --> LightSleep: Inactivity
+    LightSleep --> Active: Event/Motion
+    LightSleep --> DeepSleep: Extended Idle
+    DeepSleep --> Active: Schedule/Motion
+    DeepSleep --> Hibernation: Long Inactive
+    Hibernation --> Active: Manual Wake
 
-Tags equipped with accelerometers can automatically adjust their behavior based on movement:
+    class Active active
+    class LightSleep sleep
+    class DeepSleep deep
+    class Hibernation hibernate
 
-- When motion is detected, the tag increases its update rate for accurate tracking
-- When stationary for a defined period, the tag enters a power-saving mode
-- Sensitivity thresholds can be configured to match specific use cases
-
-Example configuration:
-
-```json
-{
-  "motionActivation": {
-    "enabled": true,
-    "sensitivityThreshold": 0.2,
-    "activeModeUpdateRate": 1.0,
-    "sleepModeUpdateRate": 0.1,
-    "sleepDelay": 300
-  }
-}
+    note right of Active: Full Operation\nAll Features Active
+    note right of LightSleep: Reduced Power\nQuick Recovery
+    note right of DeepSleep: Minimal Operation\nScheduled Wake
+    note right of Hibernation: Lowest Power\nManual Recovery
 ```
 
-## Zone-Based Behavior
+## Mode Descriptions
 
-Tags can be configured to change their sleep behavior based on location zones:
+### Light Sleep
+- Rapid wake-up
+- Sensor monitoring
+- Position updates paused
+- LED disabled
+- Radio in standby
 
-- High-interest zones: Increased update rate
-- Standard zones: Normal update rate
-- Low-interest zones: Reduced update rate or deep sleep
+### Deep Sleep
+- Extended power saving
+- Motion detection only
+- Scheduled wake-ups
+- All peripherals off
+- Minimal power usage
 
-This allows for strategic power management across your facility.
+### Hibernation
+- Maximum power saving
+- Complete shutdown
+- Manual wake required
+- Zero power peripherals
+- Long-term storage
 
-## Time-Based Scheduling
+### Adaptive Sleep
+- Context-aware
+- Motion-based
+- Schedule-aware
+- Zone-based
+- Activity-based
 
-Sleep modes can follow predefined schedules:
+## Configuration Parameters
 
-- Work hours: Normal operation
-- After hours: Deep sleep mode
-- Weekends: Hibernation
+### Timing Settings
+| Parameter | Range | Default | Impact |
+|-----------|--------|---------|---------|
+| Sleep Delay | 1-3600s | 60s | Initial sleep |
+| Wake Duration | 0.1-10s | 1s | Active time |
+| Deep Sleep Delay | 300-86400s | 3600s | Power saving |
+| Schedule Interval | 1-168h | 24h | Regular wake |
 
-Example schedule configuration:
+### Trigger Settings
+- Motion threshold
+- Schedule times
+- Zone boundaries
+- Battery level
+- System events
 
-```json
-{
-  "schedules": [
-    {
-      "days": ["monday", "tuesday", "wednesday", "thursday", "friday"],
-      "timeRanges": [
-        {
-          "start": "08:00",
-          "end": "18:00",
-          "mode": "active",
-          "updateRate": 1.0
-        },
-        {
-          "start": "18:00",
-          "end": "08:00",
-          "mode": "deepSleep",
-          "updateRate": 0.1
-        }
-      ]
-    },
-    {
-      "days": ["saturday", "sunday"],
-      "timeRanges": [
-        {
-          "start": "00:00",
-          "end": "23:59",
-          "mode": "hibernation"
-        }
-      ]
-    }
-  ]
-}
-```
+## Implementation Strategies
 
-## Battery Life Impact
+### Use Case Optimization
+| Application | Recommended Mode | Wake Trigger |
+|-------------|-----------------|--------------|
+| Asset Tracking | Adaptive | Motion + Schedule |
+| Personnel Safety | Light Sleep | Any Event |
+| Vehicle Monitoring | Context-based | Motion + Zone |
+| Environmental | Deep Sleep | Schedule |
 
-The following table shows typical battery life improvements with Smart Sleep Modes:
+### Environmental Considerations
+- Temperature impact
+- Motion frequency
+- Update requirements
+- Network coverage
+- Application needs
 
-| Usage Scenario | Without Sleep Modes | With Sleep Modes | Improvement |
-|----------------|---------------------|------------------|-------------|
-| 24/7 active asset | 6 months | 18 months | 3x |
-| 8-hour shift, weekdays | 12 months | 36 months | 3x |
-| Occasional use | 18 months | 48+ months | 2.5x+ |
+## Advanced Features
 
-## Configuration
+### Smart Wake
+- Motion prediction
+- Pattern learning
+- Zone awareness
+- Priority events
+- Conditional logic
 
-Sleep mode settings can be configured through:
+### Power Profiles
+| Profile | Sleep Strategy | Battery Life |
+|---------|---------------|--------------|
+| Always On | No sleep | 3-6 months |
+| Standard | Light sleep | 1-2 years |
+| Extended | Deep sleep | 2-4 years |
+| Maximum | Hibernation | 4-5 years |
 
-1. Locus RTLS Hub interface
-2. Locus Configuration API
-3. Tag profile settings
+## Configuration Guide
 
-## Best Practices
+### Setup Process
+1. **Analysis**
+   - Usage patterns
+   - Environment
+   - Requirements
+   - Constraints
 
-- Analyze movement patterns before configuring motion sensitivity
-- Test wake-up sensitivity in real-world conditions
-- Balance power savings with application requirements
-- Consider environmental factors that might trigger false motion detection
+2. **Configuration**
+   - Mode selection
+   - Parameter setup
+   - Trigger definition
+   - Testing
+
+3. **Optimization**
+   - Performance monitoring
+   - Battery tracking
+   - Adjustment
+   - Validation
+
+### Best Practices
+- Start conservative
+- Monitor impact
+- Adjust gradually
+- Document changes
+- Validate results
+
+## Troubleshooting
+
+### Common Issues
+| Issue | Possible Cause | Solution |
+|-------|---------------|----------|
+| Won't sleep | Wrong triggers | Check settings |
+| Won't wake | Deep sleep mode | Verify triggers |
+| Erratic behavior | Conflicting rules | Review config |
+| Battery drain | Poor configuration | Optimize settings |
+
+### Diagnostic Steps
+1. Check configuration
+2. Verify triggers
+3. Test wake events
+4. Monitor transitions
+5. Analyze patterns
+
+## Integration
+
+### System Requirements
+- RTLS Hub v4.0+
+- Tag firmware v2.5+
+- Configuration tools
+- Monitoring system
+- Analysis software
+
+### API Support
+- Configuration API
+- Status monitoring
+- Event handling
+- Data collection
+- Remote management
+
+## Related Documentation
+
+- [Tag Battery Guide](./tagbattery)
+- [Default Configurations](./defaultconfigurations)
+- [Tag Peripherals](./tagperipherals)
+- [LC01 Series](./tagtypes/lc01series)
+- [LC03 Series](./tagtypes/lc03series)
+
+<Callout type="warning">
+Improper sleep mode configuration can significantly impact tag functionality and system performance. Always test configurations in a controlled environment before deployment.
+</Callout>
+
+<Callout type="info">
+Advanced sleep mode configurations should be developed in consultation with Locus support to ensure optimal performance for your specific use case.
+</Callout>

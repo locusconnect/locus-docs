@@ -1,45 +1,105 @@
 ---
 title: "Technical Specifications"
+icon: "microchip"
+description: "Detailed technical specifications for Locus RTLS Anchors including hardware, radio, and environmental specifications"
+keywords: "RTLS anchor specifications, hardware specs, UWB radio, environmental specifications, certifications, technical details"
 ---
 
 # Locus Anchor Technical Specifications
 
-This section provides detailed technical specifications for the Locus Anchor. Please note that specifications may vary slightly between different anchor models or revisions (e.g., Wired vs. Wireless versions, if applicable).
+This section provides detailed technical specifications for Locus Anchors. Specifications may vary between different anchor models and revisions.
 
 ## Hardware Specifications
 
-| Parameter                   | Value                                     |
-|-----------------------------|-------------------------------------------|
-| Dimensions                  | Approx. 120 × 80 × 40 mm (may vary by model) |
-| Weight                      | Approx. 150g (may vary by model)          |
-| Operating Temperature Range | -20°C to +65°C                            |
-| Power Supply (Wired Model)  | PoE (IEEE 802.3af/at Compliant)           |
-| Power Supply (Wireless Model) | Micro-USB (5V DC) (if applicable)       |
-| Mounting Options            | Wall/ceiling mount brackets, VESA compatible (e.g., 75x75mm for Anchor Apollo) |
-| Enclosure Rating            | IP65 rated for dust and water resistance  |
+### Physical Characteristics
+| Parameter | Value |
+|-----------|--------|
+| Dimensions | 120 × 80 × 40 mm (typical) |
+| Weight | 150g (typical) |
+| Housing Material | Industrial-grade plastic |
+| Color | White/Gray (standard) |
+| Mounting | Wall/ceiling brackets, VESA 75x75mm |
 
-## Radio Specifications (UWB)
+### Environmental Specifications
+| Parameter | Value |
+|-----------|--------|
+| Operating Temperature | -20°C to +65°C |
+| Storage Temperature | -30°C to +70°C |
+| Humidity | 5% to 95% non-condensing |
+| Enclosure Rating | IP65 |
+| Installation Height | Up to 8m recommended |
 
-| Parameter            | Value                                     |
-|----------------------|-------------------------------------------|
-| UWB Channels         | Supports multiple UWB channels (e.g., 1, 2, 3, 5, 7) |
-| RF Coverage          | Up to 50m typical indoor range (environment dependent) |
-| Positioning Accuracy | Typically 10-30cm (CEP95)                 |
-| Update Rate          | Configurable, up to 10Hz (or higher depending on system configuration and tag density) |
-| Wired Interface      | RJ45 Ethernet, 10/100 Mbps (for wired models or master wireless anchors) |
+### Power Specifications
+| Parameter | Value |
+|-----------|--------|
+| PoE Input | IEEE 802.3af/at |
+| Power Consumption | 4W typical, 15.4W max |
+| DC Input (if applicable) | 5V DC via Micro-USB |
+| Backup Power | Optional battery backup available |
 
-## Software Compatibility
+## Radio Specifications
 
-- Compatible with Locus Location Engine v4.0 and newer.
-- Supports standard and custom configuration profiles via the Locus RTLS Hub.
-- Firmware is upgradeable via the web interface or RTLS Hub.
+### UWB Parameters
+| Parameter | Value |
+|-----------|--------|
+| Frequency Bands | 3.1-4.8 GHz, 6.0-8.5 GHz |
+| Channels | 1, 2, 3, 5, 7 |
+| Bandwidth | Up to 1 GHz |
+| PRF | 16 MHz, 64 MHz |
+| Data Rate | Up to 6.8 Mbps |
 
-## Certifications
+### Performance
+| Parameter | Value |
+|-----------|--------|
+| Range | Up to 50m indoor |
+| Position Accuracy | 10-30cm (CEP95) |
+| Update Rate | Up to 10Hz |
+| Latency | < 100ms typical |
 
-Certifications may include (region and model dependent):
-- CE
-- FCC
-- IC
-- RoHS compliant
+### Network Interface
+| Parameter | Value |
+|-----------|--------|
+| Ethernet | 10/100 Mbps |
+| Connector | RJ45 shielded |
+| Protocols | IPv4, IPv6 |
+| Management | HTTP/HTTPS |
 
-_Note: These specifications are subject to change without prior notice as part of ongoing product development and improvement._
+## Software Support
+
+### Compatibility
+- Locus Location Engine v4.0+
+- RTLS Hub v2.0+
+- Third-party integration support
+
+### Features
+- Web-based configuration
+- RTLS Hub integration
+- Remote firmware updates
+- Diagnostic tools
+
+## Certifications & Compliance
+
+### Regional Certifications
+- CE (Europe)
+- FCC (USA)
+- IC (Canada)
+- RoHS
+
+### Standards Compliance
+- IEEE 802.3af/at (PoE)
+- IEEE 802.15.4z (UWB)
+- IP65 (IEC 60529)
+
+### Safety
+- IEC 62368-1
+- EN 62479
+- FCC RF Exposure
+
+_Note: Specifications are subject to change as part of continuous product improvement. Contact Locus support for model-specific details._
+
+## Related Documentation
+
+- [Anchor Overview](./anchoroverview)
+- [Power Supply Guide](./powersupply)
+- [Assembly Instructions](./assemblyandmounting)
+- [LED Indicators](./anchorledindication)

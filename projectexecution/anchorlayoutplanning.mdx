@@ -1,24 +1,108 @@
 ---
-title: Anchor Layout Planning
+title: "Anchor Layout Planning"
+icon: "ruler"
+description: "Plan and optimize your anchor layout using the Locus RF Planner tool for effective RTLS coverage"
+keywords: "anchor layout, RF planning, RTLS coverage, anchor placement, signal coverage"
 ---
 
-The Locus [RF Planner](/RtlsRfPlanner/Overview) is a free tool available to all the partners in the Locus portal once you create a new project. With the help of this tool you can simulate a real world walls and columns, and then after placing anchors (virtual) you can check the coverage of the signal.
+## RF Planner Overview
 
-## Video guide for making a good layout in locus RF Planner
+The Locus RF Planner is a powerful tool for planning and optimizing your anchor layout. Available in the Locus portal, it helps you:
+- Simulate real-world environments
+- Plan anchor placements
+- Analyze coverage patterns
+- Optimize system performance
 
-## Anchor layout prior to Site Survey
-You may ask a floorpan from the customer even before visiting the customer site and do a rough anchor layout draft to show the customer how anchor deployment could look like. At this moment the draft is done assuming no obstacles (because you will only get environment information after performing site survey). 
+## Planning Process
 
-## Anchor layout after Site Survey
-After performing site survey and getting enough information about environment, you can go ahead and input all information on the RF Planner. Obstacle can be drawn in any shape and size using mouse cursor. 
+### 1. Initial Setup
+- Import floor plans
+- Set scale and dimensions
+- Define project parameters
+- Establish coverage requirements
 
-## Updating RF planner with macro-details
-Every obstacle like wall, pillars, big machineries, etc. must be drawn into the RF Planner with good enough measurements. Correct Anchor coordinates (x,y) and obstacles allows you to calculate coverage in the are using DOP (Dilution of Precision) functionality of the RF Planner. More details on adding obstacles can be found in [Usage Guide](/RtlsRfPlanner/UsageGuide)
+### 2. Environment Modeling
+- Add walls and obstacles
+- Define material properties
+- Mark restricted areas
+- Identify mounting points
 
-## Final check before Approval
+### 3. Anchor Placement
+- Position virtual anchors
+- Set mounting heights
+- Define master-slave relationships
+- Optimize coverage patterns
 
-The final layout of anchors in the RF Planner should have 
-	- Set of Anchors with defined heights
-	- Macro-obstacles and walls
-	- Described project use-case in the project page
+## Coverage Analysis
+
+### Signal Quality Indicators
+- DOP (Dilution of Precision)
+- Expected accuracy zones
+- Signal strength heatmap
+- Coverage overlap areas
+
+### Performance Metrics
+- Number of visible anchors
+- Signal path analysis
+- Interference prediction
+- System reliability estimates
+
+<Callout type="warning" emoji="⚠️">
+  Maintain line of sight between anchors for optimal performance. Each tag should be visible to at least 4 anchors for reliable positioning.
+</Callout>
+
+## Pre-Installation Planning
+
+### Site Survey Integration
+- Import site survey data
+- Mark existing infrastructure
+- Note installation constraints
+- Document special requirements
+
+### Optimization Tools
+- Coverage optimization
+- Anchor count minimization
+- Cost-effectiveness analysis
+- Performance prediction
+
+## Best Practices
+
+### Layout Guidelines
+1. **Master Anchor Placement**
+   - Central location
+   - Clear line of sight
+   - Optimal height positioning
+   - Stable mounting surface
+
+2. **Slave Anchor Distribution**
+   - Even spacing
+   - Overlapping coverage
+   - Strategic positioning
+   - Height consistency
+
+3. **Coverage Verification**
+   - Run simulation tests
+   - Check dead zones
+   - Verify accuracy levels
+   - Validate requirements
+
+<Callout type="info" emoji="ℹ️">
+  Use the RF Planner's simulation features to test different layouts before physical installation. This saves time and resources during deployment.
+</Callout>
+
+## Documentation
+
+### Layout Documentation
+- Anchor coordinates
+- Height specifications
+- Coverage maps
+- Installation notes
+
+### Export Options
+- PDF reports
+- CAD drawings
+- Coordinate lists
+- Coverage analysis
+
+For physical installation details, proceed to [Anchor Deployment](/projectexecution/anchordeployment) after finalizing your layout plan.
 

@@ -139,7 +139,7 @@
             ]
           },
           {
-            "group": "RTLS Anchor Software",
+            "group": "RTLS Anchor",
             "pages": [
               "rtlsanchors/anchoroverview",
               "rtlsanchors/technicalspecifications",

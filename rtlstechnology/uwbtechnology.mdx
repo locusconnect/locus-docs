@@ -1,62 +1,167 @@
 ---
-title: 'UWB Technology'
-description: "Ultra-Wideband (UWB) is the radio technology at the heart of the Locus RTLS system. This page explains the fundamentals of UWB and why it's ideal for high-precision indoor positioning."
+title: "UWB Technology"
+icon: "radio"
+description: "Comprehensive guide to Ultra-Wideband (UWB) technology and its application in Locus RTLS systems"
+keywords: "UWB, ultra-wideband, RTLS technology, indoor positioning, radio technology, IEEE 802.15.4z"
 ---
 
+# Ultra-Wideband Technology
 
-## What is Ultra-Wideband?
+## Overview
 
-Ultra-Wideband is a radio technology that operates by transmitting very short pulses of radio energy across a wide spectrum of frequencies. Unlike conventional narrowband systems, UWB:
+Ultra-Wideband (UWB) is the advanced radio technology powering Locus RTLS systems. This guide explains UWB fundamentals, advantages, and implementation in high-precision indoor positioning.
 
-- Transmits across a wide frequency range (typically >500 MHz)
-- Uses extremely short pulse durations (nanoseconds)
-- Operates at very low power spectral density
+## UWB Fundamentals
 
-![UWB vs Narrowband Comparison](https://via.placeholder.com/600x300?text=UWB+vs+Narrowband+Spectrum)
+### Technical Characteristics
+| Parameter | Specification | Impact |
+|-----------|--------------|---------|
+| Bandwidth | >500 MHz | High resolution |
+| Pulse Duration | 2ns typical | Precise timing |
+| Center Frequency | 3.1-10.6 GHz | Multiple channels |
+| Power Density | -41.3 dBm/MHz | Low interference |
+| PRF | 16-64 MHz | Configurable |
 
-## Key Advantages for RTLS
+### Signal Characteristics
+```mermaid
+graph TD
+    classDef primary fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:white
+    classDef feature fill:#78909C,stroke:#455A64,stroke-width:2px,color:white
 
-UWB offers several critical advantages that make it superior for indoor positioning:
+    A[UWB Signal<br>Characteristics] --> B[Wide Bandwidth<br>>500 MHz]
+    A --> C[Short Pulses<br>~2ns]
+    A --> D[Low Power<br>Density]
+    A --> E[High Time<br>Resolution]
 
-| Feature | Benefit |
-|---------|---------|
-| High bandwidth | Exceptional timing resolution |
-| Time-of-flight measurement | Direct distance calculation with cm accuracy |
-| Low power spectral density | Minimal interference with other systems |
-| Short pulse duration | Excellent multipath immunity |
-| Low energy consumption | Long battery life for mobile tags |
+    B --> F[Precise<br>Positioning]
+    C --> F
+    D --> G[Coexistence]
+    E --> F
 
-## Positioning Principles
+    class A primary
+    class B,C,D,E feature
+    class F,G primary
 
-The Locus RTLS system uses UWB for position determination through these methods:
+    style A fill:#1976D2,stroke:#0D47A1,stroke-width:2px,color:white
+    style F fill:#43A047,stroke:#2E7D32,stroke-width:2px,color:white
+    style G fill:#43A047,stroke:#2E7D32,stroke-width:2px,color:white
+```
+
+## Positioning Methods
 
 ### Time Difference of Arrival (TDoA)
-
-TDoA measures the time difference of signal arrival at multiple anchors:
-
-1. Tags transmit UWB pulses that are received by multiple anchors
-2. Anchors record precise reception timestamps
-3. The system calculates hyperbolic curves of possible positions
-4. The intersection of these curves determines the tag's position
+```mermaid
+sequenceDiagram
+    participant T as Tag
+    participant A1 as Anchor 1
+    participant A2 as Anchor 2
+    participant A3 as Anchor 3
+    
+    Note over T,A3: TDoA Positioning
+    T->>A1: UWB Pulse (t1)
+    T->>A2: UWB Pulse (t2)
+    T->>A3: UWB Pulse (t3)
+    
+    Note over A1,A3: Time Differences
+    A1->>A2: Δt1 = t2-t1
+    A2->>A3: Δt2 = t3-t2
+    
+    Note over T,A3: Position Calculation
+```
 
 ### Two-Way Ranging (TWR)
+```mermaid
+sequenceDiagram
+    participant A as Anchor
+    participant T as Tag
+    
+    Note over A,T: TWR Process
+    A->>T: Poll (t1)
+    T->>A: Response (t2)
+    A->>T: Final (t3)
+    
+    Note over A,T: Distance = c × (t3-t1)/2
+```
 
-In some configurations, the system may use TWR:
+## Performance Characteristics
 
-1. An anchor sends a signal to a tag
-2. The tag responds after a precisely known delay
-3. The anchor measures total round-trip time
-4. Distance is calculated using the speed of light
+### Accuracy Factors
+| Factor | Impact | Mitigation |
+|--------|--------|------------|
+| Multipath | Signal reflections | Advanced algorithms |
+| Clock drift | Timing errors | Synchronization |
+| Signal strength | Range limitation | Power management |
+| Interference | Position error | Channel selection |
+| Geometry | DOP effects | Anchor placement |
 
-## Comparison to Other Technologies
+### Environmental Considerations
+- Line of sight requirements
+- RF absorption/reflection
+- Material penetration
+- Temperature effects
+- Humidity impact
 
-| Technology | Accuracy | Range | Power Usage | Multipath Resistance | Infrastructure Cost |
-|------------|----------|-------|-------------|----------------------|---------------------|
+## Technology Comparison
+
+### Positioning Technologies
+| Technology | Accuracy | Range | Power | Multipath | Cost |
+|------------|----------|-------|-------|-----------|------|
 | UWB | 10-30cm | 50-100m | Medium | Excellent | Higher |
 | Bluetooth | 1-3m | 10-30m | Low | Poor | Low |
 | WiFi | 3-15m | 50-100m | High | Poor | Medium |
 | RFID | Proximity | 1-10m | Very Low | Poor | Medium |
+| GPS | 5-10m | Global | High | N/A | Low |
 
-## IEEE Standards
+### Key Advantages
+```mermaid
+mindmap
+    root((UWB<br>Advantages))
+        Accuracy
+            10-30cm typical
+            High reliability
+            3D positioning
+        Performance
+            Multipath immunity
+            Low interference
+            High update rate
+        Integration
+            Standards based
+            Interoperability
+            Security features
+        Operation
+            Low power
+            Scalable
+            Configurable
+```
 
-Locus RTLS implementations comply with IEEE 802.15.4z, which standardizes UWB communications for positioning applications. This ensures compatibility, reliability, and performance across deployments.
+## IEEE Standards Compliance
+
+### IEEE 802.15.4z
+- Enhanced ranging
+- Security features
+- Channel management
+- Power control
+- Interference mitigation
+
+### Implementation
+| Feature | Specification | Benefit |
+|---------|--------------|----------|
+| PHY | HRP/LRP UWB | Flexibility |
+| Ranging | Enhanced TWR/TDoA | Accuracy |
+| Security | Layer 2 | Protection |
+| Channels | 3.1-10.6 GHz | Coverage |
+| Data Rate | Up to 27 Mbps | Capability |
+
+## Related Documentation
+
+- [UWB Channels and Profiles](./uwbchannelsandprofiles)
+- [RTLS System Architecture](./rtlsystemarchitecture)
+- [RF Performance Parameters](./rfperformanceparameters)
+
+<Callout type="warning">
+UWB system performance depends on proper deployment planning, including anchor placement, channel selection, and environmental considerations.
+</Callout>
+
+<Callout type="info">
+Contact Locus support for detailed UWB implementation guidelines and optimization recommendations for your specific environment.
+</Callout>

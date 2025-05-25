@@ -1,62 +1,151 @@
 ---
 title: "Power Supply"
+icon: "bolt"
+description: "Comprehensive guide to power supply options and requirements for Locus RTLS Anchors"
+keywords: "power supply, PoE, power over ethernet, DC power, power requirements, anchor power, RTLS power"
 ---
 
-# Locus Anchor Power Supply Options
+# Locus Anchor Power Supply
 
-This section details the power supply options and requirements for Locus RTLS Anchors. Proper power delivery is essential for reliable anchor operation.
+## Overview
 
-## Overview of Power Methods
+Proper power delivery is essential for reliable anchor operation. This guide covers all power supply options and requirements for Locus RTLS Anchors.
 
-Locus Anchors support various power methods depending on the specific model (e.g., Anchor Apollo Wired, Anchor Apollo Wireless). The primary methods include Power over Ethernet (PoE) for wired models and direct DC input (e.g., Micro-USB or DC jack) for others.
+## Power Methods
 
-## Supported Power Methods
+### Power over Ethernet (PoE)
+![PoE Connection](../images/poe-connection.png)
 
-### 1. Power over Ethernet (PoE) - For Wired Anchor Models
+#### Specifications
+| Parameter | Value | Notes |
+|-----------|--------|-------|
+| Standard | IEEE 802.3af/at | PoE/PoE+ |
+| Voltage | 37-57V DC | Nominal 48V |
+| Power Class | Class 2/3 | Model dependent |
+| Typical Power | 4-7W | Operating range |
+| Maximum Power | 13W | Peak consumption |
 
-This is the primary and recommended power method for Locus Anchor Wired models, simplifying deployment by delivering both power and data over a single standard Ethernet cable.
+#### Features
+- Single cable for power and data
+- Simplified installation
+- Centralized power management
+- Support for remote reset
 
-- **Standard Compliance:** IEEE 802.3af (PoE) / IEEE 802.3at (PoE+) compatible.
-- **Voltage:** Typically 48V DC (nominal) delivered over Ethernet cabling.
-- **PoE Power Classification:** Typically a Class 2 or Class 3 device (refer to specific anchor datasheet, e.g., 3.84W - 12.95W typical consumption).
+### Direct DC Power
+![DC Power](../images/dc-power.png)
 
-### 2. Direct DC Input - For Wireless Anchor Models or as an Alternative
+#### USB Power
+| Parameter | Value | Notes |
+|-----------|--------|-------|
+| Connector | Micro-USB | Type B |
+| Voltage | 5V DC | ±5% |
+| Current | 1A typical | 2A max |
+| Power | 5W typical | USB 2.0/3.0 |
 
-- **Micro-USB Port (e.g., Anchor Apollo Wireless):** Primarily powered by a 5V DC source via its Micro-USB port, using a USB power adapter or a power bank.
-- **DC Power Jack (Optional/Specific Models):** Some anchor models may support or require an optional DC power adapter.
-    - **Voltage Range:** Typically 12-24V DC (verify with specific anchor model datasheet).
-    - **Connector Type:** (Specify if known, e.g., 2.1mm barrel jack, or refer to datasheet).
-    - **Power Consumption:** Approx. 4W typical, 6W maximum (verify with datasheet).
+#### DC Jack (Optional)
+| Parameter | Value | Notes |
+|-----------|--------|-------|
+| Connector | 2.1mm barrel | Center positive |
+| Voltage | 12-24V DC | Model specific |
+| Current | 0.5A typical | 1A max |
+| Power | 6-12W | Model dependent |
+
+## Power Requirements
+
+### Environmental Factors
+- Operating temperature impact
+- Cable length considerations
+- Installation height effects
+- Environmental protection
+
+### Power Budget Planning
+```mermaid
+graph TD
+    A[Total Power Budget] --> B[PoE Switch Capacity]
+    B --> C[Number of Anchors]
+    C --> D[Power per Anchor]
+    D --> E[Safety Margin]
+    E --> F[Final Configuration]
+```
+
+## Installation Guidelines
+
+### PoE Installation
+1. **Switch Selection**
+   - Enterprise-grade PoE switch
+   - Adequate power budget
+   - Port capacity planning
+   - Management features
+
+2. **Cabling Requirements**
+   - Cat5e or better
+   - Maximum length 100m
+   - Proper termination
+   - Cable routing
+
+3. **Power Planning**
+   - Power budget calculation
+   - Redundancy options
+   - UPS backup
+   - Future expansion
+
+### DC Power Installation
+1. **Power Source Selection**
+   - Quality power supplies
+   - Proper voltage rating
+   - Current capacity
+   - Safety certifications
+
+2. **Installation Best Practices**
+   - Cable management
+   - Strain relief
+   - Access for maintenance
+   - Environmental protection
+
+## Troubleshooting
+
+### Common Issues
+| Issue | Possible Causes | Solution |
+|-------|----------------|----------|
+| No Power | Cable/PSU fault | Check connections |
+| Intermittent | Loose connection | Secure cables |
+| Low Power | Wrong PSU/cable | Verify specifications |
+| PoE Issues | Switch config | Check port settings |
+
+### Diagnostic Steps
+1. **Visual Inspection**
+   - Check LED indicators
+   - Verify connections
+   - Inspect for damage
+   - Check ventilation
+
+2. **Power Testing**
+   - Measure voltage
+   - Check current draw
+   - Test alternative port
+   - Verify PSU output
+
+## Safety Guidelines
+
+### Installation Safety
+- Follow local electrical codes
+- Use certified components
+- Proper grounding
+- Surge protection
+
+### Maintenance Safety
+- Power down procedure
+- Safe access planning
+- Tool requirements
+- Documentation
+
+## Related Documentation
+
+- [Anchor Overview](./anchoroverview)
+- [LED Indicators](./anchorledindication)
+- [Installation Guide](./assemblyandmounting)
+- [Technical Specifications](./technicalspecifications)
 
 <Callout type="warning">
-  Always use the power supply method and specifications recommended for your particular Locus Anchor model. Using incorrect power sources can damage the device. Refer to the `LocatorKitAssembly` guide for connection warnings (e.g., not connecting PoE and Micro-USB simultaneously if an anchor has both for different purposes).
+Always use the power supply method and specifications recommended for your specific Locus Anchor model. Using incorrect power sources can damage the device. Never connect multiple power sources simultaneously unless specifically instructed in your model's documentation.
 </Callout>
-
-## Power Requirements Summary (Example for PoE-powered Anchor)
-
-| Parameter                 | Specification (Example for PoE)        |
-|---------------------------|----------------------------------------|
-| Input Voltage (PoE)       | 37-57V DC                              |
-| Typical Power Consumption | ~4W - 7W (varies by model & operation) |
-| Maximum Power Consumption | Up to 13W (PoE Class 3)                |
-| Inrush Current            | < 500mA (typical)                      |
-| PoE Standard              | IEEE 802.3af/at (Class 2 or 3)       |
-
-*Note: These are general figures. Always refer to the specific datasheet for your anchor model for precise power requirements.*
-
-## Installation Recommendations
-
-- **Use Certified PSE:** For PoE, use certified and reputable PoE switches or injectors (Power Sourcing Equipment).
-- **Power Budget:** Ensure your PoE infrastructure has an adequate power budget to support all connected anchors and other PoE devices.
-- **Cable Quality:** Use good quality Ethernet cabling (Cat 5e or better) for PoE.
-- **UPS Backup:** For critical installations, consider connecting your PoE switch or DC power supplies to an Uninterruptible Power Supply (UPS).
-
-## Basic Power Troubleshooting
-
-Common power-related issues to check:
-
-- **Anchor Not Powering On:** Verify cable connections, PoE switch port status/power, DC adapter functionality, or power bank charge.
-- **Intermittent Power Loss:** Check for loose cables, insufficient PoE budget, or faulty power source.
-- **PoE Negotiation Failures:** Ensure compatibility between anchor and PSE; check cable integrity.
-
-For detailed troubleshooting, please consult the main [Troubleshooting & FAQ sections](./Troubleshooting_&_FAQ) or contact Locus Support.

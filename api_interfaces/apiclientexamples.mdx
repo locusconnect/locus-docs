@@ -1,11 +1,510 @@
 ---
 title: "API Client Examples"
+icon: "code"
+description: "Code examples for integrating with Locus RTLS APIs using various programming languages"
+keywords: "API client, code examples, integration, Python, JavaScript, Java, C#, REST API"
 ---
 
 # API Client Examples
 
-This section will provide client code examples for interacting with the Locus RTLS APIs using various programming languages (e.g., Python, Java, C#).
+## Overview
 
-*Content coming soon.*
+This guide provides practical code examples for integrating with the Locus RTLS APIs using various programming languages. Each example demonstrates best practices for authentication, error handling, and data processing.
 
-For more detailed information, please refer to the relevant API documentation or contact our support team.
+## Python Examples
+
+### REST API Client
+```python
+import requests
+import json
+from datetime import datetime, timezone
+
+class LocusRTLSClient:
+    def __init__(self, base_url, api_key):
+        self.base_url = base_url.rstrip('/')
+        self.session = requests.Session()
+        self.session.headers.update({
+            'Authorization': f'Bearer {api_key}',
+            'Content-Type': 'application/json'
+        })
+
+    def get_position(self, tag_id):
+        """Get current position of a specific tag."""
+        try:
+            response = self.session.get(
+                f'{self.base_url}/api/v1/positions/{tag_id}'
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error getting position: {e}")
+            return None
+
+    def get_positions(self, tag_ids):
+        """Get positions for multiple tags."""
+        try:
+            response = self.session.get(
+                f'{self.base_url}/api/v1/positions',
+                params={'tags': ','.join(tag_ids)}
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error getting positions: {e}")
+            return None
+
+    def update_anchor(self, anchor_id, config):
+        """Update anchor configuration."""
+        try:
+            response = self.session.put(
+                f'{self.base_url}/api/v1/anchors/{anchor_id}',
+                json=config
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"Error updating anchor: {e}")
+            return None
+
+# Usage example
+client = LocusRTLSClient('https://rtls.example.com', 'your_api_key')
+
+# Get single tag position
+position = client.get_position('tag123')
+if position:
+    print(f"Tag position: {position['position']}")
+
+# Get multiple tag positions
+positions = client.get_positions(['tag123', 'tag124'])
+if positions:
+    for pos in positions['positions']:
+        print(f"Tag {pos['tag_id']}: {pos['position']}")
+
+# Update anchor configuration
+config = {
+    "name": "Warehouse North",
+    "position": {"x": 0.0, "y": 10.0, "z": 2.5},
+    "config": {
+        "channel": 5,
+        "power_level": 0
+    }
+}
+result = client.update_anchor('anchor123', config)
+if result:
+    print("Anchor updated successfully")
+
+## MQTT Examples
+
+### Python MQTT Subscriber
+```python
+import paho.mqtt.client as mqtt
+import json
+import ssl
+
+def on_connect(client, userdata, flags, rc):
+    print('Connected with result code', rc)
+    # Subscribe to position updates
+    client.subscribe('rtls/position/updates/#')
+    # Subscribe to system alerts
+    client.subscribe('rtls/system/alerts')
+    # Subscribe to specific tag
+    client.subscribe('rtls/position/updates/+/tag/tag123')
+
+def on_message(client, userdata, msg):
+    try:
+        payload = json.loads(msg.payload)
+        print('Topic:', msg.topic)
+        if payload['type'] == 'position_update':
+            print('Position:', payload['position'])
+        elif payload['type'] == 'anchor_status':
+            print('Anchor Status:', payload['status'])
+    except json.JSONDecodeError:
+        print('Invalid JSON payload')
+
+# Create client instance
+client = mqtt.Client()
+client.on_connect = on_connect
+client.on_message = on_message
+
+# Set credentials
+client.username_pw_set('api_user', 'api_password')
+
+# Enable TLS if using secure port
+client.tls_set(cert_reqs=ssl.CERT_REQUIRED)
+
+# Connect to broker
+client.connect('mqtt.rtls.example.com', 8883, 60)
+
+# Start the loop
+client.loop_forever()
+```
+
+### Python MQTT Publisher
+```python
+import paho.mqtt.client as mqtt
+import json
+import ssl
+
+def on_connect(client, userdata, flags, rc):
+    print('Connected with result code', rc)
+
+def publish_command(client, tag_id, command, parameters):
+    topic = f'rtls/tag/command/{tag_id}'
+    payload = {
+        'type': 'tag_command',
+        'command': command,
+        'parameters': parameters
+    }
+    client.publish(topic, json.dumps(payload), qos=1)
+
+# Create client instance
+client = mqtt.Client()
+client.on_connect = on_connect
+
+# Set credentials
+client.username_pw_set('api_user', 'api_password')
+
+# Enable TLS if using secure port
+client.tls_set(cert_reqs=ssl.CERT_REQUIRED)
+
+# Connect to broker
+client.connect('mqtt.rtls.example.com', 8883, 60)
+
+# Example: Update tag rate
+publish_command(client, 'tag123', 'update_rate', {
+    'rate': 10,
+    'duration': 3600
+})
+
+# Start the loop
+client.loop_start()
+```
+
+## JavaScript Examples
+
+### Browser Client
+```javascript
+class LocusRTLSClient {
+    constructor(baseUrl, apiKey) {
+        this.baseUrl = baseUrl.replace(/\/$/, '');
+        this.headers = {
+            'Authorization': 'Bearer ' + apiKey,
+            'Content-Type': 'application/json'
+        };
+    }
+
+    async getPosition(tagId) {
+        try {
+            const response = await fetch(
+                this.baseUrl + '/api/v1/positions/' + tagId,
+                { headers: this.headers }
+            );
+            if (!response.ok) {
+                throw new Error('HTTP error! status: ' + response.status);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Error getting position:', error);
+            throw error;
+        }
+    }
+
+    async getPositions(tagIds) {
+        try {
+            const queryString = tagIds.join(',');
+            const response = await fetch(
+                this.baseUrl + '/api/v1/positions?tags=' + queryString,
+                { headers: this.headers }
+            );
+            if (!response.ok) {
+                throw new Error('HTTP error! status: ' + response.status);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Error getting positions:', error);
+            throw error;
+        }
+    }
+
+    async updateAnchor(anchorId, config) {
+        try {
+            const response = await fetch(
+                this.baseUrl + '/api/v1/anchors/' + anchorId,
+                {
+                    method: 'PUT',
+                    headers: this.headers,
+                    body: JSON.stringify(config)
+                }
+            );
+            if (!response.ok) {
+                throw new Error('HTTP error! status: ' + response.status);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Error updating anchor:', error);
+            throw error;
+        }
+    }
+}
+
+// Usage example
+const client = new LocusRTLSClient('https://rtls.example.com', 'your_api_key');
+
+// Get single tag position
+client.getPosition('tag123')
+    .then(position => {
+        console.log('Tag position:', position.position);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+// Get multiple tag positions
+client.getPositions(['tag123', 'tag124'])
+    .then(response => {
+        response.positions.forEach(pos => {
+            console.log('Tag ' + pos.tag_id + ':', pos.position);
+        });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+```
+
+## Java Examples
+
+### Spring Boot Client
+```java
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
+
+public class LocusRTLSClient {
+    private final String baseUrl;
+    private final RestTemplate restTemplate;
+    private final HttpHeaders headers;
+
+    public LocusRTLSClient(String baseUrl, String apiKey) {
+        this.baseUrl = baseUrl;
+        this.restTemplate = new RestTemplate();
+        this.headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + apiKey);
+        headers.set("Content-Type", "application/json");
+    }
+
+    public Position getPosition(String tagId) {
+        try {
+            String url = baseUrl + "/api/v1/positions/" + tagId;
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+            
+            ResponseEntity<Position> response = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                Position.class
+            );
+            
+            return response.getBody();
+        } catch (Exception e) {
+            logger.error("Error getting position: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public List<Position> getPositions(List<String> tagIds) {
+        try {
+            String url = UriComponentsBuilder
+                .fromHttpUrl(baseUrl + "/api/v1/positions")
+                .queryParam("tags", String.join(",", tagIds))
+                .toUriString();
+            
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+            
+            ResponseEntity<PositionResponse> response = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                entity,
+                PositionResponse.class
+            );
+            
+            return response.getBody().getPositions();
+        } catch (Exception e) {
+            logger.error("Error getting positions: " + e.getMessage());
+            return Collections.emptyList();
+        }
+    }
+}
+
+// Data classes
+@Data
+public class Position {
+    private String tagId;
+    private Coordinates position;
+    private double quality;
+    private int anchorCount;
+}
+
+@Data
+public class Coordinates {
+    private double x;
+    private double y;
+    private double z;
+}
+
+@Data
+public class PositionResponse {
+    private String timestamp;
+    private List<Position> positions;
+}
+```
+
+## C# Examples
+
+### .NET Client
+```csharp
+using System;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+
+public class LocusRTLSClient
+{
+    private readonly HttpClient _client;
+    private readonly string _baseUrl;
+
+    public LocusRTLSClient(string baseUrl, string apiKey)
+    {
+        _baseUrl = baseUrl.TrimEnd('/');
+        _client = new HttpClient();
+        _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
+    }
+
+    public async Task<Position> GetPositionAsync(string tagId)
+    {
+        try
+        {
+            return await _client.GetFromJsonAsync<Position>(
+                $"{_baseUrl}/api/v1/positions/{tagId}"
+            );
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error getting position: {ex.Message}");
+            return null;
+        }
+    }
+
+    public async Task<PositionResponse> GetPositionsAsync(IEnumerable<string> tagIds)
+    {
+        try
+        {
+            string tags = string.Join(",", tagIds);
+            return await _client.GetFromJsonAsync<PositionResponse>(
+                $"{_baseUrl}/api/v1/positions?tags={tags}"
+            );
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error getting positions: {ex.Message}");
+            return null;
+        }
+    }
+
+    public async Task<bool> UpdateAnchorAsync(string anchorId, AnchorConfig config)
+    {
+        try
+        {
+            var response = await _client.PutAsJsonAsync(
+                $"{_baseUrl}/api/v1/anchors/{anchorId}",
+                config
+            );
+            return response.IsSuccessStatusCode;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error updating anchor: {ex.Message}");
+            return false;
+        }
+    }
+}
+
+// Data classes
+public class Position
+{
+    public string TagId { get; set; }
+    public Coordinates Position { get; set; }
+    public double Quality { get; set; }
+    public int AnchorCount { get; set; }
+}
+
+public class Coordinates
+{
+    public double X { get; set; }
+    public double Y { get; set; }
+    public double Z { get; set; }
+}
+
+public class PositionResponse
+{
+    public string Timestamp { get; set; }
+    public List<Position> Positions { get; set; }
+}
+
+public class AnchorConfig
+{
+    public string Name { get; set; }
+    public Coordinates Position { get; set; }
+    public Dictionary<string, object> Config { get; set; }
+}
+```
+
+## Best Practices
+
+### Error Handling
+1. **Implement Retries**
+   - Use exponential backoff
+   - Set maximum retry attempts
+   - Handle rate limiting
+   - Log failed attempts
+
+2. **Response Validation**
+   - Check HTTP status codes
+   - Validate response format
+   - Handle missing data
+   - Parse error messages
+
+3. **Resource Management**
+   - Use connection pooling
+   - Implement timeouts
+   - Close connections properly
+   - Monitor memory usage
+
+### Authentication
+1. **Token Management**
+   - Secure storage
+   - Token refresh
+   - Error handling
+   - Expiration handling
+
+2. **Security**
+   - Use HTTPS only
+   - Validate certificates
+   - Protect API keys
+   - Implement logging
+
+## Related Documentation
+
+- [API Payload Samples](./apipayloadsamples)
+- [MQTT API](./mqttapi)
+- [System Architecture](../rtlstechnology/rtlsystemarchitecture)
+
+<Callout type="warning">
+Never hardcode API keys in your application code. Use environment variables or secure configuration management.
+</Callout>
+
+<Callout type="info">
+Contact Locus support for additional code examples and integration guidance specific to your use case.
+</Callout>
